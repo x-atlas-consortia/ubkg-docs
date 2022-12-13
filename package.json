@@ -1,0 +1,55 @@
+{
+  "name": "sennetdocs",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "dangerously-set-html-content": "^1.0.12",
+    "jquery": "^3.6.2",
+    "loglevel": "^1.8.1",
+    "prettier": "^2.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.0.1",
+    "react-scripts": "5.0.1",
+    "serve": "^14.1.2",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "stylus": "^0.59.0"
+  },
+  "scripts": {
+    "start": "PORT=3005 react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "css": "stylus --include-css --compress -w src/styles/App.styl -o src/App.css",
+    "build": "rm -rf public/static && cp public/_index.html public/index.html && react-scripts build && mv build/static public/static && cp build/index.html public/index.html &&  mv build/index.html public/404.html"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "semi": false,
+    "tabWidth": 4,
+    "trailingComma": "none"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "SenNet Docs": "SenNet Documentation",
+  "menu": [
+    {
+      "name": "SenNet",
+      "href": "#",
+      "className": "h1"
+    },
+    {
+      "name": "Assays",
+      "href": "#assays"
+    },
+    {
+      "name": "APIs",
+      "href": "#apis"
+    },
+    {
+      "name": "SDK",
+      "href": "#sdk"
+    }
+  ]
+}

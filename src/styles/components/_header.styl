@@ -1,0 +1,29 @@
+.c-header
+  pos-rel()
+  background-color rgb(68, 74, 101)
+  border none
+  padding-top 6px
+  height 90px
+  &__main
+    pos-rel()
+    container()
+  &__menu
+    pos-abs()
+    transform translateY(50%)
+    .h1
+      h1()
+  li
+    list-style none
+    display inline-block
+    font-size: 25px
+    margin-left 10px
+    margin-right 10px
+    color white
+    a
+      color white
+      text-decoration none
+      &:hover
+        text-decoration underline
+    &:first-child
+      margin-left 0
+
