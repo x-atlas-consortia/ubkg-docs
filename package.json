@@ -11,6 +11,7 @@
     "loglevel": "^1.8.1",
     "prettier": "^2.8.1",
     "react": "^18.2.0",
+    "react-app-rewired": "^2.2.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.0.1",
     "react-scripts": "5.0.1",
@@ -25,7 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "css": "stylus --include-css --compress -w src/styles/App.styl -o src/App.css",
-    "build": "rm -rf public/static && cp public/_index.html public/index.html && react-scripts build && mv build/static public/static && cp build/index.html public/index.html &&  mv build/index.html public/404.html"
+    "build": "rm -rf docs/static && cp docs/_index.html docs/index.html && react-app-rewired build && mv build/static docs/static && cp build/index.html docs/index.html &&  mv build/index.html docs/404.html"
   },
   "prettier": {
     "singleQuote": true,

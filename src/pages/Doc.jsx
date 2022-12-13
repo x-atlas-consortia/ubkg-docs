@@ -22,7 +22,7 @@ export default function Doc() {
 
         const getPage = (path) => {
             setLoading(true)
-            const response = Rest.get(`${window.location.origin}/docs/${path}.md`, 'text/plain')
+            const response = Rest.get(`${window.location.origin}/md/${path}.md`, 'text/plain')
 
             response.then((res) =>{
                 const md = res.text()
