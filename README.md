@@ -29,8 +29,8 @@ serve ./build
 ## Contents
 - `/src/`- any source code used to generate the hosted documents (not directly published)
 - `/build/` - The complete site for distribution, currently being served for GitHub Pages
-- `/public/`  
-  - `docs/` - Contains the markdown files that are hosted as html by GitHub Pages.
+- `/docs/`  
+  - `md/` - Contains the markdown files that are hosted as html by GitHub Pages.
   - `lang/` - Can set language files to serve the site in another language but English
 
 
