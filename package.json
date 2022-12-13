@@ -22,11 +22,11 @@
     "stylus": "^0.59.0"
   },
   "scripts": {
-    "start": "PORT=3005 react-scripts start",
+    "start": "cp docs/_index.html docs/index.html && PORT=3005 react-app-rewired start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "css": "stylus --include-css --compress -w src/styles/App.styl -o src/App.css",
-    "build": "rm -rf docs/static && cp docs/_index.html docs/index.html && react-app-rewired build && mv build/static docs/static && cp build/index.html docs/index.html &&  mv build/index.html docs/404.html"
+    "build": "rm -rf docs/static && react-app-rewired build && mv build/static docs/static && cp build/index.html docs/index.html && cp build/index.html docs/404.html"
   },
   "prettier": {
     "singleQuote": true,

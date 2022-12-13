@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Header from './Header'
 import AppContext from '../../context/AppContext'
+import Sidebar from '../Sidebar'
 import Title from "./Title";
 
-function Template({ title, children }) {
+function Template({ title, children, sidebar = true }) {
     const { _t } = useContext(AppContext)
     useEffect(() => {}, [])
 
@@ -12,6 +13,7 @@ function Template({ title, children }) {
         <>
             <Title title={title} />
             <Header />
+            {sidebar && <Sidebar />}
             <div className='c-container' role='main'>
                 {children}
             </div>

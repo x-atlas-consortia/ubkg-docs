@@ -1,5 +1,16 @@
 .c-sidebar
   width 25%
-  height 25vh
-  position sticky
-  top 0
+  pos-rel()
+  &.is-active
+    .c-sidebar__main
+      position fixed
+  &__wrap
+    pos-abs()
+  &__main
+    pos-rel()
+    top 30px
+    left 30px
+    height 25vh
+
+
+

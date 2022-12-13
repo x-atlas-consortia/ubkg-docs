@@ -1,9 +1,9 @@
 const path = require('path');
 module.exports = {
     paths: function (paths, env) {
-        // Changing public to static
+        console.log(paths)
         paths.appPublic = path.resolve(__dirname, 'docs');
-        paths.appHtml = path.resolve(__dirname, 'docs/index.html');
+        paths.appHtml = path.resolve(__dirname, 'src/index.html');
         return paths;
     }
 }

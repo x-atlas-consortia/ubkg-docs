@@ -5,7 +5,7 @@ function Breadcrumbs({ crumbs, active }) {
     const buildCrumbs = () => {
         const list = []
         for (let c of crumbs) {
-            list.push(<li key={c.id}>{c.name}</li>)
+            list.push(<li key={c.id}><a href={c.href || '#'}>{c.name}</a></li>)
         }
         return list
     }

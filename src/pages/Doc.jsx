@@ -1,5 +1,7 @@
 import {useContext, useEffect, useState} from 'react'
 import Template from '../components/layout/Template'
+import Breadcrumbs from '../components/Breadcrumbs'
+import Sidebar from '../components/Sidebar'
 import AppContext from '../context/AppContext'
 import InnerHTML from 'dangerously-set-html-content'
 import { useParams } from 'react-router-dom'
@@ -47,7 +49,11 @@ export default function Doc() {
 
     return (
         <Template title={params['*'] || ''}>
-            {!loading && <InnerHTML html={html} /> }
+            <>
+                <Breadcrumbs crumbs={[{id: 'Home', name: 'Home'}]} />
+
+                {!loading && <InnerHTML className='c-documentation' html={html} /> }
+            </>
         </Template>
     )
 }

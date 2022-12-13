@@ -1,15 +1,37 @@
 import {useContext, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
-import AppContext from "../context/AppContext";
+import AppContext from '../context/AppContext'
+import {CLASS_NAMES} from '../fixtures/constants'
+import $ from 'jquery'
 
 function Sidebar({ active }) {
     const { _t } = useContext(AppContext)
+    const $el = {}
+
+    const events = () => {
+        $(document).on('scroll', (e) => {
+            const st = $(document).scrollTop()
+            const headerHeight = 90
+            if (st > headerHeight) {
+                $el.sidebar.addClass(CLASS_NAMES.active)
+            } else {
+                $el.sidebar.removeClass(CLASS_NAMES.active)
+            }
+        })
+    }
     useEffect(() => {
+        $el.sidebar = $('.js-sidebar')
+
+        events()
     }, [])
 
     return (
-        <div className={`c-sidebar`} role='navigation' aria-label='Table of Contents'>
-            <h2>{_t('Table of Contents')}</h2>
+        <div className='c-sidebar js-sidebar' role='navigation' aria-label='Table of Contents'>
+           <div className='c-sidebar__wrap'>
+               <div className='c-sidebar__main'>
+                   <h2>{_t('Table of Contents')}</h2>
+               </div>
+           </div>
         </div>
     )
 }
