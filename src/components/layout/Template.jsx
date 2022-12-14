@@ -6,14 +6,14 @@ import Sidebar from '../Sidebar'
 import Title from "./Title";
 
 function Template({ title, children, sidebar = true }) {
-    const { _t } = useContext(AppContext)
+    const { _t, loading } = useContext(AppContext)
     useEffect(() => {}, [])
 
     return (
         <>
             <Title title={title} />
             <Header />
-            {sidebar && <Sidebar />}
+            {sidebar && !loading && <Sidebar />}
             <div className='c-container' role='main'>
                 {children}
             </div>

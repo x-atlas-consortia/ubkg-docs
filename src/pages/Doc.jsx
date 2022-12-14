@@ -9,10 +9,8 @@ import $ from 'jquery'
 import { toId } from '../lib/util'
 
 export default function Doc() {
-    const { _t } = useContext(AppContext)
+    const { _t, loading, setLoading } = useContext(AppContext)
     const [html, setHtml] = useState('')
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState({})
     const params = useParams()
 
     useEffect(()=> {
@@ -40,8 +38,6 @@ export default function Doc() {
                     const md = res.text()
                     md.then((value) => {
                         if (value.indexOf('<!DOCTYPE html>') !== -1) {
-                            setHtml(' ')
-                            setError({status: 404})
                             window.location = '/404'
                         } else {
                             let htm = window.markdown.default(value)
@@ -52,8 +48,9 @@ export default function Doc() {
                             setTimeout(()=>{
                                 updateAttrs()
                             }, 1000)
+                            setLoading(false)
                         }
-                        setLoading(false)
+
                     })
                 })
             } catch (e){
@@ -70,11 +67,10 @@ export default function Doc() {
 
     return (
         <Template title={params['*'] || ''}>
-            <>
-                <Breadcrumbs crumbs={[{id: 'Home', name: 'Home'}]} />
-
-                {!loading && <InnerHTML className='c-documentation' html={html} /> }
-            </>
+            {!loading && <>
+                <Breadcrumbs />
+                <InnerHTML className='c-documentation' html={html} />
+            </>}
         </Template>
     )
 }

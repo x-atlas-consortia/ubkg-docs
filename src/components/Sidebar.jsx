@@ -6,7 +6,7 @@ import $ from 'jquery'
 import { toId } from '../lib/util'
 
 function Sidebar({ active }) {
-    const { _t } = useContext(AppContext)
+    const { _t, loading } = useContext(AppContext)
     const $el = {}
 
     const events = () => {
@@ -21,6 +21,9 @@ function Sidebar({ active }) {
         })
     }
 
+    const buildToC = () => {
+        return <></>
+    }
 
     useEffect(() => {
         $el.sidebar = $('.js-sidebar')
@@ -37,6 +40,7 @@ function Sidebar({ active }) {
             <div className='c-sidebar__wrap'>
                 <div className='c-sidebar__main'>
                     <h2>{_t('Table of Contents')}</h2>
+                    {!loading && buildToC()}
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ const AppContext = createContext()
 export const AppProvider = ({ children }) => {
     const [language, setLanguage] = useState(LOCALE.english)
     const [messages, setMessages] = useState({})
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         try {
@@ -31,7 +32,8 @@ export const AppProvider = ({ children }) => {
     return (
         <AppContext.Provider
             value={{
-                _t
+                _t,
+                loading, setLoading
             }}
         >
             {children}

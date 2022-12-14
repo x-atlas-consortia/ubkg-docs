@@ -1,22 +1,27 @@
 import { useContext, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
-import $ from 'jquery'
+import { CLASS_NAMES } from '../lib/constants'
+import { toUpperCaseFirst } from '../lib/util'
+import AppContext from '../context/AppContext'
 
-function Breadcrumbs({ crumbs, active }) {
+function Breadcrumbs() {
+    const { _t } = useContext(AppContext)
 
     const buildCrumbs = () => {
         const list = []
         const path = window.location.pathname
 
-        list.push(<li key='0-home'><a href={`/`}>Home</a></li>)
+        list.push(<li key='0-home'><a href={`/`}>{_t('Home')}</a></li>)
         if (path === '/') {
             return
         }
         let parts = path.split('/')
-
+        let href
+        let name
         for (let i = 0; i < parts.length; i++) {
-            if (parts[i].length) {
-                list.push(<li key={`${i}-${parts[i]}`}><a href={`${parts.slice(0, i + 1).join('/')}`}>{parts[i]}</a></li>)
+            name = parts[i]
+            if (name.length) {
+                href = parts.slice(0, i + 1).join('/')
+                list.push(<li key={`${i}-${name}`} className={i === parts.length - 1 ? CLASS_NAMES.active : ''}><a href={href}>{toUpperCaseFirst(name)}</a></li>)
             }
         }
 
@@ -34,13 +39,6 @@ function Breadcrumbs({ crumbs, active }) {
             </div>
         </div>
     )
-}
-
-Breadcrumbs.defaultProps = {}
-
-Breadcrumbs.propTypes = {
-    crumbs: PropTypes.array,
-    active: PropTypes.object
 }
 
 export default Breadcrumbs
