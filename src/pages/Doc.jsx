@@ -24,6 +24,7 @@ export default function Doc() {
 
         const getPage = (path) => {
             setLoading(true)
+            path = path.replace('.html', '')
             const response = Rest.get(`${window.location.origin}/md/${path}.md`, 'text/plain')
 
             response.then((res) =>{
