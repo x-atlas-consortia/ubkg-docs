@@ -1,22 +1,35 @@
 import { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import $ from 'jquery'
 
 function Breadcrumbs({ crumbs, active }) {
+
     const buildCrumbs = () => {
         const list = []
-        for (let c of crumbs) {
-            list.push(<li key={c.id}><a href={c.href || '#'}>{c.name}</a></li>)
+        const path = window.location.pathname
+
+        list.push(<li key='0-home'><a href={`/`}>Home</a></li>)
+        if (path === '/') {
+            return
         }
+        let parts = path.split('/')
+
+        for (let i = 0; i < parts.length; i++) {
+            if (parts[i].length) {
+                list.push(<li key={`${i}-${parts[i]}`}><a href={`${parts.slice(0, i + 1).join('/')}`}>{parts[i]}</a></li>)
+            }
+        }
+
         return list
     }
 
     return (
         <div
-            className={`c-breadcrumbs`}
+            className='c-breadcrumbs js-breadcrumbs'
             role='navigation'
             aria-label='Breadcrumbs'
         >
-            <div className='c-breadcrumbs__main'>
+            <div className='c-breadcrumbs__main js-breadcrumbs__main'>
                 <ul>{buildCrumbs()}</ul>
             </div>
         </div>

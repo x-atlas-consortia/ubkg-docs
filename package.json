@@ -22,7 +22,7 @@
     "stylus": "^0.59.0"
   },
   "scripts": {
-    "start": "cp docs/_index.html docs/index.html && PORT=3005 react-app-rewired start",
+    "start": "PORT=3005 react-app-rewired start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "css": "stylus --include-css --compress -w src/styles/App.styl -o src/App.css",

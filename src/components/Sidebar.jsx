@@ -1,8 +1,9 @@
-import {useContext, useEffect, useState} from 'react'
+import { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import AppContext from '../context/AppContext'
-import {CLASS_NAMES} from '../fixtures/constants'
+import { CLASS_NAMES } from '../lib/constants'
 import $ from 'jquery'
+import { toId } from '../lib/util'
 
 function Sidebar({ active }) {
     const { _t } = useContext(AppContext)
@@ -19,19 +20,25 @@ function Sidebar({ active }) {
             }
         })
     }
+
+
     useEffect(() => {
         $el.sidebar = $('.js-sidebar')
-
         events()
+
     }, [])
 
     return (
-        <div className='c-sidebar js-sidebar' role='navigation' aria-label='Table of Contents'>
-           <div className='c-sidebar__wrap'>
-               <div className='c-sidebar__main'>
-                   <h2>{_t('Table of Contents')}</h2>
-               </div>
-           </div>
+        <div
+            className='c-sidebar js-sidebar'
+            role='navigation'
+            aria-label='Table of Contents'
+        >
+            <div className='c-sidebar__wrap'>
+                <div className='c-sidebar__main'>
+                    <h2>{_t('Table of Contents')}</h2>
+                </div>
+            </div>
         </div>
     )
 }

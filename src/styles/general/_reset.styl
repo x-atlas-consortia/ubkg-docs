@@ -15,6 +15,7 @@ html, body
 body
   p4()
   pos-rel()
+  $col-xlgt-grey
   line-height 1.5
   text-size-adjust none
   font-family $font-family
@@ -22,9 +23,15 @@ body
 li  
   list-style-position inside
 
-a, a:visited 
-  color $col-malibu
+a, a:visited
+  color $col-primary-blue
+  text-decoration none
+
+a:hover
+  text-decoration underline
 
 .hide 
   hide()
 
+details
+  margin-top $mgn
