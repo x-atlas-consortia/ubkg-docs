@@ -5,7 +5,7 @@ class Breadcrumbs extends App {
         this.$ = {
             list: this.el.find('.js-breadcrumbs__main')
         }
-        this.events()
+        this.build()
     }
 
     build() {

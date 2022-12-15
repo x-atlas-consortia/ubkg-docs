@@ -7,11 +7,12 @@
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
     "babel-polyfill": "^6.26.0",
+    "concurrently": "^7.6.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.1",
     "gulp-pug": "^5.0.0",
-    "jquery": "^3.6.2",
     "loglevel": "^1.8.1",
     "prettier": "^2.8.1",
     "pug": "^3.0.2",
@@ -21,7 +22,8 @@
   "scripts": {
     "js": "gulp js",
     "html": "gulp html",
-    "css": "stylus --include-css --compress -w src/styles/App.styl -o docs/css/App.css"
+    "css": "stylus --include-css --compress -w src/styles/App.styl -o docs/css/App.css",
+    "dev": "concurrently \"serve ./docs\" \"gulp\""
   },
   "prettier": {
     "singleQuote": true,
@@ -31,6 +33,6 @@
     "trailingComma": "none"
   },
   "dependencies": {
-    "gulp-plumber": "^1.2.1"
+    "gulp-stylus": "^3.0.0"
   }
 }

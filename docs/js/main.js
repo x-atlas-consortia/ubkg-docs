@@ -9262,7 +9262,7 @@ var Breadcrumbs = /*#__PURE__*/function (_App) {
     _this2.$ = {
       list: _this2.el.find('.js-breadcrumbs__main')
     };
-    _this2.events();
+    _this2.build();
     return _this2;
   }
   _createClass(Breadcrumbs, [{

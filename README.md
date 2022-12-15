@@ -1,14 +1,13 @@
 # SenNet Docs
 ## Usage
-- Save your documentation files in the `md/` directory.
+- Save your documentation files in the `docs/` directory.
 - Properly name the documents and directories as path names are used to automatically generate the `Breadcrumbs`
 - Properly use H headings, in their correct rankings as these are pulled from the documents to automatically generate the `Table of Contents`
 
 ## Contents
-- `/src/`- any source code used to generate the hosted documents (not directly published)
-- `/docs/` - The complete site for distribution, currently being served on GitHub Pages
-  - `md/` - Contains the markdown files that are hosted as html by GitHub Pages.
-  - `lang/` - Can set language files to serve the site in another language besides English
+- `/src/`- Any source code used to generate the hosted documents (not directly published)
+- `/docs/` - Contains the markdown files that are hosted as html by GitHub Pages.
+
 
 ## Development
 ### Install 
@@ -37,7 +36,7 @@ Should have `serve` module installed after running `npm i .`
 serve ./docs 
 ```
 ## Coding Conventions
-- Do use dash casing to separate words for directories in `docs/md`:
+- Do use dash casing to separate words for directories in `docs`:
   - correct: `foo-who/` , incorrect: `foo_who/`
 - Please set up prettier in your IDE to keep code formatting consistent or just follow the prettier rules as described in `./package.json`
 - Do follow any additional code formatting and styles as seen in the project
