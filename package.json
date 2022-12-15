@@ -22,9 +22,9 @@
   },
   "scripts": {
     "js": "gulp js",
-    "html": "gulp html",
+    "html": "concurrently \"gulp html-layouts\" \"gulp html-pages\" ",
     "css": "gulp css",
-    "dev": "concurrently \"serve ./docs\" \"gulp\""
+    "start": "concurrently \"serve ./docs\" \"gulp\""
   },
   "prettier": {
     "singleQuote": true,

@@ -1,6 +1,7 @@
+include ../../mixins/container
 include ../header
 include ../../sidebar
-div.c-container(role='main')
++container
     include ../../breadcrumbs
     .c-documentation
         | {{ content }}

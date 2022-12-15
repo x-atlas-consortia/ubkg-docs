@@ -7,14 +7,16 @@ const lang = require('./src/lang/en.json')
 const stylus = require('gulp-stylus')
 const header = require('gulp-header')
 
-const pkg = require('./package.json');
-const banner = ['/**',
+const pkg = require('./package.json')
+const banner = [
+    '/**',
     ' * <%= pkg.name %> - <%= pkg.description %>',
     ' * @version v<%= pkg.version %>',
     ' * @link <%= pkg.homepage %>',
     ' * @date <%= date %>',
     ' */',
-    ''].join('\n');
+    ''
+].join('\n')
 
 function js(cb) {
     return gulp
@@ -33,27 +35,47 @@ function js(cb) {
                 ]
             })
         )
-        .pipe(header(banner, { pkg, date : (new Date()) } ))
+        .pipe(header(banner, { pkg, date: new Date() }))
         .pipe(gulp.dest('docs/js'))
 }
 
 gulp.task('js', js)
 
+const locals = {
+    _m: lang,
+    _t: function (s, m) {
+        m = m || {}
+        return m[s] || s
+    }
+}
+
 function html() {
     return gulp
-        .src('./src/pug/layouts/*.pug')
+        .src(['./src/pug/layouts/*.pug'])
         .pipe(
             pug({
                 pretty: true,
-                locals: {
-                    _t: lang
-                }
+                locals
             })
         )
         .pipe(gulp.dest('./docs/_layouts/'))
 }
 
-gulp.task('html', html)
+gulp.task('html-layouts', html)
+
+function html2() {
+    return gulp
+        .src(['./src/pug/*.pug'])
+        .pipe(
+            pug({
+                pretty: true,
+                locals
+            })
+        )
+        .pipe(gulp.dest('./docs/'))
+}
+
+gulp.task('html-pages', html2)
 
 function css() {
     return gulp
@@ -63,14 +85,14 @@ function css() {
                 compress: true
             })
         )
-        .pipe(header(banner, { pkg, date : (new Date()) } ))
+        .pipe(header(banner, { pkg, date: new Date() }))
         .pipe(gulp.dest('./docs/css/'))
 }
 
 gulp.task('css', css)
 
 exports.default = function () {
-    gulp.watch('src/pug/**/*.pug', html)
+    gulp.watch('src/pug/**/*.pug', gulp.series(html, html2))
     gulp.watch('src/js/*.js', js)
     gulp.watch('src/styles/**/*.styl', css)
 }
