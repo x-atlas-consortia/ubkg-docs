@@ -5,7 +5,7 @@
  * @returns
  */
 
-function SenNetDocsApps(source, args= null) {
+function ZIndex(source, args= null) {
     App.log('Apps started ...')
     window.apps = window.apps || {}
     if (window.apps[source] !== undefined) {
@@ -15,7 +15,8 @@ function SenNetDocsApps(source, args= null) {
 
     let apps = {
         sidebar: Sidebar,
-        breadcrumbs: Breadcrumbs
+        breadcrumbs: Breadcrumbs,
+        footer: Footer
     }
 
     args = args || window.apps.init
@@ -34,5 +35,5 @@ function SenNetDocsApps(source, args= null) {
 
 window.addEventListener("load", (event) => {
     App.log('SenNet Docs...', null, {color: 'pink'})
-    SenNetDocsApps('init')
+    ZIndex('init')
 })

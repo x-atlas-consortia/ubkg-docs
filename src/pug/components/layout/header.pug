@@ -2,6 +2,8 @@ header.c-header(role='navigation')
     .c-header__main
         .c-header__menu
             ul
+                li.c-header__logo
+                    img(src='/logo192.png' alt=_t['SenNet Docs'])
                 each item in _t.menu
                     li
                         a(href=item.href)=item.name

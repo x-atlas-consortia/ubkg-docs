@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link 
- * @date Thu Dec 15 2022 14:20:44 GMT-0500 (Eastern Standard Time)
+ * @date Thu Dec 15 2022 14:38:39 GMT-0500 (Eastern Standard Time)
  */
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9295,42 +9295,60 @@ var Breadcrumbs = /*#__PURE__*/function (_App) {
   }]);
   return Breadcrumbs;
 }(App);
-var Sidebar = /*#__PURE__*/function (_App2) {
-  _inherits(Sidebar, _App2);
-  var _super2 = _createSuper(Sidebar);
-  function Sidebar(el, args) {
+var Footer = /*#__PURE__*/function (_App2) {
+  _inherits(Footer, _App2);
+  var _super2 = _createSuper(Footer);
+  function Footer(el, args) {
     var _this3;
-    _classCallCheck(this, Sidebar);
+    _classCallCheck(this, Footer);
     _this3 = _super2.call(this, el, args);
-    _this3.$ = {
-      main: _this3.el.find('.js-sidebar__main'),
-      list: _this3.el.find('.js-sidebar__list'),
+    _this3.addYear();
+    return _this3;
+  }
+  _createClass(Footer, [{
+    key: "addYear",
+    value: function addYear() {
+      this.el.find('.js-footer__date').html(new Date().getFullYear());
+    }
+  }]);
+  return Footer;
+}(App);
+var Sidebar = /*#__PURE__*/function (_App3) {
+  _inherits(Sidebar, _App3);
+  var _super3 = _createSuper(Sidebar);
+  function Sidebar(el, args) {
+    var _this4;
+    _classCallCheck(this, Sidebar);
+    _this4 = _super3.call(this, el, args);
+    _this4.$ = {
+      main: _this4.el.find('.js-sidebar__main'),
+      list: _this4.el.find('.js-sidebar__list'),
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
     };
-    _this3.$.main.css('max-width', _this3.el.width() - 100);
-    _this3.classNames.root = 'is-root';
-    _this3.events();
-    _this3.buildTableOfContents();
-    return _this3;
+    _this4.$.main.css('max-width', _this4.el.width() - 100);
+    _this4.classNames.root = 'is-root';
+    _this4.events();
+    _this4.buildTableOfContents();
+    return _this4;
   }
   _createClass(Sidebar, [{
     key: "events",
     value: function events() {
-      var _this4 = this;
+      var _this5 = this;
       $(document).on('scroll', function (e) {
         var st = $(document).scrollTop();
         var headerHeight = 90;
         if (st > headerHeight) {
-          _this4.el.addClass(_this4.classNames.active);
+          _this5.el.addClass(_this5.classNames.active);
         } else {
-          _this4.el.removeClass(_this4.classNames.active);
+          _this5.el.removeClass(_this5.classNames.active);
         }
       }.bind(this));
     }
   }, {
     key: "buildTableOfContents",
     value: function buildTableOfContents() {
-      var _this5 = this;
+      var _this6 = this;
       var rootChildren = [];
       var root = {
         tag: 'h0',
@@ -9345,7 +9363,7 @@ var Sidebar = /*#__PURE__*/function (_App2) {
         var n1 = Number(node[1]);
         var n2 = Number(top.tag[1]);
         var label = $(el).text();
-        var id = $(el).attr('id') || _this5.toId(label);
+        var id = $(el).attr('id') || _this6.toId(label);
         var pack = {
           tag: node,
           id: id,
@@ -9422,7 +9440,7 @@ var Sidebar = /*#__PURE__*/function (_App2) {
  * @param {object} args
  * @returns
  */
-function SenNetDocsApps(source) {
+function ZIndex(source) {
   var args = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
   App.log('Apps started ...');
   window.apps = window.apps || {};
@@ -9432,7 +9450,8 @@ function SenNetDocsApps(source) {
   window.apps[source] = args;
   var apps = {
     sidebar: Sidebar,
-    breadcrumbs: Breadcrumbs
+    breadcrumbs: Breadcrumbs,
+    footer: Footer
   };
   args = args || window.apps.init;
   try {
@@ -9454,5 +9473,5 @@ window.addEventListener("load", function (event) {
   App.log('SenNet Docs...', null, {
     color: 'pink'
   });
-  SenNetDocsApps('init');
+  ZIndex('init');
 });
