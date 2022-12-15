@@ -1,5 +1,6 @@
+include ../components/mixins/head
 doctype html
 html(lang="{{ site.lang | default: 'en-US' }}")
-    include ../components/layout/head.pug
+    +head(true)
     body
         include ../components/layout/template/default

@@ -1,7 +1,8 @@
 include ./components/mixins/container
+include ./components/mixins/head.pug
 doctype html
 html(lang="{{ site.lang | default: 'en-US' }}")
-    include ./components/layout/head.pug
+    +head(false)
     body
         include ./components/layout/header
         +container
