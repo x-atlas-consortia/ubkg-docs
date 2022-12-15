@@ -1,4 +1,6 @@
-
+---
+layout: default
+---
 ## SenNet APIs
 Hello World
 
