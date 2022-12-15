@@ -41,6 +41,6 @@ serve ./docs
 
 ## Usage 
 - Save your documentation files in the `md/` directory. 
-- Properly name the documents and directories as path names are used to automatically generate the Breadcrumbs
-- Properly use H headings, in their correct rankings as these are pulled from the documents to automatically generate the Table of Contents
+- Properly name the documents and directories as path names are used to automatically generate the `Breadcrumbs`
+- Properly use H headings, in their correct rankings as these are pulled from the documents to automatically generate the `Table of Contents`
 
