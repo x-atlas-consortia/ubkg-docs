@@ -16,7 +16,8 @@ function ZIndex(source, args= null) {
     let apps = {
         sidebar: Sidebar,
         breadcrumbs: Breadcrumbs,
-        footer: Footer
+        footer: Footer,
+        fileMeta: FileMeta
     }
 
     args = args || window.apps.init
