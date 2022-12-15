@@ -6,6 +6,10 @@ class Sidebar extends App {
 
     constructor(el, args) {
         super(el, args)
+        this.$ = {
+            main: this.el.find('.js-sidebar__main')
+        }
+        this.$.main.css('max-width', this.el.width() - 50)
         this.events()
         this.buildTableOfContents()
     }
@@ -15,6 +19,7 @@ class Sidebar extends App {
             const st = $(document).scrollTop()
             const headerHeight = 90
             if (st > headerHeight) {
+
                 this.el.addClass(this.classNames.active)
             } else {
                 this.el.removeClass(this.classNames.active)
