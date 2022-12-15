@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Thu Dec 15 2022 16:00:02 GMT-0500 (Eastern Standard Time)
+ * @date Thu Dec 15 2022 16:01:15 GMT-0500 (Eastern Standard Time)
  */
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9313,21 +9313,20 @@ var FileMeta = /*#__PURE__*/function (_App2) {
       var lastMod = null;
       try {
         var _ret = function () {
-          // const path = window.location.pathname
-          // let paths = [path + '.md']
-          // if (path.indexOf('.htm') === -1) {
-          //     paths.push(path + '.html')
-          //     paths.push(path + '.htm')
-          // }
+          var path = window.location.pathname;
+          var paths = [path + '.md'];
+          if (path.indexOf('.htm') === -1) {
+            paths.push(path + '.html');
+            paths.push(path + '.htm');
+          }
           var _t = _this4;
-          var paths = ['/md/foo/toc.md'];
           for (var _i = 0, _paths = paths; _i < _paths.length; _i++) {
             var p = _paths[_i];
             if (_this4.$span.html().length) return {
               v: void 0
             };
             fetch(p).then(function (r) {
-              lastMod = r.headers.get('Last-Modified');
+              lastMod = r.headers.get('last-modified');
               _t.$span.html(lastMod);
               return r.text();
             });

@@ -9,18 +9,17 @@ class FileMeta extends App {
     addDate() {
         let lastMod = null;
         try {
-            // const path = window.location.pathname
-            // let paths = [path + '.md']
-            // if (path.indexOf('.htm') === -1) {
-            //     paths.push(path + '.html')
-            //     paths.push(path + '.htm')
-            // }
+            const path = window.location.pathname
+            let paths = [path + '.md']
+            if (path.indexOf('.htm') === -1) {
+                paths.push(path + '.html')
+                paths.push(path + '.htm')
+            }
             const _t = this
-            let paths = ['/md/foo/toc.md']
             for (let p of paths) {
                 if (this.$span.html().length) return
                 fetch(p).then(r => {
-                    lastMod = r.headers.get('Last-Modified')
+                    lastMod = r.headers.get('last-modified')
                     _t.$span.html(lastMod)
                     return r.text()
                 })
