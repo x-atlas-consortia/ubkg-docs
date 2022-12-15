@@ -2,6 +2,7 @@
 
 ## Install 
 ```bash
+cd documentation
 npm i .
 ```
 
@@ -28,8 +29,7 @@ serve ./docs
 
 ## Contents
 - `/src/`- any source code used to generate the hosted documents (not directly published)
-- `/build/` - The complete site for distribution, currently being served for GitHub Pages
-- `/docs/`  
+- `/docs/` - The complete site for distribution, currently being served for GitHub Pages
   - `md/` - Contains the markdown files that are hosted as html by GitHub Pages.
   - `lang/` - Can set language files to serve the site in another language but English
 
@@ -40,3 +40,7 @@ serve ./docs
 - Do follow any additional code formatting and styles as seen in the project
 
 ## Usage 
+- Save your documentation files in the `md/` directory. 
+- Properly name the documents and directories as path names are used to automatically generate the Breadcrumbs
+- Properly use H headings, in their correct rankings as these are pulled from the documents to automatically generate the Table of Contents
+
