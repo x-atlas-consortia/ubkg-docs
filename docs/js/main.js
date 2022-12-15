@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Thu Dec 15 2022 16:01:15 GMT-0500 (Eastern Standard Time)
+ * @date Thu Dec 15 2022 16:06:26 GMT-0500 (Eastern Standard Time)
  */
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9302,7 +9302,7 @@ var FileMeta = /*#__PURE__*/function (_App2) {
     var _this3;
     _classCallCheck(this, FileMeta);
     _this3 = _super2.call(this, el, args);
-    _this3.$span = _this3.el.find('span');
+    _this3.$span = _this3.el.find('.js-fileMeta__date');
     _this3.addDate();
     return _this3;
   }

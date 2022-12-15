@@ -2,7 +2,7 @@
 class FileMeta extends App {
     constructor(el, args) {
         super(el, args)
-        this.$span = this.el.find('span')
+        this.$span = this.el.find('.js-fileMeta__date')
         this.addDate()
     }
 
