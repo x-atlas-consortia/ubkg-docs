@@ -30,11 +30,9 @@ function SenNetDocsApps(source, args= null) {
     } catch (e) {
         console.error(e)
     }
-
 }
 
-
 window.addEventListener("load", (event) => {
-    App.log('SenNet Docs...')
+    App.log('SenNet Docs...', null, {color: 'pink'})
     SenNetDocsApps('init')
 })

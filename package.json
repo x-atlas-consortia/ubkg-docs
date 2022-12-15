@@ -1,6 +1,7 @@
 {
   "name": "sennetdocs",
   "version": "0.1.0",
+  "homepage": "https://docs.sennetconsortium.org/",
   "private": true,
   "devDependencies": {
     "@babel/cli": "^7.19.3",
@@ -22,7 +23,7 @@
   "scripts": {
     "js": "gulp js",
     "html": "gulp html",
-    "css": "stylus --include-css --compress -w src/styles/App.styl -o docs/css/App.css",
+    "css": "gulp css",
     "dev": "concurrently \"serve ./docs\" \"gulp\""
   },
   "prettier": {
@@ -33,6 +34,7 @@
     "trailingComma": "none"
   },
   "dependencies": {
+    "gulp-header": "^2.0.9",
     "gulp-stylus": "^3.0.0"
   }
 }
