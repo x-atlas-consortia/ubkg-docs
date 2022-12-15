@@ -5,7 +5,7 @@ var plumber = require("gulp-plumber");
 const pug = require('gulp-pug')
 const lang = require('./src/lang/en.json')
 
-gulp.task('js', function() {
+function js(cb) {
     return gulp.src(
         [
             'node_modules/babel-polyfill/dist/polyfill.js',
@@ -25,9 +25,10 @@ gulp.task('js', function() {
                 ]
         }))
         .pipe(gulp.dest('docs/js'))
-});
+}
+gulp.task('js', js);
 
-gulp.task('html', function() {
+function html() {
     return gulp.src('./src/pug/layouts/*.pug')
         .pipe(
             pug({
@@ -38,5 +39,13 @@ gulp.task('html', function() {
             })
         )
         .pipe(gulp.dest('./docs/_layouts/'));
-});
+}
+gulp.task('html', html);
+
+exports.default = function() {
+    // You can use a single task
+    gulp.watch('src/pug/**/*.pug', html);
+    // Or a composed task
+    gulp.watch('src/js/*.js', js);
+};
 

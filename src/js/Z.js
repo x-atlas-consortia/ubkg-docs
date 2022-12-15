@@ -5,7 +5,6 @@
  * @returns
  */
 
-
 function SenNetDocsApps(source, args= null) {
     App.log('Apps started ...')
     window.apps = window.apps || {}
@@ -38,6 +37,6 @@ function SenNetDocsApps(source, args= null) {
 
 
 window.addEventListener("load", (event) => {
-    App.log('SenNet Docs')
+    App.log('SenNet Docs..')
     SenNetDocsApps('init')
 })

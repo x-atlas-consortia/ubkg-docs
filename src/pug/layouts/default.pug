@@ -1,5 +1,5 @@
 doctype html
-html(lang='{{ site.lang | default: \"en-US\" }}')
+html(lang="{{ site.lang | default: 'en-US' }}")
     include ../components/layout/head.pug
     body
         include ../components/layout/template/default

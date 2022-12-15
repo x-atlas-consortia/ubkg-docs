@@ -1,5 +1,3 @@
-
-
 class Breadcrumbs extends App {
 
     constructor(el, args) {

@@ -9369,22 +9369,23 @@ var Sidebar = /*#__PURE__*/function (_App2) {
         traverse(node, el, i);
       });
       App.log('The generated Table of Contents:', root);
-      var html = "<ul>";
-      var end = [];
-      html = this.getList(root, html, end);
-      html += "</ul>";
-      this.$.list.html(html);
+      if (root.c.length) {
+        var html = "<ul>";
+        var end = [];
+        html = this.getList(root, html, end);
+        html += "</ul>";
+        this.$.list.html(html);
 
-      // Remove with the root.
-      var $main = '<ul>' + this.$.list.find(".".concat(this.classNames.root, " ul")).html() + '</ul>';
-      this.$.list.html($main);
+        // Remove with the root.
+        var $main = '<ul>' + this.$.list.find(".".concat(this.classNames.root, " ul")).html() + '</ul>';
+        this.$.list.html($main);
+      }
     }
   }, {
     key: "getList",
     value: function getList(root, html) {
       var end = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-      var dfs = [root];
-      var n = dfs[0].p.id !== dfs[dfs.length - 1].p.id ? dfs.pop() : dfs.shift();
+      var n = root;
       html += "<li ".concat(n.className ? "class=\"".concat(n.className, "\"") : '', "><a href=\"#").concat(n.id, "\">").concat(n.label, "</a>");
       var children = n.c;
       if (children && children.length > 0) {
@@ -9446,6 +9447,6 @@ function SenNetDocsApps(source) {
   }, 700);
 }
 window.addEventListener("load", function (event) {
-  App.log('SenNet Docs');
+  App.log('SenNet Docs..');
   SenNetDocsApps('init');
 });

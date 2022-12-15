@@ -1,4 +1,3 @@
-
 class App {
     constructor(el, args) {
         this.el = $(el)

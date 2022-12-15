@@ -6,7 +6,6 @@
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
     "babel-polyfill": "^6.26.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -20,14 +19,9 @@
     "stylus": "^0.59.0"
   },
   "scripts": {
-    "js": "rm -rf docs/js/lib && NODE_ENV=production babel src/js --out-dir docs/js/lib --copy-files",
-    "css": "stylus --include-css --compress -w src/styles/App.styl -o docs/css/App.css",
-    "build": "rm -rf docs/static && react-app-rewired build && mv build/static docs/static && cp build/index.html docs/index.html && cp build/index.html docs/404.html"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ]
+    "js": "gulp js",
+    "html": "gulp html",
+    "css": "stylus --include-css --compress -w src/styles/App.styl -o docs/css/App.css"
   },
   "prettier": {
     "singleQuote": true,

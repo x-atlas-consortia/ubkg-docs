@@ -1,5 +1,3 @@
-
-
 class Sidebar extends App {
 
     constructor(el, args) {
@@ -67,24 +65,23 @@ class Sidebar extends App {
         })
 
         App.log('The generated Table of Contents:', root)
-        let html = `<ul>`
-        let end = []
-        html = this.getList(root, html, end)
-        html += `</ul>`
-        this.$.list.html(html)
+        if (root.c.length) {
+            let html = `<ul>`
+            let end = []
+            html = this.getList(root, html, end)
+            html += `</ul>`
+            this.$.list.html(html)
 
-        // Remove with the root.
-        const $main = '<ul>' + this.$.list.find(`.${this.classNames.root} ul`).html() + '</ul>'
-        this.$.list.html($main)
-
+            // Remove with the root.
+            const $main = '<ul>' + this.$.list.find(`.${this.classNames.root} ul`).html() + '</ul>'
+            this.$.list.html($main)
+        }
     }
 
 
     getList(root, html, end = []) {
 
-        let dfs = [root]
-
-        let n = dfs[0].p.id !== dfs[dfs.length - 1].p.id ? dfs.pop() : dfs.shift()
+        let n = root
 
         html += `<li ${n.className ? `class="${n.className}"` : ''}><a href="#${n.id}">${n.label}</a>`
 
