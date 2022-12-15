@@ -9,7 +9,7 @@ class Sidebar extends App {
         this.$ = {
             main: this.el.find('.js-sidebar__main')
         }
-        this.$.main.css('max-width', this.el.width() - 50)
+        this.$.main.css('max-width', this.el.width() - 100)
         this.events()
         this.buildTableOfContents()
     }

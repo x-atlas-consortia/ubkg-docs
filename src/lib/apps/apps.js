@@ -6,6 +6,7 @@
  */
 import App from './App'
 import Sidebar from './Sidebar'
+import $ from 'jquery'
 
 function apps(source, args= null) {
     App.log('Apps started ...')
@@ -29,12 +30,10 @@ function apps(source, args= null) {
                         new apps[app](el, {app, ...args })
                     })
             }
-
-
         } catch (e) {
             console.error(e)
         }
-    }, 1000)
+    }, 700)
 
 }
 

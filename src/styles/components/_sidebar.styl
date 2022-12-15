@@ -4,18 +4,26 @@
   &.is-active
     .c-sidebar__main
       position fixed
+
   &__wrap
     pos-abs()
+
   &__main
     pos-rel()
     top 30px
     left 30px
     height 25vh
+    > h2
+      margin-bottom .8em
 
   &__list
     li
       list-style none
       padding .5em 0
+    ul
+      li > ul
+        a
+          padding-left .4em
 
 
 
