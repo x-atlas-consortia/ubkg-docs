@@ -6,9 +6,9 @@
 
 ## Contents
 - `/src/`- any source code used to generate the hosted documents (not directly published)
-- `/docs/` - The complete site for distribution, currently being served for GitHub Pages
+- `/docs/` - The complete site for distribution, currently being served on GitHub Pages
   - `md/` - Contains the markdown files that are hosted as html by GitHub Pages.
-  - `lang/` - Can set language files to serve the site in another language but English
+  - `lang/` - Can set language files to serve the site in another language besides English
 
 ## Development
 ### Install 

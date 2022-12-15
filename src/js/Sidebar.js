@@ -1,15 +1,16 @@
-import App from './App'
-import $ from 'jquery'
-import { toId } from '../util'
+
 
 class Sidebar extends App {
 
     constructor(el, args) {
         super(el, args)
         this.$ = {
-            main: this.el.find('.js-sidebar__main')
+            main: this.el.find('.js-sidebar__main'),
+            list: this.el.find('.js-sidebar__list'),
+            hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
         }
         this.$.main.css('max-width', this.el.width() - 100)
+        this.classNames.root = 'is-root'
         this.events()
         this.buildTableOfContents()
     }
@@ -19,7 +20,6 @@ class Sidebar extends App {
             const st = $(document).scrollTop()
             const headerHeight = 90
             if (st > headerHeight) {
-
                 this.el.addClass(this.classNames.active)
             } else {
                 this.el.removeClass(this.classNames.active)
@@ -30,7 +30,7 @@ class Sidebar extends App {
     buildTableOfContents() {
 
         let rootChildren = []
-        let root = { tag: 'h0', c: rootChildren, p: {}, className: 'is-root' }
+        let root = { tag: 'h0', c: rootChildren, p: {}, className: this.classNames.root }
         let stack = [root]
 
         const traverse = (node, el, idx) => {
@@ -40,7 +40,7 @@ class Sidebar extends App {
             let n1 = Number(node[1])
             let n2 = Number(top.tag[1])
             const label = $(el).text()
-            let id = $(el).attr('id') || toId(label)
+            let id = $(el).attr('id') || this.toId(label)
             let pack = {tag: node, id, label, c: [], idx }
             if (n1 > n2) {
                 pack.p = top
@@ -60,11 +60,10 @@ class Sidebar extends App {
                 traverse(node, el, idx)
             }
         }
-        const $hs = $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
-        $hs.each((i, el)=> {
+
+        this.$.hs.each((i, el)=> {
             const node = el.nodeName.toLowerCase()
             traverse(node, el, i)
-
         })
 
         App.log('The generated Table of Contents:', root)
@@ -72,12 +71,11 @@ class Sidebar extends App {
         let end = []
         html = this.getList(root, html, end)
         html += `</ul>`
-        const $list = this.el.find('.js-sidebar__list')
-        $list.html(html)
+        this.$.list.html(html)
 
         // Remove with the root.
-        const $main = '<ul>' + $list.find('.is-root ul').html() + '</ul>'
-        $list.html($main)
+        const $main = '<ul>' + this.$.list.find(`.${this.classNames.root} ul`).html() + '</ul>'
+        this.$.list.html($main)
 
     }
 
@@ -104,4 +102,3 @@ class Sidebar extends App {
     }
 }
 
-export default Sidebar

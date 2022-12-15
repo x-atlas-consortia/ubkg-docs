@@ -2,31 +2,32 @@
   "name": "sennetdocs",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "dangerously-set-html-content": "^1.0.12",
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "babel-polyfill": "^6.26.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^5.0.0",
     "jquery": "^3.6.2",
     "loglevel": "^1.8.1",
     "prettier": "^2.8.1",
-    "react": "^18.2.0",
-    "react-app-rewired": "^2.2.1",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.0.1",
-    "react-scripts": "5.0.1",
+    "pug": "^3.0.2",
     "serve": "^14.1.2",
-    "web-vitals": "^2.1.4"
-  },
-  "devDependencies": {
     "stylus": "^0.59.0"
   },
   "scripts": {
-    "start": "PORT=3005 react-app-rewired start",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "css": "stylus --include-css --compress -w src/styles/App.styl -o src/App.css",
+    "js": "rm -rf docs/js/lib && NODE_ENV=production babel src/js --out-dir docs/js/lib --copy-files",
+    "css": "stylus --include-css --compress -w src/styles/App.styl -o docs/css/App.css",
     "build": "rm -rf docs/static && react-app-rewired build && mv build/static docs/static && cp build/index.html docs/index.html && cp build/index.html docs/404.html"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
   },
   "prettier": {
     "singleQuote": true,
@@ -35,22 +36,7 @@
     "tabWidth": 4,
     "trailingComma": "none"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "gulp-plumber": "^1.2.1"
   }
 }

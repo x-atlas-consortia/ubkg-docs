@@ -4,11 +4,9 @@
  * @param {object} args
  * @returns
  */
-import App from './App'
-import Sidebar from './Sidebar'
-import $ from 'jquery'
 
-function apps(source, args= null) {
+
+function SenNetDocsApps(source, args= null) {
     App.log('Apps started ...')
     window.apps = window.apps || {}
     if (window.apps[source] !== undefined) {
@@ -17,7 +15,8 @@ function apps(source, args= null) {
     window.apps[source] = args
 
     let apps = {
-        sidebar: Sidebar
+        sidebar: Sidebar,
+        breadcrumbs: Breadcrumbs
     }
 
     setTimeout(() => {
@@ -37,4 +36,8 @@ function apps(source, args= null) {
 
 }
 
-export default apps
+
+window.addEventListener("load", (event) => {
+    App.log('SenNet Docs')
+    SenNetDocsApps('init')
+})

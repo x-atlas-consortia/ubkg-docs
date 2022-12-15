@@ -1,4 +1,4 @@
-import $ from 'jquery'
+
 class App {
     constructor(el, args) {
         this.el = $(el)
@@ -12,6 +12,14 @@ class App {
             active: 'is-active'
         }
         this.log(this.app, null, {color: 'orange'})
+    }
+
+    toId(val) {
+        return val.toLowerCase().replace(/[\W_]+/g, " ").trim().replaceAll(' ', '-')
+    }
+
+    toUpperCaseFirst(val) {
+        return val.charAt(0).toUpperCase() + val.slice(1)
     }
 
     handleKeydown(e, trigger) {
@@ -72,4 +80,3 @@ class App {
     }
 }
 
-export default App

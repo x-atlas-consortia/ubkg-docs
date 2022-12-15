@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: &quot;en-US&quot; }}">
+  <head>
+    <title>SenNet Documentation</title>
+    <script src="/js/jquery-3.6.2.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/css/App.css">{% seo %}
+  </head>
+  <body>
+    <header class="c-header" role="navigation">
+      <div class="c-header__main">
+        <div class="c-header__menu">
+          <ul>
+            <li><a href="/">SenNet</a></li>
+            <li><a href="#assays">Assays</a></li>
+            <li><a href="#apis">APIs</a></li>
+            <li><a href="#sdk">SDK</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="c-sidebar js-sidebar" role="navigation" aria-label="Table of Contents">
+      <div class="c-sidebar__wrap">
+        <div class="c-sidebar__main js-sidebar__main">
+          <h2>Table of Contents</h2>
+          <div class="c-sidebar__list js-sidebar__list"></div>
+        </div>
+      </div>
+    </div>
+    <div class="c-container" role="main">{content}</div>
+    <footer class="c-footer">
+      <div class="c-footer__main">SenNet Documentation</div>
+    </footer>
+  </body>
+</html>
