@@ -18,25 +18,23 @@ function SenNetDocsApps(source, args= null) {
         breadcrumbs: Breadcrumbs
     }
 
-    setTimeout(() => {
-        args = args || window.apps.init
-        try {
-            for (let app in apps) {
-                document
-                    .querySelectorAll(`[class*='js-${app}'], [data-js-${app}]`)
-                    .forEach((el) => {
-                        new apps[app](el, {app, ...args })
-                    })
-            }
-        } catch (e) {
-            console.error(e)
+    args = args || window.apps.init
+    try {
+        for (let app in apps) {
+            document
+                .querySelectorAll(`[class*='js-${app}'], [data-js-${app}]`)
+                .forEach((el) => {
+                    new apps[app](el, {app, ...args })
+                })
         }
-    }, 700)
+    } catch (e) {
+        console.error(e)
+    }
 
 }
 
 
 window.addEventListener("load", (event) => {
-    App.log('SenNet Docs..')
+    App.log('SenNet Docs...')
     SenNetDocsApps('init')
 })

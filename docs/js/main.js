@@ -9428,25 +9428,23 @@ function SenNetDocsApps(source) {
     sidebar: Sidebar,
     breadcrumbs: Breadcrumbs
   };
-  setTimeout(function () {
-    args = args || window.apps.init;
-    try {
-      var _loop = function _loop(app) {
-        document.querySelectorAll("[class*='js-".concat(app, "'], [data-js-").concat(app, "]")).forEach(function (el) {
-          new apps[app](el, _objectSpread({
-            app: app
-          }, args));
-        });
-      };
-      for (var app in apps) {
-        _loop(app);
-      }
-    } catch (e) {
-      console.error(e);
+  args = args || window.apps.init;
+  try {
+    var _loop = function _loop(app) {
+      document.querySelectorAll("[class*='js-".concat(app, "'], [data-js-").concat(app, "]")).forEach(function (el) {
+        new apps[app](el, _objectSpread({
+          app: app
+        }, args));
+      });
+    };
+    for (var app in apps) {
+      _loop(app);
     }
-  }, 700);
+  } catch (e) {
+    console.error(e);
+  }
 }
 window.addEventListener("load", function (event) {
-  App.log('SenNet Docs..');
+  App.log('SenNet Docs...');
   SenNetDocsApps('init');
 });
