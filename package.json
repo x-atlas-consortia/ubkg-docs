@@ -24,7 +24,7 @@
     "js": "gulp js && cp docs/js/main.js docs/_site/js/main.js",
     "html": "concurrently \"gulp html-layouts\" \"gulp html-pages\" ",
     "css": "gulp css && cp docs/css/main.css docs/_site/css/main.css",
-    "start": "concurrently \"serve ./docs\" \"gulp\""
+    "start": "concurrently \"serve -l 3005 ./docs\" \"gulp\""
   },
   "prettier": {
     "singleQuote": true,
