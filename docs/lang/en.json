@@ -1,15 +1,12 @@
 {
   "SenNet Docs": "SenNet Documentation",
   "Not Found": "Not Found",
+  "breadcrumbRoot": "Home",
   "menu": [
     {
       "name": "SenNet",
       "href": "/",
       "class": "h2"
-    },
-    {
-      "name": "Assays",
-      "href": "#assays"
     },
     {
       "name": "APIs",
@@ -18,6 +15,10 @@
     {
       "name": "SDK",
       "href": "#sdk"
+    },
+    {
+      "name": "Provenance UI",
+      "href": "#provenance-ui"
     }
   ]
 }

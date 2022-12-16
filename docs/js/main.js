@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Fri Dec 16 2022 14:40:34 GMT-0500 (Eastern Standard Time)
+ * @date Fri Dec 16 2022 15:55:56 GMT-0500 (Eastern Standard Time)
  */
 var _this9 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9334,7 +9334,9 @@ var Breadcrumbs = /*#__PURE__*/function (_App) {
     value: function build() {
       var list = '';
       var path = window.location.pathname;
-      list += "<li><a href=\"/\">".concat(this._t('Home'), "</a></li>");
+      if (this.msgs.breadcrumbRoot) {
+        list += "<li><a href=\"/\">".concat(this.msgs.breadcrumbRoot, "</a></li>");
+      }
       if (path === '/') {
         return;
       }
@@ -9476,7 +9478,8 @@ var Header = /*#__PURE__*/function (_App4) {
     _classCallCheck(this, Header);
     _this5 = _super4.call(this, el, args);
     _this5.$ = {
-      li: _this5.el.find('.js-header__menu ul li')
+      li: _this5.el.find('.js-header__menu ul li'),
+      ul: _this5.el.find('.js-header__menu ul')
     };
     _this5.syncHeader();
     return _this5;
@@ -9485,41 +9488,53 @@ var Header = /*#__PURE__*/function (_App4) {
     key: "syncHeader",
     value: function () {
       var _syncHeader = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-        var x, _iterator, _step, li, $li, _i2, _arr, attr;
+        var x, _iterator, _step, li, $li, $nLi;
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                if (this.msgs.menu) {
+                if (!(!this.msgs.menu && _typeof(this.msgs.menu) !== 'object')) {
                   _context3.next = 2;
                   break;
                 }
                 return _context3.abrupt("return");
               case 2:
                 x = 1;
-                _iterator = _createForOfIteratorHelper(this.msgs.menu);
                 try {
-                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                    li = _step.value;
-                    this.log("Menu ".concat(x), li);
-                    $li = this.$.li.eq(x);
-                    if (li.name !== $li.text()) {
-                      $li.text(li.name);
-                    }
-                    for (_i2 = 0, _arr = ['href', 'class']; _i2 < _arr.length; _i2++) {
-                      attr = _arr[_i2];
-                      if (li[attr] !== $li.attr(attr)) {
-                        $li.attr(attr, li[attr]);
+                  _iterator = _createForOfIteratorHelper(this.msgs.menu);
+                  try {
+                    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                      li = _step.value;
+                      this.log("Menu ".concat(x), li);
+                      $li = this.$.li.eq(x);
+                      if ($li.length) {
+                        $li.attr('class', li["class"]);
+                        $li.find('a').text(li.name).attr('href', li.href);
+                      } else {
+                        $nLi = this.$.li.eq(1).clone();
+                        $nLi.attr('class', li["class"] || null);
+                        $nLi.find('a').text(li.name).attr('href', li.href || '#' + this.toId(li.name));
+                        this.$.ul.append($nLi);
                       }
+                      x++;
                     }
-                    x++;
+                  } catch (err) {
+                    _iterator.e(err);
+                  } finally {
+                    _iterator.f();
                   }
-                } catch (err) {
-                  _iterator.e(err);
-                } finally {
-                  _iterator.f();
+                } catch (e) {
+                  App.log('Error Building Menu: ', e, {
+                    error: true
+                  });
+                  App.log('Language file menu property should be in the format: ', [{
+                    name: 'Menu name here',
+                    href: '#url'
+                  }], {
+                    error: true
+                  });
                 }
-              case 5:
+              case 4:
               case "end":
                 return _context3.stop();
             }

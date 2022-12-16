@@ -14,7 +14,8 @@ The [SenNet SDK](/sdk) is a Python library to interface with the [Entity API](ht
 ![SenNet AWS Workflow](./imgs/SenNet-AWS-Workflow.png)
 
 #### Provenance UI
-[GitHub Repo](https://github.com/sennetconsortium/provenance-ui/tree/main/src)
+- [GitHub Repo](https://github.com/sennetconsortium/provenance-ui/tree/main/src)  
+- [Docs](/provenance-ui)
 
 # Have you ever?
 Testing
