@@ -7,7 +7,7 @@ class Sidebar extends App {
             list: this.el.find('.js-sidebar__list'),
             hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
         }
-        this.$.main.css('max-width', this.el.width() - 100)
+        this.sizeSideBar()
         this.classNames.root = 'is-root'
         this.events()
         this.buildTableOfContents()
@@ -23,6 +23,14 @@ class Sidebar extends App {
                 this.el.removeClass(this.classNames.active)
             }
         }).bind(this))
+
+        $(window).on('resize', ((e)=>{
+            this.sizeSideBar()
+        }).bind(this))
+    }
+
+    sizeSideBar() {
+        this.$.main.css('max-width', this.el.width() - 100)
     }
 
     buildTableOfContents() {
@@ -67,8 +75,7 @@ class Sidebar extends App {
         App.log('The generated Table of Contents:', root)
         if (root.c.length) {
             let html = `<ul>`
-            let end = []
-            html = this.getList(root, html, end)
+            html = this.getList(root, html)
             html += `</ul>`
             this.$.list.html(html)
 
@@ -78,18 +85,23 @@ class Sidebar extends App {
         }
     }
 
+    hasChildren(n) {
+        return (n.c && n.c.length > 0)
+    }
 
-    getList(root, html, end = []) {
+    getList(root, html, level= 0) {
 
         let n = root
+        const levelClass = `c-header__level--${level}`
+        let classes = `${levelClass} `
+        classes += `${this.hasChildren(n) ? 'has-children' : ''} ${n.className || ''}`
 
-        html += `<li ${n.className ? `class="${n.className}"` : ''}><a href="#${n.id}">${n.label}</a>`
+        html += `<li class="${classes}" title="${n.label}"><a href="#${n.id}">${n.label}</a>`
 
-        let children = n.c;
-        if (children && children.length > 0) {
-            html += `<ul>`
-            for (let c of children) {
-                html = this.getList(c, html, end)
+        if (this.hasChildren(n)) {
+            html += `<ul class='${levelClass} has-parent'>`
+            for (let c of n.c) {
+                html = this.getList(c, html, level + 1)
             }
             html += `</ul>`
         }

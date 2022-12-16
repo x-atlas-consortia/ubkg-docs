@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Fri Dec 16 2022 13:09:35 GMT-0500 (Eastern Standard Time)
+ * @date Fri Dec 16 2022 13:54:52 GMT-0500 (Eastern Standard Time)
  */
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9688,7 +9688,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
       list: _this6.el.find('.js-sidebar__list'),
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
     };
-    _this6.$.main.css('max-width', _this6.el.width() - 100);
+    _this6.sizeSideBar();
     _this6.classNames.root = 'is-root';
     _this6.events();
     _this6.buildTableOfContents();
@@ -9707,6 +9707,14 @@ var Sidebar = /*#__PURE__*/function (_App5) {
           _this7.el.removeClass(_this7.classNames.active);
         }
       }.bind(this));
+      $(window).on('resize', function (e) {
+        _this7.sizeSideBar();
+      }.bind(this));
+    }
+  }, {
+    key: "sizeSideBar",
+    value: function sizeSideBar() {
+      this.$.main.css('max-width', this.el.width() - 100);
     }
   }, {
     key: "buildTableOfContents",
@@ -9758,8 +9766,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
       App.log('The generated Table of Contents:', root);
       if (root.c.length) {
         var html = "<ul>";
-        var end = [];
-        html = this.getList(root, html, end);
+        html = this.getList(root, html);
         html += "</ul>";
         this.$.list.html(html);
 
@@ -9769,20 +9776,27 @@ var Sidebar = /*#__PURE__*/function (_App5) {
       }
     }
   }, {
+    key: "hasChildren",
+    value: function hasChildren(n) {
+      return n.c && n.c.length > 0;
+    }
+  }, {
     key: "getList",
     value: function getList(root, html) {
-      var end = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+      var level = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
       var n = root;
-      html += "<li ".concat(n.className ? "class=\"".concat(n.className, "\"") : '', "><a href=\"#").concat(n.id, "\">").concat(n.label, "</a>");
-      var children = n.c;
-      if (children && children.length > 0) {
-        html += "<ul>";
-        var _iterator2 = _createForOfIteratorHelper(children),
+      var levelClass = "c-header__level--".concat(level);
+      var classes = "".concat(levelClass, " ");
+      classes += "".concat(this.hasChildren(n) ? 'has-children' : '', " ").concat(n.className || '');
+      html += "<li class=\"".concat(classes, "\" title=\"").concat(n.label, "\"><a href=\"#").concat(n.id, "\">").concat(n.label, "</a>");
+      if (this.hasChildren(n)) {
+        html += "<ul class='".concat(levelClass, " has-parent'>");
+        var _iterator2 = _createForOfIteratorHelper(n.c),
           _step2;
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
             var c = _step2.value;
-            html = this.getList(c, html, end);
+            html = this.getList(c, html, level + 1);
           }
         } catch (err) {
           _iterator2.e(err);
