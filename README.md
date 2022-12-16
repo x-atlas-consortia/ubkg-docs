@@ -3,7 +3,7 @@
 - Save your documentation files in the `docs/` directory.
 - Properly name the documents and directories as path names are used to automatically generate the `Breadcrumbs`
 - Properly use H headings, in their correct rankings as these are pulled from the documents to automatically generate the `Table of Contents`
-- For convenience, within in `docs/lang/en.json`, you are free to change the text:  
+- For convenience, within `docs/lang/en.json`, you are free to change the text:  
   - And links of the `menu` property without having to rebuild the html files. The `menu` property is an array of objects in format of `{name: "Link name", url: "/link-url"}`
   - Of the `breadcrumbRoot` property without having to rebuild the html files. The change here will appear on the `breadcrumbs` component. If you remove this property, no root will be included.
 
