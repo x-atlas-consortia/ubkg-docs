@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # SenNet Software Documentation
 
 SenNet offers several software and tool components for programmatic access to SenNet data and metadata.  This site contains information about this software and tools, more information is available at the [SenNet Consortium Site](https://sennetconsortium.org/) or the [SenNet Data Portal](https://data.sennetconsortium.org)
