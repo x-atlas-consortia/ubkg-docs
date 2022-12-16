@@ -2,8 +2,9 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Fri Dec 16 2022 13:54:52 GMT-0500 (Eastern Standard Time)
+ * @date Fri Dec 16 2022 14:33:44 GMT-0500 (Eastern Standard Time)
  */
+var _this9 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -9173,15 +9174,20 @@ var App = /*#__PURE__*/function () {
     this.classNames = {
       active: 'is-active'
     };
-    this.msgs = this.getLanguageFile();
     this.log(this.app, null, {
       color: 'orange'
     });
+    this.msgs = this.getMsgs();
   }
   _createClass(App, [{
+    key: "getMsgs",
+    value: function getMsgs() {
+      return window.apps.locale;
+    }
+  }, {
     key: "toId",
     value: function toId(val) {
-      return val.toLowerCase().replace(/[\W_]+/g, " ").trim().replaceAll(' ', '-');
+      return val.toLowerCase().replace(/[\W_]+/g, ' ').trim().replaceAll(' ', '-');
     }
   }, {
     key: "toUpperCaseFirst",
@@ -9210,6 +9216,7 @@ var App = /*#__PURE__*/function () {
     value: function currentTarget(e) {
       return $(e.currentTarget);
     }
+
     /**
      * Prevents bubbling of javascript event to parent
      * @param {*} e Javascript event
@@ -9241,47 +9248,6 @@ var App = /*#__PURE__*/function () {
       return this.msgs[msg] || msg;
     }
   }, {
-    key: "getLanguageFile",
-    value: function () {
-      var _getLanguageFile = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var res;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-                if (!window.apps.locale) {
-                  _context.next = 3;
-                  break;
-                }
-                return _context.abrupt("return", window.apps.locale);
-              case 3:
-                _context.next = 5;
-                return Rest.get("/lang/".concat(LocalStore.getLanguage(), ".json"));
-              case 5:
-                res = _context.sent;
-                _context.next = 8;
-                return res.json();
-              case 8:
-                window.apps.locale = _context.sent;
-                return _context.abrupt("return", window.apps.locale);
-              case 12:
-                _context.prev = 12;
-                _context.t0 = _context["catch"](0);
-                console.error(_context.t0);
-              case 15:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, null, [[0, 12]]);
-      }));
-      function getLanguageFile() {
-        return _getLanguageFile.apply(this, arguments);
-      }
-      return getLanguageFile;
-    }()
-  }, {
     key: "log",
     value: function log(title, msg) {
       var ops = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -9292,6 +9258,48 @@ var App = /*#__PURE__*/function () {
     value: function isLocal() {
       return window.location.host.indexOf('localhost') !== -1;
     }
+  }, {
+    key: "loadLanguageFile",
+    value: function () {
+      var _loadLanguageFile = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var res;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                if (!window.apps.locale) {
+                  _context.next = 3;
+                  break;
+                }
+                return _context.abrupt("return", true);
+              case 3:
+                _context.next = 5;
+                return Rest.get("/lang/".concat(LocalStore.getLanguage(), ".json"));
+              case 5:
+                res = _context.sent;
+                _context.next = 8;
+                return res.json();
+              case 8:
+                window.apps.locale = _context.sent;
+                _context.next = 14;
+                break;
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](0);
+                console.error(_context.t0);
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 11]]);
+      }));
+      function loadLanguageFile() {
+        return _loadLanguageFile.apply(this, arguments);
+      }
+      return loadLanguageFile;
+    }()
   }, {
     key: "log",
     value: function log(title, msg) {
@@ -9493,6 +9501,7 @@ var Header = /*#__PURE__*/function (_App4) {
                 try {
                   for (_iterator.s(); !(_step = _iterator.n()).done;) {
                     li = _step.value;
+                    this.log("Menu ".concat(x), li);
                     $li = this.$.li.eq(x);
                     if (li.name !== $li.text()) {
                       $li.text(li.name);
@@ -9820,7 +9829,6 @@ var Sidebar = /*#__PURE__*/function (_App5) {
 function ZIndex(source) {
   var args = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
   App.log('Apps started ...');
-  window.apps = window.apps || {};
   if (window.apps[source] !== undefined) {
     return;
   }
@@ -9848,9 +9856,12 @@ function ZIndex(source) {
     console.error(e);
   }
 }
-window.addEventListener("load", function (event) {
+window.addEventListener('load', function (event) {
   App.log('SenNet Docs ...', null, {
     color: 'pink'
   });
-  ZIndex('init');
+  window.apps = window.apps || {};
+  App.loadLanguageFile().then(function (m) {
+    ZIndex('init');
+  }.bind(_this9));
 });

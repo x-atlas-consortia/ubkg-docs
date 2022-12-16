@@ -8,10 +8,10 @@ class Header extends App {
     }
 
     async syncHeader() {
-
         if (!this.msgs.menu) return
         let x = 1
         for (let li of this.msgs.menu) {
+            this.log(`Menu ${x}`, li)
             let $li = this.$.li.eq(x)
 
             if (li.name !== $li.text()) {

@@ -5,9 +5,9 @@
  * @returns
  */
 
-function ZIndex(source, args= null) {
+function ZIndex(source, args = null) {
     App.log('Apps started ...')
-    window.apps = window.apps || {}
+
     if (window.apps[source] !== undefined) {
         return
     }
@@ -27,7 +27,7 @@ function ZIndex(source, args= null) {
             document
                 .querySelectorAll(`[class*='js-app--${app}'], [data-js-${app}]`)
                 .forEach((el) => {
-                    new apps[app](el, {app, ...args })
+                    new apps[app](el, { app, ...args })
                 })
         }
     } catch (e) {
@@ -35,7 +35,12 @@ function ZIndex(source, args= null) {
     }
 }
 
-window.addEventListener("load", (event) => {
-    App.log('SenNet Docs ...', null, {color: 'pink'})
-    ZIndex('init')
+window.addEventListener('load', (event) => {
+    App.log('SenNet Docs ...', null, { color: 'pink' })
+    window.apps = window.apps || {}
+    App.loadLanguageFile().then(
+        ((m) => {
+            ZIndex('init')
+        }).bind(this)
+    )
 })

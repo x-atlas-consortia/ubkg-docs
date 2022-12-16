@@ -10,12 +10,21 @@ class App {
         this.classNames = {
             active: 'is-active'
         }
-        this.msgs = this.getLanguageFile()
-        this.log(this.app, null, {color: 'orange'})
+
+        this.log(this.app, null, { color: 'orange' })
+        this.msgs = this.getMsgs()
+    }
+
+    getMsgs() {
+        return window.apps.locale
     }
 
     toId(val) {
-        return val.toLowerCase().replace(/[\W_]+/g, " ").trim().replaceAll(' ', '-')
+        return val
+            .toLowerCase()
+            .replace(/[\W_]+/g, ' ')
+            .trim()
+            .replaceAll(' ', '-')
     }
 
     toUpperCaseFirst(val) {
@@ -28,16 +37,21 @@ class App {
     }
 
     onKeydownEnter(sel, cb, trigger = 'click') {
-        this.el.on('keydown', `${sel}`, ((e) => {
-            if (this.isEnter(e)) {
-                cb ? cb(e) : this.handleKeydown(e, trigger)
-            }
-        }).bind(this))
+        this.el.on(
+            'keydown',
+            `${sel}`,
+            ((e) => {
+                if (this.isEnter(e)) {
+                    cb ? cb(e) : this.handleKeydown(e, trigger)
+                }
+            }).bind(this)
+        )
     }
 
     currentTarget(e) {
         return $(e.currentTarget)
     }
+
     /**
      * Prevents bubbling of javascript event to parent
      * @param {*} e Javascript event
@@ -60,20 +74,19 @@ class App {
     }
 
     static isLocal() {
-        return (window.location.host.indexOf('localhost') !== -1)
+        return window.location.host.indexOf('localhost') !== -1
     }
 
     _t(msg) {
         return this.msgs[msg] || msg
     }
 
-    async getLanguageFile() {
+    static async loadLanguageFile() {
         try {
-            if (window.apps.locale) return window.apps.locale
+            if (window.apps.locale) return true
             const res = await Rest.get(`/lang/${LocalStore.getLanguage()}.json`)
             window.apps.locale = await res.json()
-            return window.apps.locale
-        } catch(e) {
+        } catch (e) {
             console.error(e)
         }
     }
@@ -86,7 +99,6 @@ class App {
             if (msg) {
                 console[fn](msg)
             }
-
         }
     }
 
@@ -94,4 +106,3 @@ class App {
         App.log(title, msg, ops)
     }
 }
-
