@@ -17,7 +17,8 @@ function ZIndex(source, args= null) {
         sidebar: Sidebar,
         breadcrumbs: Breadcrumbs,
         footer: Footer,
-        fileMeta: FileMeta
+        fileMeta: FileMeta,
+        header: Header
     }
 
     args = args || window.apps.init

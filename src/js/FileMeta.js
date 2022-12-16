@@ -9,7 +9,7 @@ class FileMeta extends App {
         this.addDate()
     }
 
-    addDate() {
+    async addDate() {
         let lastMod = null;
         try {
             const path = window.location.pathname
@@ -21,18 +21,17 @@ class FileMeta extends App {
             }
 
             for (let p of paths) {
-                if (this.$.date.html() && this.$.date.html().length ) return
-                fetch(p).then((r => {
-                    if (r.ok) {
-                        lastMod = r.headers.get('last-modified')
-                        this.$.date.html(lastMod)
-                        this.$.label.addClass(this.classNames.active)
-                    } else {
-                        this.$.label.removeClass(this.classNames.active)
-                        App.log(`Error: ${r.status}`, r.statusText, {error: true})
-                    }
-                    return r.text()
-                }).bind(this))
+                if (this.$.date.html() && this.$.date.html().length) return
+
+                let r = await Rest.get(p, 'text/plain')
+                if (r.ok) {
+                    lastMod = r.headers.get('last-modified')
+                    this.$.date.html(lastMod)
+                    this.$.label.addClass(this.classNames.active)
+                } else {
+                    this.$.label.removeClass(this.classNames.active)
+                    App.log(`Error: ${r.status}`, r.statusText, {error: true})
+                }
             }
         } catch (e) {
             App.log(this.app, e, {error: true})

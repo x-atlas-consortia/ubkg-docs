@@ -3,7 +3,7 @@ const babel = require('gulp-babel')
 const concat = require('gulp-concat')
 const plumber = require('gulp-plumber')
 const pug = require('gulp-pug')
-const lang = require('./src/lang/en.json')
+const lang = require('./docs/lang/en.json')
 const stylus = require('gulp-stylus')
 const header = require('gulp-header')
 
