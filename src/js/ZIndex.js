@@ -36,6 +36,6 @@ function ZIndex(source, args= null) {
 }
 
 window.addEventListener("load", (event) => {
-    App.log('SenNet Docs...', null, {color: 'pink'})
+    App.log('SenNet Docs ...', null, {color: 'pink'})
     ZIndex('init')
 })

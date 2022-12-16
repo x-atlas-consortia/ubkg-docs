@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Fri Dec 16 2022 10:07:34 GMT-0500 (Eastern Standard Time)
+ * @date Fri Dec 16 2022 12:07:16 GMT-0500 (Eastern Standard Time)
  */
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9316,7 +9316,7 @@ var FileMeta = /*#__PURE__*/function (_App2) {
     key: "addDate",
     value: function () {
       var _addDate = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var lastMod, path, paths, _i, _paths, p, r;
+        var lastMod, path, paths, _i, _paths, p, r, date, formattedDate, formattedTime;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -9324,37 +9324,42 @@ var FileMeta = /*#__PURE__*/function (_App2) {
                 lastMod = null;
                 _context.prev = 1;
                 path = window.location.pathname;
+                if (path[path.length - 1] === '/') {
+                  path += 'index';
+                }
                 if (path) {
-                  _context.next = 5;
+                  _context.next = 6;
                   break;
                 }
                 return _context.abrupt("return");
-              case 5:
-                paths = [path + '.md'];
-                if (path.indexOf('.htm') === -1) {
-                  paths.push(path + '.html');
-                  paths.push(path + '.htm');
+              case 6:
+                paths = [];
+                if (path.split('.').pop() === path) {
+                  paths = ["".concat(path, ".html"), "".concat(path, ".md")];
                 }
                 _i = 0, _paths = paths;
-              case 8:
+              case 9:
                 if (!(_i < _paths.length)) {
-                  _context.next = 19;
+                  _context.next = 20;
                   break;
                 }
                 p = _paths[_i];
                 if (!(this.$.date.html() && this.$.date.html().length)) {
-                  _context.next = 12;
+                  _context.next = 13;
                   break;
                 }
                 return _context.abrupt("return");
-              case 12:
-                _context.next = 14;
+              case 13:
+                _context.next = 15;
                 return Rest.get(p, 'text/plain');
-              case 14:
+              case 15:
                 r = _context.sent;
                 if (r.ok) {
                   lastMod = r.headers.get('last-modified');
-                  this.$.date.html(lastMod);
+                  date = new Date(lastMod);
+                  formattedDate = date.toLocaleDateString('en-US');
+                  formattedTime = date.toLocaleTimeString('en-US');
+                  this.$.date.html(formattedDate + ' @ ' + formattedTime);
                   this.$.label.addClass(this.classNames.active);
                 } else {
                   this.$.label.removeClass(this.classNames.active);
@@ -9362,25 +9367,25 @@ var FileMeta = /*#__PURE__*/function (_App2) {
                     error: true
                   });
                 }
-              case 16:
+              case 17:
                 _i++;
-                _context.next = 8;
+                _context.next = 9;
                 break;
-              case 19:
-                _context.next = 24;
+              case 20:
+                _context.next = 25;
                 break;
-              case 21:
-                _context.prev = 21;
+              case 22:
+                _context.prev = 22;
                 _context.t0 = _context["catch"](1);
                 App.log(this.app, _context.t0, {
                   error: true
                 });
-              case 24:
+              case 25:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 21]]);
+        }, _callee, this, [[1, 22]]);
       }));
       function addDate() {
         return _addDate.apply(this, arguments);
@@ -9785,7 +9790,7 @@ function ZIndex(source) {
   }
 }
 window.addEventListener("load", function (event) {
-  App.log('SenNet Docs...', null, {
+  App.log('SenNet Docs ...', null, {
     color: 'pink'
   });
   ZIndex('init');

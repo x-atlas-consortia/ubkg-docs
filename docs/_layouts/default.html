@@ -5,7 +5,9 @@
     <script src="/js/jquery-3.6.2.min.js"></script>
     <script src="/js/main.js"></script>
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/css/main.css"/>{% seo %}
+    <link rel="stylesheet" href="/css/main.css"/>
+    
+    {% seo %}
   </head>
   <body>
     <header class="c-header js-app--header" role="navigation">
@@ -13,7 +15,7 @@
         <div class="c-header__menu js-header__menu">
           <ul>
             <li class="c-header__logo"><img src="/logo192.png" alt="SenNet Documentation"></li>
-            <li><a href="/">SenNet</a></li>
+            <li class="h1"><a href="/">SenNet</a></li>
             <li><a href="#assays">Assays</a></li>
             <li><a href="#apis">APIs</a></li>
             <li><a href="#sdk">SDK</a></li>
@@ -30,18 +32,17 @@
       </div>
     </div>
         <div class="c-container" role="main">
-          <div class="c-breadcrumbs js-app-breadcrumbs" role="navigation" aria-label="Breadcrumbs">
+          <div class="c-breadcrumbs js-app--breadcrumbs" role="navigation" aria-label="Breadcrumbs">
             <div class="c-breadcrumbs__main js-breadcrumbs__main"></div>
           </div>
           <div class="c-documentation">{{ content }}</div>
         </div>
     <footer class="c-footer js-app--footer">
-      <div class="c-footer__main">&copy;&nbsp;<span class="c-footer__date js-footer__date"></span>&nbsp;<span class="c-footer__name">SenNet Documentation</span>
-        <div class="c-footer__meta">
-          <div class="c-fileMeta js-app--fileMeta">
-            <spanc class="c-fileMeta__label js-fileMeta__label">Last Modified: </spanc><span class="js-fileMeta__date"></span>
-          </div>
-        </div>
+      <div class="c-footer__meta">
+        <div class="c-fileMeta js-app--fileMeta"><span class="c-fileMeta__label js-fileMeta__label">Last Modified: </span>&nbsp;<span class="js-fileMeta__date"></span></div>
+      </div>
+      <div class="c-footer__main">
+        <div class="c-footer__wrap">&copy;&nbsp;<span class="c-footer__date js-footer__date"></span>&nbsp;<span class="c-footer__name">SenNet Documentation</span></div>
       </div>
     </footer>
   </body>
