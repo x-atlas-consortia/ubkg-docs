@@ -21,18 +21,30 @@ npm i .
 ```bash
 npm start
 ```
-Open [http://localhost:3005](http://localhost:3005) with your browser to see the result.
+Open [http://localhost:3005](http://localhost:3005) with your browser to see the result.   
+*Note:* This is only for viewing the styles, layouts and JS functionality generated through `/src` changes, ideally should set up the docker server for mimicking of GitHub pages to test fully.
 ### CSS 
 ```
-npm run css # watch and build stylus files
+npm run css # builds CSS files to `/docs/css/main.css` and copies to `./docs/_site` GitHub build folder
 ```
 
-### Build
+### JS
 ```
-npm run build
+npm run js # builds Js files to `/docs/js/main.js` and copies to `./docs/_site` GitHub build folder
+```
+
+### html
+```
+npm run html # builds the PUG layout and pages to `/docs[/_layout]`
+```
+
+### Build All 
+```
+npm run build # builds all of the above
 ```
 Serve `docs` folder locally.   
-Should have `serve` module installed after running `npm i .`
+Should have `serve` module installed after running `npm i .`  
+*Note:* This is only for viewing the styles, layouts and JS functionality generated through `/src` changes, ideally should set up the docker server for mimicking of GitHub pages to test fully.
 ```
 serve ./docs 
 ```

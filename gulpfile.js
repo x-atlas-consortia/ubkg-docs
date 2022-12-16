@@ -7,7 +7,6 @@ const lang = require('./docs/lang/en.json')
 const stylus = require('gulp-stylus')
 const header = require('gulp-header')
 const { exec } = require('child_process')
-const fs = require('fs')
 
 const pkg = require('./package.json')
 const banner = [
@@ -60,7 +59,7 @@ function html() {
                 locals
             })
         )
-        .pipe(gulp.dest('./docs/_layouts/'))
+        .pipe(gulp.dest('docs/_layouts/'))
 }
 
 gulp.task('html-layouts', html)
@@ -74,7 +73,7 @@ function html2() {
                 locals
             })
         )
-        .pipe(gulp.dest('./docs/'))
+        .pipe(gulp.dest('docs/'))
 }
 
 gulp.task('html-pages', html2)
@@ -88,14 +87,21 @@ function css() {
             })
         )
         .pipe(header(banner, { pkg, date: new Date() }))
-        .pipe(gulp.dest('./docs/css/'))
+        .pipe(gulp.dest('docs/css/'))
 }
 
 gulp.task('css', css)
 
+function touch() {
+    try {
+        exec('npm run css', (error, stdout, stderr) => {})
+    } catch (e) {}
+}
+
+gulp.task('touch', touch)
 
 exports.default = function () {
     gulp.watch('src/pug/**/*.pug', gulp.series(html, html2))
     gulp.watch('src/js/*.js', js)
-    gulp.watch('src/styles/**/*.styl', css)
+    gulp.watch('src/styles/**/*.styl', touch)
 }
