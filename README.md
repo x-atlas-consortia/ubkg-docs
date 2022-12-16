@@ -42,9 +42,9 @@ serve ./docs
 - Please set up prettier in your IDE to keep code formatting consistent or just follow the prettier rules as described in `./package.json`
 - Do follow any additional code formatting and styles as seen in the project
 
-## Testing locally with docker
-The docker image built out of the /docker directory provides a local server to mimic the GitHub Pages server. This image has been built and pushed to DockerHub. 
-To run it you must mount a local copy of the `/documentation/` repo as a volume in the container as the volume `/documentation/` and expose port 4000 locally. 
+## Mimicking GitHub Pages Locally
+The docker image built out of the `/docker` directory provides a local server to mimic the GitHub Pages server. This image has been built and pushed to DockerHub. 
+To run it you must mount a local copy of the `/documentation/` repo as a volume in the container as the volume `/software-docs/` and expose port `4000` locally. 
 The `runlocal.sh` script is provided to help with this. You must have docker installed and running.
 
 To test this repository locally using the docker image execute the `runlocal.sh` script included in this directory like:
