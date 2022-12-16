@@ -93,34 +93,9 @@ function css() {
 
 gulp.task('css', css)
 
-function cmd(cmd) {
-    exec(cmd, (error, stdout, stderr) => {
-        if (error) {
-            console.log(`error: ${error.message}`)
-            return
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`)
-            return
-        }
-        console.log(`stdout: ${stdout}`)
-    })
-}
-
-function copyJs() {
-    if (fs.existsSync('./docs/_site/js')) {
-        cmd('cp docs/js/main.js docs/_site/js/main.js')
-    }
-}
-
-function copyCss() {
-    if (fs.existsSync('./docs/_site/css')) {
-        cmd('cp docs/css/main.css docs/_site/css/main.css')
-    }
-}
 
 exports.default = function () {
     gulp.watch('src/pug/**/*.pug', gulp.series(html, html2))
-    gulp.watch('src/js/*.js', gulp.series(js, copyJs))
-    gulp.watch('src/styles/**/*.styl', gulp.series(css, copyCss))
+    gulp.watch('src/js/*.js', js)
+    gulp.watch('src/styles/**/*.styl', css)
 }

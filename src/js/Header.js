@@ -8,14 +8,13 @@ class Header extends App {
     }
 
     async syncHeader() {
-        let res = await Rest.get(`/lang/${LocalStore.getLanguage()}.json`)
-        let lang = await res.json()
 
+        if (!this.msgs.menu) return
         let x = 1
-        for (let li of lang.menu) {
+        for (let li of this.msgs.menu) {
             let $li = this.$.li.eq(x)
 
-            if (li.name !== $li.text())  {
+            if (li.name !== $li.text()) {
                 $li.text(li.name)
             }
 
@@ -27,6 +26,5 @@ class Header extends App {
 
             x++
         }
-
     }
 }

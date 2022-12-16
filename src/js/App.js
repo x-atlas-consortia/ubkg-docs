@@ -10,6 +10,7 @@ class App {
         this.classNames = {
             active: 'is-active'
         }
+        this.msgs = this.getLanguageFile()
         this.log(this.app, null, {color: 'orange'})
     }
 
@@ -60,6 +61,21 @@ class App {
 
     static isLocal() {
         return (window.location.host.indexOf('localhost') !== -1)
+    }
+
+    _t(msg) {
+        return this.msgs[msg] || msg
+    }
+
+    async getLanguageFile() {
+        try {
+            if (window.apps.locale) return window.apps.locale
+            const res = await Rest.get(`/lang/${LocalStore.getLanguage()}.json`)
+            window.apps.locale = await res.json()
+            return window.apps.locale
+        } catch(e) {
+            console.error(e)
+        }
     }
 
     static log(title, msg, ops = {}) {

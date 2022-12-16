@@ -12,7 +12,7 @@ class Breadcrumbs extends App {
         let list = ''
         const path = window.location.pathname
 
-        list += `<li><a href="/">Home</a></li>`
+        list += `<li><a href="/">${this._t('Home')}</a></li>`
         if (path === '/') {
             return
         }
