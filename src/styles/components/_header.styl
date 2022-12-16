@@ -4,12 +4,15 @@
   border none
   padding-top 6px
   height 90px
+
   &__main
     pos-rel()
     container()
+
   &__menu
     pos-abs()
     transform translateY(45%)
+
   li
     list-style none
     display inline-block
@@ -18,19 +21,25 @@
     margin-right 15px
     color white
     padding-top 5px
+
     &.h2
       h2()
       font-weight bold
+
     a
       color white
       text-decoration none
+
       &:hover
         text-decoration underline
+
     &:first-child
       margin-left 0
+
     &.c-header__logo
       margin-right 50px
       padding-top 0
+
       img
         pos-abs()
         top 0
