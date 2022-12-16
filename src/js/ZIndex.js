@@ -24,7 +24,7 @@ function ZIndex(source, args= null) {
     try {
         for (let app in apps) {
             document
-                .querySelectorAll(`[class*='js-${app}'], [data-js-${app}]`)
+                .querySelectorAll(`[class*='js-app--${app}'], [data-js-${app}]`)
                 .forEach((el) => {
                     new apps[app](el, {app, ...args })
                 })

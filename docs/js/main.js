@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Thu Dec 15 2022 16:06:26 GMT-0500 (Eastern Standard Time)
+ * @date Fri Dec 16 2022 09:00:39 GMT-0500 (Eastern Standard Time)
  */
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9246,8 +9246,8 @@ var App = /*#__PURE__*/function () {
     key: "log",
     value: function log(title, msg) {
       var ops = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var fn = ops.fn || 'log';
-      var color = ops.color || '#bada55';
+      var fn = ops.fn || (ops.error ? 'error' : 'log');
+      var color = ops.color || (ops.error ? 'red' : '#bada55');
       if (App.isLocal()) {
         console[fn]("%c ".concat(title), "background: #222; color: ".concat(color));
         if (msg) {
@@ -9302,7 +9302,10 @@ var FileMeta = /*#__PURE__*/function (_App2) {
     var _this3;
     _classCallCheck(this, FileMeta);
     _this3 = _super2.call(this, el, args);
-    _this3.$span = _this3.el.find('.js-fileMeta__date');
+    _this3.$ = {
+      date: _this3.el.find('.js-fileMeta__date'),
+      label: _this3.el.find('.js-fileMeta__label')
+    };
     _this3.addDate();
     return _this3;
   }
@@ -9312,30 +9315,33 @@ var FileMeta = /*#__PURE__*/function (_App2) {
       var _this4 = this;
       var lastMod = null;
       try {
-        var _ret = function () {
-          var path = window.location.pathname;
-          var paths = [path + '.md'];
-          if (path.indexOf('.htm') === -1) {
-            paths.push(path + '.html');
-            paths.push(path + '.htm');
-          }
-          var _t = _this4;
-          for (var _i = 0, _paths = paths; _i < _paths.length; _i++) {
-            var p = _paths[_i];
-            if (_this4.$span.html().length) return {
-              v: void 0
-            };
-            fetch(p).then(function (r) {
+        var path = window.location.pathname;
+        if (!path) return;
+        var paths = [path + '.md'];
+        if (path.indexOf('.htm') === -1) {
+          paths.push(path + '.html');
+          paths.push(path + '.htm');
+        }
+        for (var _i = 0, _paths = paths; _i < _paths.length; _i++) {
+          var p = _paths[_i];
+          if (this.$.date.html() && this.$.date.html().length) return;
+          fetch(p).then(function (r) {
+            if (r.ok) {
               lastMod = r.headers.get('last-modified');
-              _t.$span.html(lastMod);
-              return r.text();
-            });
-          }
-        }();
-        if (_typeof(_ret) === "object") return _ret.v;
+              _this4.$.date.html(lastMod);
+              _this4.$.label.addClass(_this4.classNames.active);
+            } else {
+              _this4.$.label.removeClass(_this4.classNames.active);
+              App.log("Error: ".concat(r.status), r.statusText, {
+                error: true
+              });
+            }
+            return r.text();
+          }.bind(this));
+        }
       } catch (e) {
         App.log(this.app, e, {
-          fn: 'error'
+          error: true
         });
       }
     }
@@ -9504,7 +9510,7 @@ function ZIndex(source) {
   args = args || window.apps.init;
   try {
     var _loop = function _loop(app) {
-      document.querySelectorAll("[class*='js-".concat(app, "'], [data-js-").concat(app, "]")).forEach(function (el) {
+      document.querySelectorAll("[class*='js-app--".concat(app, "'], [data-js-").concat(app, "]")).forEach(function (el) {
         new apps[app](el, _objectSpread({
           app: app
         }, args));

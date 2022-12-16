@@ -63,8 +63,8 @@ class App {
     }
 
     static log(title, msg, ops = {}) {
-        const fn = ops.fn || 'log'
-        const color = ops.color ||  '#bada55'
+        const fn = ops.fn || (ops.error ? 'error' : 'log')
+        const color = ops.color || (ops.error ? 'red' : '#bada55')
         if (App.isLocal()) {
             console[fn](`%c ${title}`, `background: #222; color: ${color}`)
             if (msg) {
