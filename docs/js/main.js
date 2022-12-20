@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Tue Dec 20 2022 12:29:01 GMT-0500 (Eastern Standard Time)
+ * @date Tue Dec 20 2022 13:59:15 GMT-0500 (Eastern Standard Time)
  */
 var _this9 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9216,6 +9216,11 @@ var App = /*#__PURE__*/function () {
     value: function currentTarget(e) {
       return $(e.currentTarget);
     }
+  }, {
+    key: "isMobile",
+    value: function isMobile() {
+      return $(window).width() <= 1024;
+    }
 
     /**
      * Prevents bubbling of javascript event to parent
@@ -9708,6 +9713,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
     _classCallCheck(this, Sidebar);
     _this6 = _super5.call(this, el, args);
     _this6.$ = {
+      wrap: _this6.el.find('.js-sidebar__wrap'),
       main: _this6.el.find('.js-sidebar__main'),
       list: _this6.el.find('.js-sidebar__list'),
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
@@ -9725,7 +9731,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
       $(document).on('scroll', function (e) {
         var st = $(document).scrollTop();
         var headerHeight = 90;
-        if (st > headerHeight) {
+        if (st > headerHeight && !_this7.isMobile()) {
           _this7.el.addClass(_this7.classNames.active);
         } else {
           _this7.el.removeClass(_this7.classNames.active);
@@ -9738,7 +9744,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
   }, {
     key: "sizeSideBar",
     value: function sizeSideBar() {
-      this.$.main.css('max-width', this.el.width() - 100);
+      this.$.main.css('width', this.$.wrap.width());
     }
   }, {
     key: "buildTableOfContents",

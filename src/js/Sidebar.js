@@ -3,6 +3,7 @@ class Sidebar extends App {
     constructor(el, args) {
         super(el, args)
         this.$ = {
+            wrap: this.el.find('.js-sidebar__wrap'),
             main: this.el.find('.js-sidebar__main'),
             list: this.el.find('.js-sidebar__list'),
             hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
@@ -17,7 +18,7 @@ class Sidebar extends App {
         $(document).on('scroll', ((e) => {
             const st = $(document).scrollTop()
             const headerHeight = 90
-            if (st > headerHeight) {
+            if (st > headerHeight && !this.isMobile()) {
                 this.el.addClass(this.classNames.active)
             } else {
                 this.el.removeClass(this.classNames.active)
@@ -30,7 +31,7 @@ class Sidebar extends App {
     }
 
     sizeSideBar() {
-        this.$.main.css('max-width', this.el.width() - 100)
+        this.$.main.css('width', this.$.wrap.width())
     }
 
     buildTableOfContents() {

@@ -1,8 +1,5 @@
 .c-sidebar
-  width 25%
   pos-rel()
-  +bp(max, $xlg-min)
-    width 100%
 
   &.is-active
     .c-sidebar__main
@@ -10,12 +7,22 @@
 
   &__wrap
     pos-abs()
+    width 20%
+    @media (max-width:$xxxlg-min)
+      width 25%
+    +md-max()
+      pos-rel()
+    +bp(max, $lg-min)
+      width 100%
 
   &__main
     pos-rel()
     top 30px
-    left 30px
+    padding-left 30px
+    padding-right 30px
     height 25vh
+    +md-max()
+      height inherit
 
     > h2
       margin-bottom .8em

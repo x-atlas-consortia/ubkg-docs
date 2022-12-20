@@ -52,6 +52,10 @@ class App {
         return $(e.currentTarget)
     }
 
+    isMobile() {
+        return $(window).width() <= 1024
+    }
+
     /**
      * Prevents bubbling of javascript event to parent
      * @param {*} e Javascript event
