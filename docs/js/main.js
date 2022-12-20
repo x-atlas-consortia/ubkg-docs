@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Fri Dec 16 2022 15:55:56 GMT-0500 (Eastern Standard Time)
+ * @date Tue Dec 20 2022 12:29:01 GMT-0500 (Eastern Standard Time)
  */
 var _this9 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9809,7 +9809,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
     value: function getList(root, html) {
       var level = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
       var n = root;
-      var levelClass = "c-header__level--".concat(level);
+      var levelClass = "c-sidebar__level--".concat(level);
       var classes = "".concat(levelClass, " ");
       classes += "".concat(this.hasChildren(n) ? 'has-children' : '', " ").concat(n.className || '');
       html += "<li class=\"".concat(classes, "\" title=\"").concat(n.label, "\"><a href=\"#").concat(n.id, "\">").concat(n.label, "</a>");

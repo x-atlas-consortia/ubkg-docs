@@ -92,7 +92,7 @@ class Sidebar extends App {
     getList(root, html, level= 0) {
 
         let n = root
-        const levelClass = `c-header__level--${level}`
+        const levelClass = `c-sidebar__level--${level}`
         let classes = `${levelClass} `
         classes += `${this.hasChildren(n) ? 'has-children' : ''} ${n.className || ''}`
 
