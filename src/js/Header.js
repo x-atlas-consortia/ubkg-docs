@@ -6,6 +6,21 @@ class Header extends App {
             ul: this.el.find('.js-header__menu ul')
         }
         this.syncHeader()
+        this.events()
+    }
+
+    events() {
+        this.$.li.find('a').on('click', ((e)=> {
+            e.preventDefault()
+            const link = this.currentTarget(e).attr('href')
+            if (window.location.pathname !== '/') {
+                window.location =  '/' + link.slice(1)
+            } else {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(link).offset().top
+                }, 400)
+            }
+        }).bind(this))
     }
 
 

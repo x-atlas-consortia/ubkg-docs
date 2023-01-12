@@ -2,9 +2,9 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Tue Dec 20 2022 13:59:15 GMT-0500 (Eastern Standard Time)
+ * @date Thu Jan 12 2023 12:39:48 GMT-0500 (Eastern Standard Time)
  */
-var _this9 = this;
+var _this10 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -9487,9 +9487,26 @@ var Header = /*#__PURE__*/function (_App4) {
       ul: _this5.el.find('.js-header__menu ul')
     };
     _this5.syncHeader();
+    _this5.events();
     return _this5;
   }
   _createClass(Header, [{
+    key: "events",
+    value: function events() {
+      var _this6 = this;
+      this.$.li.find('a').on('click', function (e) {
+        e.preventDefault();
+        var link = _this6.currentTarget(e).attr('href');
+        if (window.location.pathname !== '/') {
+          window.location = '/' + link.slice(1);
+        } else {
+          $([document.documentElement, document.body]).animate({
+            scrollTop: $(link).offset().top
+          }, 400);
+        }
+      }.bind(this));
+    }
+  }, {
     key: "syncHeader",
     value: function () {
       var _syncHeader = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
@@ -9709,36 +9726,36 @@ var Sidebar = /*#__PURE__*/function (_App5) {
   _inherits(Sidebar, _App5);
   var _super5 = _createSuper(Sidebar);
   function Sidebar(el, args) {
-    var _this6;
+    var _this7;
     _classCallCheck(this, Sidebar);
-    _this6 = _super5.call(this, el, args);
-    _this6.$ = {
-      wrap: _this6.el.find('.js-sidebar__wrap'),
-      main: _this6.el.find('.js-sidebar__main'),
-      list: _this6.el.find('.js-sidebar__list'),
+    _this7 = _super5.call(this, el, args);
+    _this7.$ = {
+      wrap: _this7.el.find('.js-sidebar__wrap'),
+      main: _this7.el.find('.js-sidebar__main'),
+      list: _this7.el.find('.js-sidebar__list'),
       hs: $('.c-documentation').find('h1, h2, h3, h4, h5, h6')
     };
-    _this6.sizeSideBar();
-    _this6.classNames.root = 'is-root';
-    _this6.events();
-    _this6.buildTableOfContents();
-    return _this6;
+    _this7.sizeSideBar();
+    _this7.classNames.root = 'is-root';
+    _this7.events();
+    _this7.buildTableOfContents();
+    return _this7;
   }
   _createClass(Sidebar, [{
     key: "events",
     value: function events() {
-      var _this7 = this;
+      var _this8 = this;
       $(document).on('scroll', function (e) {
         var st = $(document).scrollTop();
         var headerHeight = 90;
-        if (st > headerHeight && !_this7.isMobile()) {
-          _this7.el.addClass(_this7.classNames.active);
+        if (st > headerHeight && !_this8.isMobile()) {
+          _this8.el.addClass(_this8.classNames.active);
         } else {
-          _this7.el.removeClass(_this7.classNames.active);
+          _this8.el.removeClass(_this8.classNames.active);
         }
       }.bind(this));
       $(window).on('resize', function (e) {
-        _this7.sizeSideBar();
+        _this8.sizeSideBar();
       }.bind(this));
     }
   }, {
@@ -9749,7 +9766,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
   }, {
     key: "buildTableOfContents",
     value: function buildTableOfContents() {
-      var _this8 = this;
+      var _this9 = this;
       var rootChildren = [];
       var root = {
         tag: 'h0',
@@ -9764,7 +9781,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
         var n1 = Number(node[1]);
         var n2 = Number(top.tag[1]);
         var label = $(el).text();
-        var id = $(el).attr('id') || _this8.toId(label);
+        var id = $(el).attr('id') || _this9.toId(label);
         var pack = {
           tag: node,
           id: id,
@@ -9884,5 +9901,5 @@ window.addEventListener('load', function (event) {
   window.apps = window.apps || {};
   App.loadLanguageFile().then(function (m) {
     ZIndex('init');
-  }.bind(_this9));
+  }.bind(_this10));
 });
