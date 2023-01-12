@@ -3,7 +3,8 @@ header.c-header.js-app--header(role='navigation')
         .c-header__menu.js-header__menu
             ul
                 li.c-header__logo
-                    img(src='/logo192.png' alt=_m['SenNet Docs'])
+                    a(href='/')
+                        img(src='/logo192.png' alt=_m['SenNet Docs'])
                 each item in _m.menu
                     li(class=item.class)
                         a(href=item.href)=item.name

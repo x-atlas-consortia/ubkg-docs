@@ -16,9 +16,11 @@ class Header extends App {
             if (window.location.pathname !== '/') {
                 window.location =  '/' + link.slice(1)
             } else {
-                $([document.documentElement, document.body]).animate({
-                    scrollTop: $(link).offset().top
-                }, 400)
+                if (link !== '/') {
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: $(link).offset().top
+                    }, 400)
+                }
             }
         }).bind(this))
     }
