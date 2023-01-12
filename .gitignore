@@ -27,4 +27,4 @@ yarn-debug.log*
 yarn-error.log*
 
 comps.md
-docs/provenance-ui/foo/
+docs/libraries/provenance-ui/foo
