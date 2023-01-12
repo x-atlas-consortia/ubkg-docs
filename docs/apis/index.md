@@ -9,6 +9,6 @@ Below is a list of API services which can be used to search and retrieve informa
 Exposes calls needs for establishing authentication, database connections and validation.
 - [GitHub](https://github.com/sennetconsortium/ingest-api)
 
-### Metadata Validation
+### [Metadata Validation](/apis/ingest/metadata-validation/)
 Provides endpoints that run [tools](/libraries/ingest-validation-tools/) which check that uploads adhere to SenNet data guidelines.
 - [Docs](/apis/ingest/metadata-validation/)

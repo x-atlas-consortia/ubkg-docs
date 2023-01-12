@@ -10,17 +10,5 @@ SenNet offers several software and tool components for programmatic access to Se
 There are several APIs which can be used to search and retrieve information about SenNet data.  All are linked below in the architecture diagram and on the [API Index](/apis).
 ![SenNet AWS Workflow](./imgs/SenNet-AWS-Workflow.png)
 
-## SDK
-The [SenNet SDK](/sdk) is a Python library to interface with the [Entity API](https://smart-api.info/ui/0065e419668f3336a40d1f5ab89c6ba3).
-
-## Libraries
-Various libraries and tools available for usage are as follows:
-### [Provenance UI](/libraries/provenance-ui)
-Visualization tool for generating interactive provenance graphs.
-- [GitHub Repo](https://github.com/sennetconsortium/provenance-ui/tree/main/src)  
-- [Docs](/libraries/provenance-ui)
-
-### [Ingest Validation Tools](/libraries/ingest-validation-tools)
-Tools that validate uploads adhere to schema guidelines.
-- [GitHub Repo](https://github.com/sennetconsortium/ingest-validation-tools)
-- [Docs](/libraries/ingest-validation-tools)
+## [Libraries](/libraries)
+Various libraries and tools available for usage.
