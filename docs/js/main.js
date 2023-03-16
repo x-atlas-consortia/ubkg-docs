@@ -2,7 +2,7 @@
  * sennetdocs - 
  * @version v0.1.0
  * @link https://docs.sennetconsortium.org/
- * @date Thu Jan 12 2023 15:08:47 GMT-0500 (Eastern Standard Time)
+ * @date Thu Mar 16 2023 10:28:11 GMT-0400 (Eastern Daylight Time)
  */
 var _this10 = this;
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -9739,8 +9739,10 @@ var Sidebar = /*#__PURE__*/function (_App5) {
     };
     _this7.sizeSideBar();
     _this7.classNames.root = 'is-root';
+    _this7.headerHeight = 90;
     _this7.events();
     _this7.buildTableOfContents();
+    _this7.sizeSideBarHeight();
     return _this7;
   }
   _createClass(Sidebar, [{
@@ -9749,8 +9751,7 @@ var Sidebar = /*#__PURE__*/function (_App5) {
       var _this8 = this;
       $(document).on('scroll', function (e) {
         var st = $(document).scrollTop();
-        var headerHeight = 90;
-        if (st > headerHeight && !_this8.isMobile()) {
+        if (st > _this8.headerHeight && !_this8.isMobile()) {
           _this8.el.addClass(_this8.classNames.active);
         } else {
           _this8.el.removeClass(_this8.classNames.active);
@@ -9764,6 +9765,15 @@ var Sidebar = /*#__PURE__*/function (_App5) {
     key: "sizeSideBar",
     value: function sizeSideBar() {
       this.$.main.css('width', this.$.wrap.width());
+      this.sizeSideBarHeight();
+    }
+  }, {
+    key: "sizeSideBarHeight",
+    value: function sizeSideBarHeight() {
+      var max = 700;
+      var height = $(window).height() - this.headerHeight;
+      height = height > max ? max : height;
+      this.$.list.css('max-height', height);
     }
   }, {
     key: "buildTableOfContents",
