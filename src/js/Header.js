@@ -13,7 +13,7 @@ class Header extends App {
         this.$.li.find('a').on('click', ((e)=> {
             e.preventDefault()
             const link = this.currentTarget(e).attr('href')
-            if (window.location.pathname !== '/') {
+            if (window.location.pathname !== '/' || link[0] !== '#') {
                 window.location =  '/' + link.slice(1)
             } else {
                 if (link !== '/') {
