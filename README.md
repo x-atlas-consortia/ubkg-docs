@@ -1,4 +1,6 @@
-# SenNet Docs
+# ubkg-docs
+Unified Biomedical Knowledge Graph (UBKG) Documentation
+
 ## Usage
 - Save your documentation files in the `docs/` directory.
 - Properly name the documents and directories as path names are used to automatically generate the `Breadcrumbs`

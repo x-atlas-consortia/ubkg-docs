@@ -1,7 +1,7 @@
 {
-  "name": "sennetdocs",
+  "name": "ubkg-docs",
   "version": "0.1.0",
-  "homepage": "https://docs.sennetconsortium.org/",
+  "homepage": "https://ubkg.docs.xconsortia.org/",
   "private": true,
   "devDependencies": {
     "@babel/cli": "^7.19.3",
