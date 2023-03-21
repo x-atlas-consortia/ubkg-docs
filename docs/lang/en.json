@@ -1,20 +1,20 @@
 {
-  "SenNet Docs": "SenNet Documentation",
+  "SenNet Docs": "UBKG Documentation",
   "Not Found": "Not Found",
   "breadcrumbRoot": "Home",
   "menu": [
     {
-      "name": "SenNet",
+      "name": "UBKG",
       "href": "/",
       "class": "h2"
     },
     {
-      "name": "APIs",
-      "href": "#apis"
+      "name": "Generation framework",
+      "href": "#generation-framework"
     },
     {
-      "name": "Libraries",
-      "href": "#libraries"
+      "name": "User Guide",
+      "href": "/user-guide"
     }
   ]
 }
