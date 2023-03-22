@@ -26,10 +26,10 @@ Source for the components are stored in repositories in the [x-atlas-consortia](
 
 repository | content
 --|--
-ubkg-docs|documentation
-ubkg-etl|source and generation frameworks
-ubkg-neo4j|neo4j instance
-ubkg-api|API server
+[ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)|documentation
+[ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)|source and generation frameworks
+[ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j)|neo4j instance
+[ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)|API server
 
 
 ## UBKG Data Sources
