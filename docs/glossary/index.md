@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-# UBKG Concepts
+# Unified Biomedical Knowledge Graph Glossary
+
 This appendix is intended as a working glossary, and not as a formal or exhaustive terminology.
 When the discussion of a term in the glossary refers to another term in the glossary, the other term will be in **_bold italic_**.
 
@@ -55,7 +56,8 @@ A **_cross-reference_** between a **_concept_** in one **_ontology_** and a conc
 ## Ingest files
 A set of files that describe the entities and relationships of an ontology that is to be integrated into the UBKG.
 
-# Inverse relationship
+##  Inverse relationship
+
 A **_relationship_** in an **_ontology_** has a direction: it starts with one node and “goes toward” another–e.g., 
 
 (_5'-AMP-activated protein kinase subunit gamma-1_)→**isa**→(_protein_)
@@ -122,7 +124,7 @@ Relationships in RO can be reviewed in a number of ways, including:
 ## SAB
 The UBKG adopts the UMLS practice of identifying source ontologies with a **Source Abbreviation** (SAB). Examples of UMLS SABs include SNOMED_CT and UBERON. UBKG uses published acronyms for ontologies when possible–e.g., PATO.
 
-## Term: preferred term, synonym
+## Term (preferred, synonym)
 A usually short text identifier for a **_code_** in an **_ontology**_. For example, a term for code 64033007 in SNOMED_CT is “kidney”.
 
 A term can be a _preferred term_ or a _synonym_.

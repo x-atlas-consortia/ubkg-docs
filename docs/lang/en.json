@@ -9,12 +9,16 @@
       "class": "h2"
     },
     {
-      "name": "Generation framework",
-      "href": "/#generation-framework"
-    },
-    {
       "name": "User Guide",
       "href": "/user-guide"
+    },
+    {
+      "name": "Glossary",
+      "href": "/glossary"
+    },
+    {
+      "name": "PubChem Format",
+      "href": "/pubchem"
     }
   ]
 }
