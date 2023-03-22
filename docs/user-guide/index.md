@@ -11,7 +11,7 @@ This guide describes how to format assertions as an ontology so that the ontolog
 This guide is intended for users who are subject matter experts in what biomedical assertions they might want to represent (e.g., genes and their products), as an ontology, but not necessarily conversant with either ontological concepts or knowledge graphs.
 
 # Glossary
-**GLOSSARY.md** describes terms that this guide uses that are relevant to ontologies or knowledge graphs. 
+The [glossary](/user-guide/glossary) describes terms that this guide uses that are relevant to ontologies or knowledge graphs. 
 
 # Guiding Principles for Integration
 An important goal of the UBKG is to establish connections between ontologies. For example,if information on the relationships between proteins and genes described in one ontology can be connected to information on the relationships between genes and diseases described in another ontology, it may be possible to identify previously unknown relationships between proteins and diseases.
