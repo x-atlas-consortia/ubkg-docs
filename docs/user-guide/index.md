@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # User Guide
 ## Adding assertions to a Unified Biomedical Knowledge Graph (UBKG)
 
