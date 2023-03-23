@@ -9,10 +9,18 @@ The **Unified Biomedical Knowledge Graph (UBKG)** is a  [knowledge graph](https:
 
 The UBKG combines information from the National Library of Medicine's [Unified Medical Language System](https://www.nlm.nih.gov/research/umls/index.html) (UMLS) with [_assertions_](https://www.w3.org/TR/owl2-syntax/#Assertions) from “non-UMLS” ontologies or vocabularies, including:
 - Ontologies published in references such as the [NCBO Bioportal](https://bioportal.bioontology.org/) and the [OBO Foundry](https://obofoundry.org/).
-- Custom ontologies derived from data sources such as [UNIPROTKB](https://www.uniprot.org/).
-- Other custom ontologies, such as those for the [HuBMAP](https://hubmapconsortium.org/) platform.
+- Custom ontologies/sets of assertions derived from data sources such as [UNIPROTKB](https://www.uniprot.org/).
+- Other custom ontologies/sets of assertions, such as those for the [HuBMAP](https://hubmapconsortium.org/) platform.
 
-An important goal of the UBKG is to establish connections _between_ ontologies. For example,if information on the relationships between _proteins_ and _genes_ described in one ontology can be connected to information on the relationships between _genes_ and _diseases_ described in another ontology, it may be possible to identify previously unknown relationships between _proteins_ and _diseases_.
+An important goal of the UBKG is to establish connections _between_ ontologies. For example, if information on the relationships between _proteins_ and _genes_ described in one ontology can be connected to information on the relationships between _genes_ and _diseases_ described in another ontology, it may be possible to identify previously unknown relationships between _proteins_ and _diseases_.
+
+### Terminology: ontology vs "set of assertions"
+This documentation may refer to either an _ontology_ or a _set of assertions_ as a source of information for the UBKG.
+For the purposes of representation in a knowledge graph, a set of assertions (in which each assertion consists of
+a subject entity, predicate, and object entity) is equivalent to an ontology. Characteristics of formal ontologies 
+beyond assertions (such as those that support reasoning) are not translated into the knowledge graph.
+
+In other words, although every ontology can be translated to a set of assertions, not every set of assertions is an ontology; however, to the UBKG, they're all the same type of source.
 
 ## Components of the UBKG
 The primary components of the UBKG are:

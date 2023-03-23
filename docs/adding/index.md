@@ -5,7 +5,7 @@ layout: default
 ---
 
 # Objectives
-This guide describes how to format a set assertions so that they can be added to the Unified Biomedical Knowledge Graph database. 
+This guide describes how to format a set assertions so that it can be added to the Unified Biomedical Knowledge Graph database. 
  
 The guide includes recommendations for optimizing and deepening the integration of a set of assertions into the UBKG 
 to establish new relationships among entities and cross-references among ontologies.
@@ -14,15 +14,17 @@ to establish new relationships among entities and cross-references among ontolog
 This guide is intended for users who are subject matter experts in what biomedical assertions they might want to represent (e.g., genes and their products), as an ontology, but not necessarily conversant with either ontological concepts or knowledge graphs.
 
 # Glossary
-A [glossary](/glossary) describes terms that this guide uses that are relevant to ontologies or knowledge graphs. 
+The [glossary](/glossary) describes terms that this guide uses that are relevant to ontologies or knowledge graphs. 
 
 # Guiding Principles for Integration
-An important goal of the UBKG is to establish connections between ontologies. For example,if information on the relationships between proteins and genes described in one ontology can be connected to information on the relationships between genes and diseases described in another ontology, it may be possible to identify previously unknown relationships between proteins and diseases.
+An important goal of the UBKG is to establish connections between ontologies. For example, if information on the relationships between proteins and genes described in one ontology can be connected to information on the relationships between genes and diseases described in another ontology, it may be possible to identify previously unknown relationships between proteins and diseases.
 
-If the UBKG is to connect ontologies, the ontologies should, as much as possible, represent their entities and relationships similarly. **_To the degree possible_**,
-1. Entities should be encoded with codes from published biomedical ontologies and vocabularies. For example, genes should be encoded in a standard vocabulary such as HGNC.
-2. Relationships should be represented with properties from the Relationship Ontology.
-3. Codes for entities should be cross-referenced to UMLS CUIs.
+If the UBKG is to connect ontologies, the ontologies should, as much as possible, represent their entities and relationships similarly. 
+
+**_To the degree possible_**,
+1. Entities should be _encoded_ with codes from published biomedical ontologies and vocabularies. For example, genes should be encoded in a standard vocabulary such as HGNC.
+2. Relationships should be represented with properties from the [Relations Ontology](https://www.ebi.ac.uk/ols/ontologies/ro).
+3. Codes for entities should be _cross-referenced_ to UMLS CUIs (via the **node_dbxrefs** column, described below).
 
 # Integration Options
 A set of assertions can be integrated into the UBKG from sources that include:
@@ -99,21 +101,23 @@ region of ventricular system of brain|brain ventricles|cerebral ventricle
 #### Example for dbxrefs:
 umls:c0007799|fma:78447
 
+The UMLS cross-reference in the example is to a CUI; the fma cross-reference is to a code.
+
 # Requirements (business rules) for nodes and relationships
 1. A node identified in edges.tsv must satisfy **at least one** of the following criteria:
 - It is defined in nodes.tsv.
 - It already exists in the UBKG.
 
-The UBKG will not ingest nodes that do not satisfy at least one of the criteria.
+The UBKG generation framework will ignore nodes that do not satisfy at least one of these criteria.
 
 2. If a triple in edges.tsv refers to a node from a non-UMLS ontology, the non-UMLS ontology will need to be ingested into the UBKG first. For example, because the Mammalian Phenotype Ontology (MP) includes nodes from the Cell Ontology (CL), CL should be integrated into the UBKG before MP. This often improves the cross-referencing because the general ontologies have deeper external-referencing to UMLS and other OBO sources.
 3. [This spreadsheet](https://github.com/dbmi-pitt/UBKG/blob/main/user%20guide/ontology%20neo4j%20SABs%20and%20sample%20codes%20-%20ontology%20neo4j%20SABs%20and%20sample%20codes.csv) lists the SABs and example codes for the ontologies that are currently represented in the UBKG. It should be used as the reference for formatting existing source abbreviations (SAB) and their codes. In other words, if a SAB is already part of the UBKG, it should be sufficient to refer to the node by code. 
 
 For additional details regarding the UMLS SABs, please consult [the UMLS reference](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
-4Some ontologies (including HGNC, GO, and HPC) include the SAB in codes (e.g., HGNC:9999) Nodes for concepts from these ontologies should be formatted as <SAB><space><SAB>: code-e.g., “HGNC HGNC:9999”.
-5The UBKG ingestion will reformat predicates so that strings are delimited with underscores.
-6The UBKG ultimately requires that two nodes be linked with both a relationship and its inverse. However, in an edges file each relationship (predicate) should be represented only once (NOT with the original and inverse). The UBKG identifies and adds the inverse relationships using the RO as follows:
+4. Some ontologies (including HGNC, GO, and HPC) include the SAB in codes (e.g., HGNC:9999) Nodes for concepts from these ontologies should be formatted as <SAB><space><SAB>: code-e.g., “HGNC HGNC:9999”.
+5. The UBKG ingestion will reformat predicates so that strings are delimited with underscores.
+6. The UBKG ultimately requires that two nodes be linked with both a relationship and its inverse. However, in an edges file each relationship (predicate) should be represented only once (NOT with the original and inverse). The UBKG identifies and adds the inverse relationships using the RO as follows:
 
 | predicate                                                                | form of inverse relationship                 | comment                                                                                                                                   |
 |--------------------------------------------------------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -131,5 +135,30 @@ The UBKG ingestion preferentially selects UMLS CUIs from the list in node_dbxref
 It is not necessary to list both a UMLS CUI and a code from an ontology that is already in the UMLS. 
 If it is not feasible to cross-reference a UMLS CUI, then try to cross-reference a code from a published, OBO-compliant ontology.
 
-A cross-reference is not the same thing as an isa relationship.
+# Cross-references vs. isa
 
+A cross-reference (**dbxref**) is not the same thing as an **isa** relationship. 
+
+## isa
+An **isa** assertion between two nodes indicates that the subject node relates to the object node hierarchically.
+
+For example, the Mammalian Physiology Ontology (MP) asserts that
+MP:0009920 (abnormal t2 stage b cell morphology) **isa** MP:0008188 (abnormal transitional stage B cell morphology).
+
+In the UBKG, the Code node for MP:0009920 has a path to the Code node for MP:0008188 through 
+concepts that link via an isa relationship. Each Code node (orange) associates with a separate Concept node (blue).
+In other words, the UBKG considers the two Codes to represent different concepts.
+
+![img.png](img.png)
+
+MP also cross-references MP 0009920 to CL:0000959 (T2 B cell).
+
+In the UBKG, the Code nodes share the same Concept node. The two Code nodes represent the same Concept.
+
+![img_1.png](img_1.png)
+
+It is not necessary to link two concepts with both an *isa* relationship in the edge file and a *node_dbxref* in the node file.
+
+Another way to think of this is:
+- **isa** means "is a type of"
+- **dbxref** means "is the same as"
