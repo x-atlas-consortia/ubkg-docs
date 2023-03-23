@@ -151,7 +151,10 @@ In other words, the UBKG considers the two Codes to represent different concepts
 
 ![img.png](img.png)
 
-MP also cross-references MP 0009920 to CL:0000959 (T2 B cell).
+## dbxref
+A **dbxref** establishes an equivalence between two nodes.
+
+For example, MP cross-references MP 0009920 to CL:0000959 (T2 B cell).
 
 In the UBKG, the Code nodes share the same Concept node. The two Code nodes represent the same Concept.
 
