@@ -27,17 +27,17 @@ The primary components of the UBKG are:
 
 - a **source framework** of scripts that obtain information from the UMLS to generate a set of **UMLS CSVs***
 - a **generation framework** of scripts that append to the UMLS CSVs sets of assertions to create a set of **ontology CSVs**
-- an **ontology knowledge graph database** instance, deployed in [neo4j](https://neo4j.com/), that includes scripts to import the ontology CSVs
+- an **ontology knowledge graph database** instance, deployed as a [neo4j](https://neo4j.com/) in a Docker container, that includes scripts to import the ontology CSVs
 - a [REST API](https://restfulapi.net/) that provides access to the information in the graph database
 
 Source for the components are stored in repositories in the [x-atlas-consortia](https://github.com/x-atlas-consortia) Github organization.
 
-repository | content
---|--
-[ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)|documentation
-[ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)|source and generation frameworks
-[ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j)|neo4j instance
-[ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)|API server
+|repository | content|
+|--|--|
+|[ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)|documentation|
+|[ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)|source and generation frameworks|
+|[ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j)|neo4j instance|
+|[ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)|API server|
 
 
 ## UBKG Data Sources
