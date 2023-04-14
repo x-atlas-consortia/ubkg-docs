@@ -43,11 +43,44 @@ An ingest file set consists of two Tab-Separated Variables (TSV) files:
 - **nodes.tsv**: Describes metadata for entities
 
 ## Source Abbreviations (SABs) 
-The UBKG identifies a set of assertions by means of a _Source Abbreviation_ (SAB). SABs often correspond to abbreviations for ontologies (e.g., PATO) or vocabularies (e.g., ICD-10). 
 
-For new sets of assertions, define a preferred SAB to represent the initiative, project, or institution.
+A __Source Abbreviation__ (SAB) is an uppercase acronym that identifies a set of assertions.
+The SAB is based on the UMLS SAB, which the UMLS uses to identify a vocabulary or domain. 
+The UBKG extends the SAB identifier to include sets of assertions that are not in the UMLS.
 
-SABs are uppercase in the UBKG. 
+The SAB is synonymous with an ontological _namespace_.
+
+In general, a set of assertions can employ multiple SABs, of two types:
+
+- **Node SAB**: The code for a subject or object node associates with the SAB that identifies the code's _steward_. The steward maintain the code source. Examples of stewards include the organization that publishes an ontology to NCBO BioPortal or OBO.
+- **Edge SAB**: A set of assertions associates with a SAB that may be different from the SABs of the nodes in the set. 
+
+The steward of a set of assertions is, in general, not the steward of all of the codes involved in the assertions.
+
+### Example
+Consider the following subset of assertions from the Phenotypic Quality Ontology (PATO).
+(Predicates have been translated from their labels in Relations Ontology.)
+
+| subject        | predicate         | object         |
+|----------------|-------------------|----------------|
+| UBERON:0000457 | branching part of | UBERON:0001532 |
+| PATO:0001776   | subClassOf        | PATO:0001544   |
+| CL:0000101     | capable of | GO:0050906     |   
+| PATO:0001894   |subClassOf|UBERON:0000061|
+
+This set contains three types of assertions:
+- assertions involving only codes from PATO
+- assertions involving codes from ontologies other than PATO (UBERON, CL, GO)
+- assertions involving codes from PATO and other ontologies (e.g. PATO and UBERON)
+
+The types of SABs in this set of assertions:
+- SABs for the nodes: PATO, UBERON, CL, GO
+- SAB for all the edges: PATO
+
+In other words, PATO is the steward of a set of assertions that involve codes maintained by other stewards (e.g., UBERON).
+
+When ingesting a set of assertions, it is necessary to define a preferred SAB to represent the steward of the set--e.g., an initiative, project, or institution.
+
 
 ## edges.tsv
 The edges file lists the _triples_ (subject node - predicate - object node) that constitute a set of assertions.
@@ -56,7 +89,7 @@ The edges file lists the _triples_ (subject node - predicate - object node) that
 
 | Field                       | Corresponding element in UBKG | Accepted formats                                                                                            | Examples                                        |
 |-----------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
-| subject                     | **Code** node                 | IRI for a concept in a published ontology                                                                   | http://purl.obolibrary.org/obo/UBERON_0004086   |
+| subject                     | **Code** node                 | _OBO Principle 3 comforming_ (see note below) IRI for a concept in a published ontology                     | http://purl.obolibrary.org/obo/UBERON_0004086   |
 |                             |                               | Code for the concept in the format _SAB_ {space} _code in ontology_                                         | UBERON 0004086                                  |
 | predicate                   | relationships                 | For hierarchical relationships, the IRI http://www.w3.org/2000/01/rdf-schema#subClassOf OR the string “isa” | http://www.w3.org/2000/01/rdf-schema#subClassOf |
 |                             |                               | For non-hierarchical relationships, an IRI for a relationship property in RO	                               | http://purl.obolibrary.org/obo/RO_0002292       |
@@ -64,19 +97,27 @@ The edges file lists the _triples_ (subject node - predicate - object node) that
 | object                      | **Code** node                 | same as for subject                                                                                         |                                                 |
 | evidence_class (_optional_) | **string**                    | Statement specific to an SAB to classify evidence                                                           | -0.016084092                                    |
 
-###  Recommendations for nodes
- 
-Many nodes will correspond to entities that have already been identified in a standard biomedical ontology; for these, the IRI is preferred. 
-For entities that have not been encoded in an ontology, a suitable identifier is sufficient.
+### Requirements for nodes
 
-For example, the UBKG includes information relating genes and gene products obtained from UniProtKB. Proteins are identified using their UniProtKB Entry ID, instead of an IRI.
+**The identifier (code) for a node must include the SAB for the code's steward.**
+
+#### OBO Principle 3
+The preferred form of identifier for a node is an IRI that conforms to [Principle 3](https://obofoundry.org/principles/fp-003-uris.html) for URI/Identifier Space. UBKG recognizes IRIs in this format implicitly.
+
+An example of a IRI with the preferred format is:
+http://purl.obolibrary.org/obo/UBERON_0004086 
+
+In this example, _UBERON_ is the SAB for the code.
+
+For codes in a set of assertions that correspond to entities that have already been identified in a standard biomedical ontology, the IRI is preferred. 
+For new codes that have not been already been encoded in an ontology, the identifier must include the SAB that represents the code's steward.
 
 ###  Recommendations for edges
-The preferred source of relationship (predicate) information is the Relations Ontology (RO). Reasons for this include:
+The preferred source of relationship (predicate) information is the [Relations Ontology](https://www.ebi.ac.uk/ols/ontologies/ro) (RO). Reasons for this include:
 1. RO is a general reference for relationships, and is therefore likely already to have a standard relationship defined that is suitable.
 2. RO defines inverse relationships, especially those that may not be obvious.
 
-It is possible, nevertheless, that RO does not contain a relationship that is specific enough for an assertion, so a custom relationship will be needed. When defining a custom relationship, we recommend that the label be short and consise. (We realize that this is easier said than done. Defining consise relationships is the hard part of modelling assertions.)
+It is possible, nevertheless, that RO does not contain a relationship that is specific enough for an assertion, so a custom relationship will be needed. When defining a custom relationship, we recommend that the label be short and consise. (This is easier said than done, of course. Defining concise relationships is the hard part of modelling assertions.)
 
 ## nodes.tsv
  The nodes.tsv file provides metadata on entities.
@@ -85,7 +126,7 @@ It is possible, nevertheless, that RO does not contain a relationship that is sp
 
 | Field                        | Corresponding element in UBKG                                          | Accepted formats                                                                                                              | Examples                                                    |
 |------------------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| node_id                      | **Code** node                                                          | IRI for a concept in a published ontology                                                                                     | http://purl.obolibrary.org/obo/UBERON_0004086               |
+| node_id                      | **Code** node                                                          | _OBO Principle 3 comforming_ IRI for a concept in a published ontology                                                        | http://purl.obolibrary.org/obo/UBERON_0004086               |
 |                              |                                                                        | Code for the concept in the format _SAB_ {space} _code in ontology_                                                           | UBERON 0004086                                              |
 | node_label                   | **Term** node, _Preferred Term_ (PT) relationship                      | Text string                                                                                                                   | Ventricles of hindbrain                                     |
 | node_definition (_optional_) | **Definition** node, _DEF_ relationship                                | Text string                                                                                                                   | One of the system of communicating cavities in the brain …. |
@@ -103,10 +144,13 @@ umls:c0007799|fma:78447
 
 The UMLS cross-reference in the example is to a CUI; the fma cross-reference is to a code.
 
-# Requirements (business rules) for nodes and relationships
+## Requirements for nodes
+The IRI requirements for nodes in the nodes file are identical to those for nodes in the edges file.
+
+# Requirements (business rules) for a set of assertions
 1. A node identified in edges.tsv must satisfy **at least one** of the following criteria:
-- It is defined in nodes.tsv.
-- It already exists in the UBKG.
+- The node is defined in nodes.tsv. (Generally, this is for codes that are maintained by the steward of the set of assertions--i.e., the steward maintains both nodes and edges.)
+- The node already exists in the UBKG. These nodes can be part of the UMLS or from a previously ingested set of assertions.
 
 The UBKG generation framework will ignore nodes that do not satisfy at least one of these criteria.
 
@@ -129,11 +173,11 @@ For additional details regarding the UMLS SABs, please consult [the UMLS referen
 # Best Practices for cross-references 
 The items in the **_node_dbxref_** field of **nodes.tsv** establish cross-references. The degree to which an ontology integrates with the UBKG depends directly on cross-references: an ontology with nodes that cross-reference nodes in other ontologies are more likely to contribute to new relationships, while an ontology with few cross-references will essentially exist independently of the rest of the UBKG.
 
-A good rule of thumb for cross-references is: _the closer to a UMLS CUI, the better_.
+A best practice for cross-references is: _the closer a cross-reference is to a UMLS CUI, the better_.
 
 The UBKG ingestion preferentially selects UMLS CUIs from the list in node_dbxref. 
 It is not necessary to list both a UMLS CUI and a code from an ontology that is already in the UMLS. 
-If it is not feasible to cross-reference a UMLS CUI, then try to cross-reference a code from a published, OBO-compliant ontology.
+If it is not feasible to cross-reference a UMLS CUI, then try to cross-reference a code from a published, preferably OBO-compliant ontology.
 
 # Cross-references vs. isa
 
