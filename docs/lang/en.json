@@ -9,16 +9,16 @@
       "class": "h2"
     },
     {
-      "name": "Adding to the UBKG",
-      "href": "/adding"
+      "name": "Formats",
+      "href": "/formats"
+    },
+    {
+      "name": "Contexts",
+      "href": "/contexts"
     },
     {
       "name": "Glossary",
       "href": "/glossary"
-    },
-    {
-      "name": "PubChem Format",
-      "href": "/pubchem"
     }
   ]
 }
