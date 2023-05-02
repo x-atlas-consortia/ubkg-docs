@@ -7,46 +7,48 @@ layout: default
 
 The **Unified Biomedical Knowledge Graph (UBKG)** is a  [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) infrastructure that represents a set of interrelated concepts from biomedical ontologies and vocabularies. 
 
-The UBKG combines information from the National Library of Medicine's [Unified Medical Language System](https://www.nlm.nih.gov/research/umls/index.html) (UMLS) with [_assertions_](https://www.w3.org/TR/owl2-syntax/#Assertions) from “non-UMLS” ontologies or vocabularies, including:
-- Ontologies published in references such as the [NCBO Bioportal](https://bioportal.bioontology.org/) and the [OBO Foundry](https://obofoundry.org/).
-- Custom ontologies/sets of assertions derived from data sources such as [UNIPROTKB](https://www.uniprot.org/).
-- Other custom ontologies/sets of assertions, such as those for the [HuBMAP](https://hubmapconsortium.org/) platform.
+The UBKG combines information from the National Library of Medicine's [Unified Medical Language System](https://www.nlm.nih.gov/research/umls/index.html) (UMLS) with sets of [_assertions_](https://www.w3.org/TR/owl2-syntax/#Assertions) (also known as _triples_, or _subject-predicate-object_ relationships) from ontologies or vocabularies outside the UMLS, such as:
+- Ontology files published in references such as the [NCBO Bioportal](https://bioportal.bioontology.org/) and the [OBO Foundry](https://obofoundry.org/).
+- Custom ontologies/sets of assertions
 
-An important goal of the UBKG is to establish connections _between_ ontologies. For example, if information on the relationships between _proteins_ and _genes_ described in one ontology can be connected to information on the relationships between _genes_ and _diseases_ described in another ontology, it may be possible to identify previously unknown relationships between _proteins_ and _diseases_.
+An important goal of the UBKG is to establish connections _between_ sets of assertions. 
+For example, if information on the relationships between _proteins_ and _genes_ described in one set of assertions can be connected to information on the relationships between _genes_ and _diseases_ described in another set of assertions, it may be possible to identify previously unknown relationships between _proteins_ and _diseases_.
 
-### Terminology: ontology vs "set of assertions"
-This documentation may refer to either an _ontology_ or a _set of assertions_ as a source of information for the UBKG.
-For the purposes of representation in a knowledge graph, a set of assertions (in which each assertion consists of
-a subject entity, predicate, and object entity) is equivalent to an ontology. Characteristics of formal ontologies 
-beyond assertions (such as those that support reasoning) are not translated into the knowledge graph.
+### A note on terminology: _ontology_ vs. _set of assertions_
+This documentation will refer to either an _ontology_ or a _set of assertions_ as a source of information for the UBKG.
+For the purposes of representation in a knowledge graph, a set of assertions (with each assertion consisting of
+a **subject** entity, a **predicate**, and an **object** entity) is equivalent to an ontology. 
 
-In other words, although every ontology can be translated to a set of assertions, not every set of assertions is an ontology; however, to the UBKG, they're all the same type of source.
-
-## Components of the UBKG
-The primary components of the UBKG are:
-
-- a **source framework** of scripts that obtain information from the UMLS to generate a set of **UMLS CSVs***
-- a **generation framework** of scripts that append to the UMLS CSVs sets of assertions to create a set of **ontology CSVs**
-- an **ontology knowledge graph database** instance, deployed as a [neo4j](https://neo4j.com/) in a Docker container, that includes scripts to import the ontology CSVs
-- a [REST API](https://restfulapi.net/) that provides access to the information in the graph database
-
-Source for the components are stored in repositories in the [x-atlas-consortia](https://github.com/x-atlas-consortia) Github organization.
-
-|repository | content|
-|--|--|
-|[ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)|documentation|
-|[ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)|source and generation frameworks|
-|[ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j)|neo4j instance|
-|[ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)|API server|
+Characteristics of formal ontologies beyond assertions (such as those that support reasoning) are not currently translated into the knowledge graph.
 
 
-## UBKG Data Sources
-The UBKG database is populated from by loading a set of ontology CSV files, using [neo4j-admin import](https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/). 
-The ontology CSVs are the product of two frameworks:
+# Components of the UBKG
+The primary components of an instance of the UBKG are:
 
-## Source framework
-The **source framework** is a combination of manual and automated processes that obtain the base set of nodes (entities) and edges (relationships) that comprise the UMLS CSVs.
-The UMLS CSVs can be loaded into neo4j to form a **UMLS-Graph**, a knowledge graph representation of the UMLS.
+- a **source context**--a collection of sets of assertions from a group of sources (**SABs**)
+- a **source framework** of scripts that obtains information from the UMLS to generate a set of **UMLS CSVs**
+- a **generation framework** of scripts that appends to the UMLS CSVs data from a source context to create a set of **ontology CSVs**
+- an **ontology knowledge graph database** instance, deployed as a [neo4j](https://neo4j.com/) in a Docker container, that includes scripts to import a set of ontology CSVs
+- a [REST API](https://restfulapi.net/) that provides access to the information in the ontology knowledge graph database
+
+## Sources and Source Abbreviations (SABs)
+
+The publisher (also known as the owner or steward) of a set of assertions is identified with a **Source Abbreviation** (SAB). 
+
+Examples of SABs include:
+ - UBERON
+ - CHEBI
+ - PUBCHEM
+
+## Source Contexts
+The content of an instance of the UBKG depends directly on the assertion information that is imported into the instance of the ontology knowledge graph database.
+The **source context** (or just **context**) for an instance of the UBKG describes a collection of sets of assertions, each of which is identified by SAB.
+
+The [Contexts](/contexts) page describes of a number of UBKG contexts.
+
+## UBKG Source framework
+The **UBKG source framework** is a combination of manual and automated processes that obtain the base set of nodes (entities) and edges (relationships) that comprise the UMLS CSVs.
+The UMLS CSVs can be loaded into neo4j to populate a UMLS context of the UBKG (UMLS-Graph).
 
 - Information on the entities and relationships in the ontologies and vocabularies that are integrated into the UMLS Metathesaurus can be downloaded using the [MetamorphoSys](https://www.ncbi.nlm.nih.gov/books/NBK9683/#:~:text=MetamorphoSys%20is%20the%20UMLS%20installation,to%20create%20customized%20Metathesaurus%20subsets.) application. MetamorphoSys can be configured to download subsets of the entire UMLS.
 - Additional semantic information related to the UMLS can be downloaded manually from the [Semantic Network](https://lhncbc.nlm.nih.gov/semanticnetwork/). 
@@ -56,61 +58,30 @@ The result of the Metathesaurus and Semantic Network downloads is a set of files
 The RRF files can be loaded into tables in a data mart. (The University of Pittsburgh's manages its UMLS content in its **Neptune** data mart.)
 
 A python script then executes SQL scripts that perform Extraction, Transformation, and Loading (ETL) of the RRF data into a set of twelve temporary tables. These tables are exported to CSV format in files that become the **UMLS CSVs**.
+### Solution Architecture
 
 The following diagram illustrates the source framework workflow.
 
 ![Source_framework](https://user-images.githubusercontent.com/10928372/202307155-5bfd7a77-e858-4e5c-89a1-a42d964b871d.jpg)
 
-## Generation framework
+## UBKG Generation framework
 
-The UBKG extends the UMLS graph by integrating additional assertions from sources outside the UMLS, including a number of standard biomedical ontologies that are published sources such as
-NCBO BioPortal or OBO. 
+The **UBKG generation framework** extends the UMLS context by integrating additional assertions from sources outside the UMLS.
 
-The following list lists many of the sources of additional assertions. 
-This list may change based on the requirements of applications of the UBKG.
+Scripts in the generation framework:
+- extract information on assertions found in ontologies or derived from other sources
+- iteratively append assertion information to set of UMLS CSVs to create a set of **ontology CSVs**.
 
-Ontology or Source | Description
---- | ---
-[PATO](https://bioportal.bioontology.org/ontologies/PATO) | Phenotypic Quality Ontology
-[UBERON](https://bioportal.bioontology.org/ontologies/UBERON) | Uber Anatomy Ontology 
-[CL](https://bioportal.bioontology.org/ontologies/CL) | Cell Ontology
-[DOID](https://bioportal.bioontology.org/ontologies/DOID) | Human Disease Ontology
-[OBI](https://bioportal.bioontology.org/ontologies/OBI)| Ontology for Biomedical Investigations
-[OBIB](https://bioportal.bioontology.org/ontologies/OBIB) | Ontology for Biobanking
-[EDAM](https://bioportal.bioontology.org/ontologies/EDAM) | EDAM
-[HSAPDV](https://bioportal.bioontology.org/ontologies/HSAPDV) | Human Developmental Stages Ontology
-[SBO](https://bioportal.bioontology.org/ontologies/SBO) | Systems Biology Ontology
-[MI](https://bioportal.bioontology.org/ontologies/MI) |Molecular Interactions
-[CHEBI](https://bioportal.bioontology.org/ontologies/CHEBI) | Chemical Entities of Biological Interest Ontology
-[MP](https://bioportal.bioontology.org/ontologies/MP) | Mammalian Phenotype Ontology
-[ORDO](https://bioportal.bioontology.org/ontologies/ORDO) | Orphan Rare Disease Ontology
-[UO](https://bioportal.bioontology.org/ontologies/UO)|Units of Measurement Ontology
-[UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)|Protein-gene relationships from UniProtKB
-[HRAVS](https://bioportal.bioontology.org/ontologies/HRAVS) | Human Reference Atlas Value Set
-[HUBMAP](https://hubmapconsortium.org/)|the application ontology supporting the infrastructure of the HuBMAP Consortium
-[CCF](https://bioportal.bioontology.org/ontologies/CCF)|Human Reference Atlas Common Coordinate Framework Ontology
-[MONDO](https://bioportal.bioontology.org/ontologies/MONDO)|MONDO Disease Ontology
-[EFO](https://bioportal.bioontology.org/ontologies/EFO)|Experimental Factor Ontology
-[SENNET](https://sennetconsortium.org/)|the application ontology supporting the infrastructure of the SenNet Consortium
-[AZ](https://azimuth.hubmapconsortium.org/)|Azimuth cell annotations mapped to Cell Ontology terms
+Once the generation framework compiles a set of ontology CSVs for a UBKG context, the CSVs can be imported into a neo4j database to populate an instance of the UBKG.
 
-The scripts in the generation framework:
-- extract information on assertions (also known as _triples_, or _subject-predicate-object_ relationships) found in ontologies or derived from other sources
-- iteratively add assertion information to the base set of UMLS CSVs to create a set of **ontology CSVs**.
+The generation framework accepts assertion files in a number of formats. 
+The [Formats](/formats) page specifies formats that the generation scripts accept.
 
-Once a set of ontology CSVs is ready, it can be imported into a neo4j database to form a new instance of the UBKG.
-
-The generation framework can work with:
-- data from ontologies published in [Web Ontology Language](https://www.w3.org/OWL/) (OWL) files that conform to the [principles](https://obofoundry.org/principles/fp-000-summary.html) of the OBO Foundry
-- data from private or custom ontologies that are in the SimpleKnowledge format. (SimpleKnowledge is a lightweight ontology editor based on spreadsheets developed by Pitt UBMI.)
-- assertion data that conforms to the _UBKG Edge/Node format_, as described in the [UBKG User Guide](https://ubkg.docs.xconsortia.org/user-guide/#ingest-files-format-and-content).
-- other reference data sources, by means of custom scripts
-
-## PheKnowLator and OWLNETS
+###  PheKnowLator and OWLNETS
 When the assertion data source is an OWL file, the generation framework uses the [Phenotype Knowledge Translator](https://github.com/callahantiff/PheKnowLator) (PheKnowLator) package. 
 PheKnowLator converts information from an OWL file into the [OWL-NETS](https://github.com/callahantiff/PheKnowLator/wiki/OWL-NETS-2.0) (OWL NEtwork Transformation for Statistical learning) format.
 
-## Solution Architecture
+###  Solution Architecture
 The generation framework is a parameterized ETL script that:
 - extracts assertion information from a data source
 - transforms assertion information into the format of the UMLS CSVs
@@ -118,8 +89,26 @@ The generation framework is a parameterized ETL script that:
 
 The following diagram illustrates the basic workflow, showing four cases:
 1. The OWLNETS script that uses PheKnowLator to work with OWL files
-2. A custom script that obtains data from UniProtKB
+2. A custom script (shown here is a script that works UniProtKB)
 3. The SKOWLNETS script that works with SimpleKnowledge data sources
 4. Files in the UBKG edges/nodes format
 
 ![generation_framework](https://user-images.githubusercontent.com/10928372/202308840-1abc0684-684d-476a-8ed5-1a1b4118ffc6.jpg)
+
+## UBKG API
+It is possible to obtain information from an instance of the UBKG ontology graph databse by executing Cypher queries. 
+However, the complexity and likely size of a UBKG neo4j instance requires both knowledge of the UBKG schema and caution to avoid problems such as runaway queries.
+
+The UBKG API is a REST API with endpoints that abstract common types of queries that can be executed against a instance of the UBKG neo4j knowledge graph database.
+
+A description of the UBKG API can be found [here](https://smart-api.info/ui/96e5b5c0b0efeef5b93ea98ac2794837).
+
+# Source repositories
+Source for components other than the sets of assertions are stored in repositories in the [x-atlas-consortia](https://github.com/x-atlas-consortia) Github organization.
+
+|repository | content|
+|--|--|
+|[ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)|this documentation|
+|[ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)|source framework; generation framework|
+|[ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j)|ontology knowledge graph neo4j instance|
+|[ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)|REST API server|

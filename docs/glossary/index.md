@@ -1,10 +1,17 @@
 ---
 layout: default
 ---
-# Unified Biomedical Knowledge Graph Glossary
+# Unified Biomedical Knowledge Graph 
+# Glossary
 
-This appendix is intended as a working glossary, and not as a formal or exhaustive terminology.
+---
+
+# Scope
+
+This is a working glossary, and not a formal or exhaustive terminology.
 When the discussion of a term in the glossary refers to another term in the glossary, the other term will be in **_bold italic_**.
+
+---
 
 ## Assertion
 An assertion establishes a **_relationship_** between two **_entities_**.

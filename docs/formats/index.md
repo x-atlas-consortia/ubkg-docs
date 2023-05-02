@@ -1,43 +1,65 @@
 ---
 layout: default
 ---
-# Adding assertion data from an ontology to the Unified Biomedical Knowledge Graph
+# Unified Biomedical Knowledge Graph
+# Accepted Assertion File Formats
+
 ---
 
-# Objectives
+## Objectives
 This guide describes how to format a set assertions so that it can be added to the Unified Biomedical Knowledge Graph database. 
  
 The guide includes recommendations for optimizing and deepening the integration of a set of assertions into the UBKG 
 to establish new relationships among entities and cross-references among ontologies.
 
-# Audience
-This guide is intended for users who are subject matter experts in what biomedical assertions they might want to represent (e.g., genes and their products), as an ontology, but not necessarily conversant with either ontological concepts or knowledge graphs.
+## Audience
+This guide is intended for users who are subject matter experts in what biomedical assertions they might want to represent (e.g., genes and their products) with a set of assertions, but not necessarily conversant with either ontological concepts or knowledge graphs.
 
-# Glossary
-The [glossary](/glossary) describes terms that this guide uses that are relevant to ontologies or knowledge graphs. 
+## Glossary
+The [Glossary](/glossary) page describes terms that this guide uses that are relevant to assertions or knowledge graphs. 
 
-# Guiding Principles for Integration
-An important goal of the UBKG is to establish connections between ontologies. For example, if information on the relationships between proteins and genes described in one ontology can be connected to information on the relationships between genes and diseases described in another ontology, it may be possible to identify previously unknown relationships between proteins and diseases.
+## Guiding Principles for Integrating a Set of Assertions
 
-If the UBKG is to connect ontologies, the ontologies should, as much as possible, represent their entities and relationships similarly. 
+If the UBKG is to connect sets of assertions from different SABs, the sets of assertions should, as much as possible, represent entities and relationships similarly. 
 
 **_To the degree possible_**,
 1. Entities should be _encoded_ with codes from published biomedical ontologies and vocabularies. For example, genes should be encoded in a standard vocabulary such as HGNC.
 2. Relationships should be represented with properties from the [Relations Ontology](https://www.ebi.ac.uk/ols/ontologies/ro).
 3. Codes for entities should be _cross-referenced_ to UMLS CUIs (via the **node_dbxrefs** column, described below).
 
-# Integration Options
-A set of assertions can be integrated into the UBKG from sources that include:
-1. An OWL file that follows OBO principles. If the OWL file is published online, only the URL to the OWL is needed.
-2. A set of _ingest files_ in _UBKG edge/node format_.
-3. Other data sources, via custom scripts
+---
 
-This guide focuses on the format of UBKG ingest files.
+# Format Options
+The UBKG generation framework can work with files from a variety of sources, including:
 
-# Ingest Files in UBKG Edge/Node Format
-A set of UBKG ingest files describes the entities and relationships of a set of assertions that is to be integrated into the UBKG. 
+## OWL files
 
-An ingest file set consists of two Tab-Separated Variables (TSV) files:
+The generation framework can work with OWL files in serializations including:
+- RDF/XML
+- OWL/XML
+- RDF
+- Turtle
+- OBO
+- NCBO CSVs in GZIP archives
+
+Files can be online or stored locally.
+
+## Custom data formats
+Some data sources are available in custom formats, such as files in FTP sites. The UBKG development team can build custom 
+scripts that extract and translate assertion content.
+
+## UBKG Edges/Nodes format
+
+The rest of this document will discuss the UBKG Edges/Nodes format.
+
+### PubChem
+Additional information to guide ingestion of PubChem information, a type of 
+UBKG Edge/Node file, is [here](/pubchem).
+
+# UBKG Edge/Node Format
+Files in UBKG Edge/Node format describe the entities and relationships of a set of assertions that is to be integrated into the UBKG. 
+ 
+A file set of UBKG Edge/Node files consists of two Tab-Separated Variables (TSV) files:
 
 - **edges.tsv**: Describes the triples comprising the ontology
 - **nodes.tsv**: Describes metadata for entities
@@ -55,7 +77,7 @@ In general, a set of assertions can employ multiple SABs, of two types:
 - **Node SAB**: The code for a subject or object node associates with the SAB that identifies the code's _steward_. The steward maintain the code source. Examples of stewards include the organization that publishes an ontology to NCBO BioPortal or OBO.
 - **Edge SAB**: A set of assertions associates with a SAB that may be different from the SABs of the nodes in the set. 
 
-The steward of a set of assertions is, in general, not the steward of all of the codes involved in the assertions.
+The steward of a set of assertions is, in general, not the steward of all the codes involved in the assertions.
 
 ### Example
 Consider the following subset of assertions from the Phenotypic Quality Ontology (PATO).
@@ -80,7 +102,6 @@ The types of SABs in this set of assertions:
 In other words, PATO is the steward of a set of assertions that involve codes maintained by other stewards (e.g., UBERON).
 
 When ingesting a set of assertions, it is necessary to define a preferred SAB to represent the steward of the set--e.g., an initiative, project, or institution.
-
 
 ## edges.tsv
 The edges file lists the _triples_ (subject node - predicate - object node) that constitute a set of assertions.
