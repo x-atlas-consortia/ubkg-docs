@@ -9,6 +9,10 @@
       "class": "h2"
     },
     {
+      "name": "Basics",
+      "href": "/basics"
+    },
+    {
       "name": "Formats",
       "href": "/formats"
     },

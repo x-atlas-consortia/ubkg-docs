@@ -14,13 +14,9 @@ The UBKG combines information from the National Library of Medicine's [Unified M
 An important goal of the UBKG is to establish connections _between_ sets of assertions. 
 For example, if information on the relationships between _proteins_ and _genes_ described in one set of assertions can be connected to information on the relationships between _genes_ and _diseases_ described in another set of assertions, it may be possible to identify previously unknown relationships between _proteins_ and _diseases_.
 
-### A note on terminology: _ontology_ vs. _set of assertions_
-This documentation will refer to either an _ontology_ or a _set of assertions_ as a source of information for the UBKG.
-For the purposes of representation in a knowledge graph, a set of assertions (with each assertion consisting of
-a **subject** entity, a **predicate**, and an **object** entity) is equivalent to an ontology. 
+# Introduction to assertions
 
-Characteristics of formal ontologies beyond assertions (such as those that support reasoning) are not currently translated into the knowledge graph.
-
+If you are new to modeling information by building sets of assertions, then the [Basics](/basics) page is a good place to start.
 
 # Components of the UBKG
 The primary components of an instance of the UBKG are:
