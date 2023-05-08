@@ -136,8 +136,8 @@ To integrate this data in to the UBKG, you do the following:
 
 
  3. Identify suitable relationships from RO, where applicable. For example, 
-      1. Although your model originally stated that a flour _comes_from_ a grain, you rename the relationship _derives_from_, which corresponds to RO:0001000.
-      2. You cannot find anything in RO to represent _baked_into_ or _product_of_, so that relationship remains unchanged.
+    - Although your model originally stated that a flour _comes_from_ a grain, you rename the relationship _derives_from_, which corresponds to RO:0001000.
+    - You cannot find anything in RO to represent _baked_into_ or _product_of_, so that relationship remains unchanged.
 4. Build your **edges.tsv** file, using codes from your vocabularies to represent the entities and the relationships that you defined:
 
 
