@@ -123,16 +123,18 @@ To integrate this data in to the UBKG, you do the following:
 |------------|------|-------------|
 | FLOUR      | 001  | Wheat flour |
 | FLOUR      | 002  | Rye flour   |
-|FLOUR|003|Corn flour|
-|GRAIN|001|Wheat|
-|GRAIN|002|Rye|
-|GRAIN|003|Corn|
-|MILL|001|Water mill|
-|MILL|002|Ox mill|
-|MILL|003|Metate|
-|BREAD|001|Sourdough|
-|BREAD|002|Marble rye|
-|BREAD|003 |Tortilla|
+| FLOUR      | 003  | Corn flour  |
+| GRAIN      | 001  | Wheat       |
+| GRAIN      | 002  | Rye         |
+| GRAIN      | 003  | Corn        |
+| MILL       | 001  | Water mill  |
+| MILL       | 002  | Ox mill     |
+| MILL       | 003  | Metate      |
+| BREAD      | 001  | Sourdough   |
+| BREAD      | 002  | Marble rye  |
+| BREAD      | 003  | Tortilla    |
+
+
  3. Identify suitable relationships from RO, where applicable. For example, 
       1. Although your model originally stated that a flour _comes_from_ a grain, you rename the relationship _derives_from_, which corresponds to RO:0001000.
       2. You cannot find anything in RO to represent _baked_into_ or _product_of_, so that relationship remains unchanged.
