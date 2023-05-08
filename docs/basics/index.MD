@@ -116,8 +116,8 @@ Finally, although you have your own vocabularies, you know that at least some of
 For example, your GRAIN vocabulary includes an entry for "rye", but you know that code 412068007 in SNOMED_CT also refers to rye.
 
 To integrate this data in to the UBKG, you do the following:
-1. Define an SAB for your domain--e.g., BAKING. UBKG will assing this SAB to the relationships that you define in your **edges.tsv** file.
-2. Organize your codes for grains, breads, flours, and mills. For example,
+- Define an SAB for your domain--e.g., BAKING. UBKG will assing this SAB to the relationships that you define in your **edges.tsv** file.
+- Organize your codes for grains, breads, flours, and mills. For example,
 
 | Vocabulary | Code | Item        |
 |------------|------|-------------|
@@ -134,11 +134,10 @@ To integrate this data in to the UBKG, you do the following:
 | BREAD      | 002  | Marble rye  |
 | BREAD      | 003  | Tortilla    |
 
-
-3. Identify suitable relationships from RO, where applicable. For example, 
+-Identify suitable relationships from RO, where applicable. For example, 
    - Although your model originally stated that a flour _comes_from_ a grain, you rename the relationship _derives_from_, which corresponds to RO:0001000.
-   - You cannot find anything in RO to represent _baked_into_ or _product_of_, so that relationship remains unchanged.
-4. Build your **edges.tsv** file, using codes from your vocabularies to represent the entities and the relationships that you defined:
+   - You cannot find anything in RO to represent _baked_into_ or _product_of_, so that relationship remains unchanged. 
+- Build your **edges.tsv** file, using codes from your vocabularies to represent the entities and the relationships that you defined:
 
 
 | subject   | predicate  | object    |
@@ -153,7 +152,7 @@ To integrate this data in to the UBKG, you do the following:
 | FLOUR 003 | product_of | MILL 003  |
 | FLOUR 003 | baked_into | BREAD 003 |
 
-5. Build your **nodes.tsv** file, including cross-references for grains that you identified.
+- Build your **nodes.tsv** file, including cross-references for grains that you identified.
 
 | node_id   | node_label  | node_definition       | node_synonyms     | node_dbxrefs          |
 |-----------|-------------|-----------------------|-------------------|-----------------------|
