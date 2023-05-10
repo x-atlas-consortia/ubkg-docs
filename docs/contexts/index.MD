@@ -69,8 +69,8 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 | [Human BioMolecular Atlas Program (HuBMAP) ](https://hubmapconsortium.org/)                                        |                                                             |                                         |
 | [Illuminating the Druggable Genome (IDG)](https://commonfund.nih.gov/idg)                                          | IDG                                                         |                                         |
 | [Gabriella Miller Kids First](https://commonfund.nih.gov/KidsFirst)                                                |                                                             |                                         |
-| [Library of Integrted Network-Based Cellular Signatures (LINCS)](https://commonfund.nih.gov/LINCS/)                |                                                             |                                         |
-| [Molecular Transducers of Physical Activiy Consortium (MoTrPAC)](https://commonfund.nih.gov/MolecularTransducers)  |                                                             |                                         |
+| [Library of Integrated Network-Based Cellular Signatures (LINCS)](https://commonfund.nih.gov/LINCS/)               |                                                             |                                         |
+| [Molecular Transducers of Physical Activity Consortium (MoTrPAC)](https://commonfund.nih.gov/MolecularTransducers) |                                                             |                                         |
 | [Metabolomics Workbench (MW)](https://commonfund.nih.gov/metabolomics/)                                            |                                                             |                                         |
 | [Stimulating Peripheral Activity to Relieve Conditions (SPARC)](https://commonfund.nih.gov/Sparc/)                 |                                                             |                                         |
 
