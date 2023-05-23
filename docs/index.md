@@ -7,8 +7,17 @@ layout: default
 
 The **Unified Biomedical Knowledge Graph (UBKG)** is a  [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) infrastructure that represents a set of interrelated concepts from biomedical ontologies and vocabularies. 
 
+The UBKG infrastructure involves...
+- the application of a **methodology**...
+- that uses a set of **tools**...
+- and sets of **assertion data**...
+- to be deployed to an **environment**...
+- and abstracted by means of an **API**.
+
+
 The UBKG combines information from the National Library of Medicine's [Unified Medical Language System](https://www.nlm.nih.gov/research/umls/index.html) (UMLS) with sets of [_assertions_](https://www.w3.org/TR/owl2-syntax/#Assertions) (also known as _triples_, or _subject-predicate-object_ relationships) from ontologies or vocabularies outside the UMLS, such as:
 - Ontology files published in references such as the [NCBO Bioportal](https://bioportal.bioontology.org/) and the [OBO Foundry](https://obofoundry.org/).
+- Reference information
 - Custom ontologies/sets of assertions
 
 An important goal of the UBKG is to establish connections _between_ sets of assertions. 
@@ -16,7 +25,8 @@ For example, if information on the relationships between _proteins_ and _genes_ 
 
 # Introduction to assertions
 
-If you are new to modeling information by building sets of assertions, then the [Basics](/basics) page is a good place to start.
+An assertion is the statement of a relationship between two entities. 
+If you are new to assertions, consult the [Basics](/basics) page.
 
 # Components of the UBKG
 The primary components of an instance of the UBKG are:
