@@ -21,6 +21,10 @@
       "href": "/contexts"
     },
     {
+      "name": "Deployment",
+      "href": "/deployment"
+    },
+    {
       "name": "Glossary",
       "href": "/glossary"
     }
