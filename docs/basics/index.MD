@@ -85,7 +85,6 @@ Synonomy increases the possibility of identifying assertions that span ontologic
 When building a set of assertions, it is important to determine whether any of the entities in assertions can be cross-referenced to other entities. Cross-refrences are listed in the dbxrefs column of the [nodes.tsv](/formats/#nodestsv) file.
 
 
-
 # Bringing it all together
 To add information to the UBKG, it is necessary to model a domain of information as a set of assertions. 
 

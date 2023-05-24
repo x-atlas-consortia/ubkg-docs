@@ -108,15 +108,15 @@ The edges file lists the _triples_ (subject node - predicate - object node) that
 
 ###  Fields
 
-| Field                       | Corresponding element in UBKG | Accepted formats                                                                                            | Examples                                        |
-|-----------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
-| subject                     | **Code** node                 | _OBO Principle 3 comforming_ (see note below) IRI for a concept in a published ontology                     | http://purl.obolibrary.org/obo/UBERON_0004086   |
-|                             |                               | Code for the concept in the format _SAB_ {space} _code in ontology_                                         | UBERON 0004086                                  |
-| predicate                   | relationships                 | For hierarchical relationships, the IRI http://www.w3.org/2000/01/rdf-schema#subClassOf OR the string “isa” | http://www.w3.org/2000/01/rdf-schema#subClassOf |
-|                             |                               | For non-hierarchical relationships, an IRI for a relationship property in RO	                               | http://purl.obolibrary.org/obo/RO_0002292       |
-|                             |                               | Custom string                                                                                               | drinks milkshake of                             |
-| object                      | **Code** node                 | same as for subject                                                                                         |                                                 |
-| evidence_class (_optional_) | **string**                    | Statement specific to an SAB to classify evidence                                                           | -0.016084092                                    |
+| Field                       | Corresponding element in UBKG | Accepted formats                                                                                               | Examples                                        |
+|-----------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| subject                     | **Code** node                 | _OBO Principle 3 comforming_ (see note below) IRI for a concept in a published ontology                        | http://purl.obolibrary.org/obo/UBERON_0004086   |
+|                             |                               | Code for the concept in the format _SAB_ {space} _code in ontology_  OR _SAB_ {underscore} _code in ontology_. | UBERON 0004086, UBERON_004086                   |
+| predicate                   | relationships                 | For hierarchical relationships, the IRI http://www.w3.org/2000/01/rdf-schema#subClassOf OR the string “isa”    | http://www.w3.org/2000/01/rdf-schema#subClassOf |
+|                             |                               | For non-hierarchical relationships, an IRI for a relationship property in RO                                   | http://purl.obolibrary.org/obo/RO_0002292       |
+|                             |                               | Custom string                                                                                                  | drinks milkshake of                             |
+| object                      | **Code** node                 | same as for subject                                                                                            |                                                 |
+| evidence_class (_optional_) | **string**                    | Statement specific to an SAB to classify evidence                                                              | -0.016084092                                    |
 
 ### Requirements for nodes
 
@@ -133,12 +133,35 @@ In this example, _UBERON_ is the SAB for the code.
 For codes in a set of assertions that correspond to entities that have already been identified in a standard biomedical ontology, the IRI is preferred. 
 For new codes that have not been already been encoded in an ontology, the identifier must include the SAB that represents the code's steward.
 
+#### Special characters and delimiters
+UBKG uses complex rules for nodes for parsing SABs from nodes. 
+The following characters are reserved for use as delimiters:
+1. space
+2. colon
+3. underscore
+
+For best results in your nodes, use only a space or an underscore to distinguish between the SAB and code. 
+For example, the following are both acceptable representations:
+1. UBERON 0004086
+2. UBERON_004086  
+
+Avoid using colons as delimiters. 
+Do not use any of the reserved characters in node IDs.
+
 ###  Recommendations for edges
 The preferred source of relationship (predicate) information is the [Relations Ontology](https://www.ebi.ac.uk/ols/ontologies/ro) (RO). Reasons for this include:
 1. RO is a general reference for relationships, and is therefore likely already to have a standard relationship defined that is suitable.
 2. RO defines inverse relationships, especially those that may not be obvious.
 
 It is possible, nevertheless, that RO does not contain a relationship that is specific enough for an assertion, so a custom relationship will be needed. When defining a custom relationship, we recommend that the label be short and consise. (This is easier said than done, of course. Defining concise relationships is the hard part of modelling assertions.)
+
+#### Special characters and delimiters
+
+The preferred format for a predicate is an IRI with format
+
+http://purl.obolibrary.org/obo/RO_code
+
+The format **RO:code** is accepted, but not preferred.
 
 ## nodes.tsv
  The nodes.tsv file provides metadata on entities.
