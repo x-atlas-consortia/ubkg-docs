@@ -13,7 +13,7 @@ The guide includes recommendations for optimizing and deepening the integration 
 to establish new relationships among entities and cross-references among ontologies.
 
 ## Audience
-This guide is intended for users who are subject matter experts in what biomedical assertions they might want to represent (e.g., genes and their products) with a set of assertions, but not necessarily conversant with either ontological concepts or knowledge graphs.
+This guide is intended for users who are subject-matter experts in what biomedical assertions they might want to represent (e.g., genes and their products) with a set of assertions, but not necessarily conversant with either ontological concepts or knowledge graphs.
 
 ## Glossary
 The [Glossary](/glossary) page describes terms that this guide uses that are relevant to assertions or knowledge graphs. 
@@ -87,8 +87,8 @@ Consider the following subset of assertions from the Phenotypic Quality Ontology
 |----------------|-------------------|----------------|
 | UBERON:0000457 | branching part of | UBERON:0001532 |
 | PATO:0001776   | subClassOf        | PATO:0001544   |
-| CL:0000101     | capable of | GO:0050906     |   
-| PATO:0001894   |subClassOf|UBERON:0000061|
+| CL:0000101     | capable of        | GO:0050906     |   
+| PATO:0001894   | subClassOf        | UBERON:0000061 |
 
 This set contains three types of assertions:
 - assertions involving only codes from PATO
@@ -110,7 +110,7 @@ The edges file lists the _triples_ (subject node - predicate - object node) that
 
 | Field                       | Corresponding element in UBKG | Accepted formats                                                                                               | Examples                                        |
 |-----------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
-| subject                     | **Code** node                 | _OBO Principle 3 comforming_ (see note below) IRI for a concept in a published ontology                        | http://purl.obolibrary.org/obo/UBERON_0004086   |
+| subject                     | **Code** node                 | _OBO Principle 3 conforming_ (see note below) IRI for a concept in a published ontology                        | http://purl.obolibrary.org/obo/UBERON_0004086   |
 |                             |                               | Code for the concept in the format _SAB_ {space} _code in ontology_  OR _SAB_ {underscore} _code in ontology_. | UBERON 0004086, UBERON_004086                   |
 | predicate                   | relationships                 | For hierarchical relationships, the IRI http://www.w3.org/2000/01/rdf-schema#subClassOf OR the string “isa”    | http://www.w3.org/2000/01/rdf-schema#subClassOf |
 |                             |                               | For non-hierarchical relationships, an IRI for a relationship property in RO                                   | http://purl.obolibrary.org/obo/RO_0002292       |
@@ -153,7 +153,7 @@ The preferred source of relationship (predicate) information is the [Relations O
 1. RO is a general reference for relationships, and is therefore likely already to have a standard relationship defined that is suitable.
 2. RO defines inverse relationships, especially those that may not be obvious.
 
-It is possible, nevertheless, that RO does not contain a relationship that is specific enough for an assertion, so a custom relationship will be needed. When defining a custom relationship, we recommend that the label be short and consise. (This is easier said than done, of course. Defining concise relationships is the hard part of modelling assertions.)
+It is possible, nevertheless, that RO does not contain a relationship that is specific enough for an assertion, so a custom relationship will be needed. When defining a custom relationship, we recommend that the label be short and concise. (This is easier said than done, of course. Defining concise relationships is the hard part of modelling assertions.)
 
 #### Special characters and delimiters
 
@@ -170,7 +170,7 @@ The format **RO:code** is accepted, but not preferred.
 
 | Field                        | Corresponding element in UBKG                                          | Accepted formats                                                                                                              | Examples                                                    |
 |------------------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| node_id                      | **Code** node                                                          | _OBO Principle 3 comforming_ IRI for a concept in a published ontology                                                        | http://purl.obolibrary.org/obo/UBERON_0004086               |
+| node_id                      | **Code** node                                                          | _OBO Principle 3 conforming_ IRI for a concept in a published ontology                                                        | http://purl.obolibrary.org/obo/UBERON_0004086               |
 |                              |                                                                        | Code for the concept in the format _SAB_ {space} _code in ontology_                                                           | UBERON 0004086                                              |
 | node_label                   | **Term** node, _Preferred Term_ (PT) relationship                      | Text string                                                                                                                   | Ventricles of hindbrain                                     |
 | node_definition (_optional_) | **Definition** node, _DEF_ relationship                                | Text string                                                                                                                   | One of the system of communicating cavities in the brain …. |

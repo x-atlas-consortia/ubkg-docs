@@ -29,11 +29,11 @@ An **_entity_** in the UBKG. A concept is represented with a **_code_** in a sou
 ## Concept Unique Identifier (CUI)
 A unique identifier for a **_concept_** in the UBKG. A CUI can be cross-referenced by **_codes_** from many **_ontologies_**, allowing for associations between entities in different ontologies. 
 
-For example, the CUI for the concept of _methanol_ in UMLS is cross-referenced by codes in a number of ontologies and vocabularies, such as SNOMED_CT and NCI. The use of the CUI allows for questions such as “How many different ways do all of the ontologies in the UBKG refer to methanol?” As the following illustration shows, a knowledge graph can reveal that terms from different ontologies include “methanol”, “Methyl Alcohol”, and “METHYL ALCOHOL”.
+For example, the CUI for the concept of _methanol_ in UMLS is cross-referenced by codes in a number of ontologies and vocabularies, such as SNOMED_CT and NCI. The use of the CUI allows for questions such as “How many  ways do all the ontologies in the UBKG refer to methanol?” As the following illustration shows, a knowledge graph can reveal that terms from different ontologies include “methanol”, “Methyl Alcohol”, and “METHYL ALCOHOL”.
 
 ![image](https://user-images.githubusercontent.com/10928372/202924294-9b232793-ae36-4fdd-8363-44a2ddedbe3e.png)
 
-_How do all of the ontologies in the UBKG refer to “methanol”?_
+_How do all the ontologies in the UBKG refer to “methanol”?_
 
 ## Cross-reference
 A link between a **_concept_** in one **_ontology_** and a concept in another. Cross-references can be described in one of two ways:
@@ -69,7 +69,7 @@ A **_relationship_** in an **_ontology_** has a direction: it starts with one no
 
 (_5'-AMP-activated protein kinase subunit gamma-1_)→**isa**→(_protein_)
 
-A relationship is considered the **inverse** of another relationship if it can be used to link the same nodes of the relationship in the opposite direction. For example, the _inverse_isa_ relationship for a concept can be used to identify those concepts that have a _isa_ relationship with the concept.
+A relationship is considered the **inverse** of another relationship if it can be used to link the same nodes of the relationship in the opposite direction. For example, the _inverse_isa_ relationship for a concept can be used to identify those concepts that have an _isa_ relationship with the concept.
 
 (_protein_)←**inverse_isa**←(_5'-AMP-activated protein kinase subunit gamma-1_) 
 

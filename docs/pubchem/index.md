@@ -21,7 +21,7 @@ layout: default
  
  An EGFR inhibitor inhibits the expression of EGFR (UNIPROTKB ID P00533), so a possible assertion is
  
-| subjecy         | predicate                                 | object           |
+| subject         | predicate                                 | object           |
 |-----------------|-------------------------------------------|------------------|
 | PUBCHEM 9549299 | http://purl.obolibrary.org/obo/RO_0002449 | UNIPROTKB P00533 |
 | 1               | 2                                         | 3                |
