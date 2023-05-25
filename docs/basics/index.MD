@@ -31,7 +31,7 @@ relationships between genes and diseases mediated by gene products).
 #### Types of relationships
 Relationships in the UBKG are one of two types.
 
-1. **Hierarchical** or _taxonomic_ relationships that characterize entities of the same type. For example, a B cell _is a kind of_ lymphocyte, as is a T cell. The **B cell** and **T cell** entities have a _is a kind of_ hierarchical relationship with **lymphocyte**.
+1. **Hierarchical** or _taxonomic_ relationships that characterize entities of the same type. For example, a B cell _is a kind of_ lymphocyte, as is a T cell. The **B cell** and **T cell** entities have an _is a kind of_ hierarchical relationship with **lymphocyte**.
 2. **Non-hierarchical** relationships, often between entities of different types. For example, a B cell _produces_ antibodies and a T cell _produces_ cytokines. _produces_ is a non-hierarchical relationship.
 
 ###  Ontologies and Assertions
@@ -64,25 +64,25 @@ Predicates have been translated from their labels in Relations Ontology.)
 |----------------|-------------------|----------------|
 | UBERON:0000457 | branching part of | UBERON:0001532 |
 | PATO:0001776   | subClassOf        | PATO:0001544   |
-| CL:0000101     | capable of | GO:0050906     |   
-| PATO:0001894   |subClassOf|UBERON:0000061|
+| CL:0000101     | capable of        | GO:0050906     |   
+| PATO:0001894   | subClassOf        | UBERON:0000061 |
 
 For this set of assertions:
 1. The domain is PATO.
 2. Entities are from the UBERON, CL, GO, and PATO vocabularies. 
 
-In other words, PATO is the SAB both for the entire ontology and for some entities in the ontololgy.
+In other words, PATO is the SAB both for the entire ontology and for some entities in the ontology.
 
 # Cross-references
 
 As shown in the preceding example, many ontologies use the same identifiers for entities. 
-Many entities, however, are represented with different codes in different vocabularies. Identifers from different vocabularies that refer to the same entity are considered _equivalent_.
+Many entities, however, are represented with different codes in different vocabularies. Identifiers from different vocabularies that refer to the same entity are considered _equivalent_.
 
 The UBKG represents equivalent identifiers by means of _cross-reference_ relationships. Cross-referenced entities allow for _synonomy_, or links between vocabularies. 
 
 Synonomy increases the possibility of identifying assertions that span ontological domains. If, for example, ontology A asserts a relationship between two entities and one of the entities is cross-referenced to an entity in another ontology, it may be possible to link the assertion in the first ontology to assertions in the second ontology.
 
-When building a set of assertions, it is important to determine whether any of the entities in assertions can be cross-referenced to other entities. Cross-refrences are listed in the dbxrefs column of the [nodes.tsv](/formats/#nodestsv) file.
+When building a set of assertions, it is important to determine whether any of the entities in assertions can be cross-referenced to other entities. Cross-references are listed in the dbxrefs column of the [nodes.tsv](/formats/#nodestsv) file.
 
 
 # Bringing it all together
@@ -115,7 +115,7 @@ Finally, although you have your own vocabularies, you know that at least some of
 For example, your GRAIN vocabulary includes an entry for "rye", but you know that code 412068007 in SNOMED_CT also refers to rye.
 
 To integrate this data in to the UBKG, you do the following:
-- Define an SAB for your domain--e.g., BAKING. UBKG will assing this SAB to the relationships that you define in your **edges.tsv** file.
+- Define an SAB for your domain--e.g., BAKING. UBKG will assingn this SAB to the relationships that you define in your **edges.tsv** file.
 - Organize your codes for grains, breads, flours, and mills. For example,
 
 | Vocabulary | Code | Item        |

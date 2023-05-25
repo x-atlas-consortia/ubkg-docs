@@ -21,7 +21,7 @@ The tools used to build and deploy a UBKG instance are described on the home pag
 3. The **neo4j Docker framework**
 
 ## Assertion data
-The sets of assertion data that are required to populate an deployment of a UBKG depend on the UBKG [context](/context).
+The sets of assertion data that are required to populate a deployment of a UBKG depend on the UBKG [context](/context).
 
 There are three types of assertion data:
 1. **Ontology** assertions taken directly from published ontology files in an OWL serialization, such as those described in the NCBO BioPortal.
@@ -42,7 +42,7 @@ The Docker can also be hosted by a Virtual Machine.
 UBKG ontology CSV files contain licensed content extracted from the Unified Medical Language System (UMLS),
 using the [source_framework](https://github.com/x-atlas-consortia/ubkg-etl/tree/main/source_framework) scripts in the **ubkg-etl** repository.
 
-The ontology CSV files cannot be published to public repositories, such as Github or Dockerhub. 
+The ontology CSV files cannot be published to public repositories, such as GitHub or Docker Hub. 
 Prebuilt ontology CSVs are available for download, but require authorization because of licensing issues.
 
 For assistance with obtaining prebuilt ontology CSVs, contact the UBKG steward:
