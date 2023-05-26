@@ -64,6 +64,16 @@ A file set of UBKG Edge/Node files consists of two Tab-Separated Variables (TSV)
 - **edges.tsv**: Describes the triples comprising the ontology
 - **nodes.tsv**: Describes metadata for entities
 
+## Compression
+UBKG Edge/Node files can be compressed in GZIP:
+
+1. Each file should be in its own GZIP file.
+2. The filename of the GZIP should correspond to the file name of the contents.
+
+In other words, if files are compressed, there should be files named
+- **edges.tsv.gz**
+- **nodes.tsv.gz**
+
 ## Source Abbreviations (SABs) 
 
 A __Source Abbreviation__ (SAB) is an uppercase acronym that identifies a set of assertions.
