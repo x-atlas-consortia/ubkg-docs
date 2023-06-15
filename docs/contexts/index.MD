@@ -27,27 +27,32 @@ All of these assertions are considered as being from ontologies.
 The UBKG base context appends to the UMLS context assertions from a number of other standard biomedical ontologies and data sources. 
 The UBKG base context includes assertions from the following SABs:
 
-| SAB                                                           | Description                                                | Type of data |
-|---------------------------------------------------------------|------------------------------------------------------------|--------------|
-| [UBERON](https://bioportal.bioontology.org/ontologies/UBERON) | Uber Anatomy Ontology                                      | ontology     |
-| [PATO](https://bioportal.bioontology.org/ontologies/PATO)     | Phenotypic Quality Ontology                                | ontology     |
-| [CL](https://bioportal.bioontology.org/ontologies/CL)         | Cell Ontology                                              | ontology     |
-| [DOID](https://bioportal.bioontology.org/ontologies/DOID)     | Human Disease Ontology                                     | ontology     |
-| [CCF](https://bioportal.bioontology.org/ontologies/CCF)       | Human Reference Atlas Common Coordinate Framework Ontology | ontology     |
-| [OBI](https://bioportal.bioontology.org/ontologies/OBI)       | Ontology for Biomedical Investigations                     | ontology     |
-| [OBIB](https://bioportal.bioontology.org/ontologies/OBIB)     | Ontology for Biobanking                                    | ontology     |
-| [EDAM](https://bioportal.bioontology.org/ontologies/EDAM)     | EDAM                                                       | ontology     |
-| [HSAPDV](https://bioportal.bioontology.org/ontologies/HSAPDV) | Human Developmental Stages Ontology                        | ontology     |
-| [SBO](https://bioportal.bioontology.org/ontologies/SBO)       | Systems Biology Ontology                                   | ontology     |
-| [MI](https://bioportal.bioontology.org/ontologies/MI)         | Molecular Interactions                                     | ontology     |
-| [CHEBI](https://bioportal.bioontology.org/ontologies/CHEBI)   | Chemical Entities of Biological Interest Ontology          | ontology     |
-| [MP](https://bioportal.bioontology.org/ontologies/MP)         | Mammalian Phenotype Ontology                               | ontology     |
-| [ORDO](https://bioportal.bioontology.org/ontologies/ORDO)     | Orphan Rare Disease Ontology                               | ontology     |
-| [UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)       | Protein-gene relationships from UniProtKB                  | reference    |
-| [UO](https://bioportal.bioontology.org/ontologies/UO)         | Units of Measurement Ontology                              | ontology     |
-| [MONDO](https://bioportal.bioontology.org/ontologies/MONDO)   | MONDO Disease Ontology                                     | ontology     |
-| [EFO](https://bioportal.bioontology.org/ontologies/EFO)       | Experimental Factor Ontology                               | ontology     |
-| [AZ](https://azimuth.hubmapconsortium.org/)                   | Azimuth cell annotations mapped to Cell Ontology terms     | ontology     |
+| SAB                                                            | Description                                                | Type of data |
+|----------------------------------------------------------------|------------------------------------------------------------|--------------|
+| [UBERON](https://bioportal.bioontology.org/ontologies/UBERON)  | Uber Anatomy Ontology                                      | ontology     |
+| [PATO](https://bioportal.bioontology.org/ontologies/PATO)      | Phenotypic Quality Ontology                                | ontology     |
+| [CL](https://bioportal.bioontology.org/ontologies/CL)          | Cell Ontology                                              | ontology     |
+| [DOID](https://bioportal.bioontology.org/ontologies/DOID)      | Human Disease Ontology                                     | ontology     |
+| [HGNCNR](https://bioportal.bioontology.org/ontologies/HGNC-NR) | HGNC New Releases (HGNC-NR) Ontology                       | ontology     |
+| [CCF](https://bioportal.bioontology.org/ontologies/CCF)        | Human Reference Atlas Common Coordinate Framework Ontology | ontology     |
+| [OBI](https://bioportal.bioontology.org/ontologies/OBI)        | Ontology for Biomedical Investigations                     | ontology     |
+| [OBIB](https://bioportal.bioontology.org/ontologies/OBIB)      | Ontology for Biobanking                                    | ontology     |
+| [EDAM](https://bioportal.bioontology.org/ontologies/EDAM)      | EDAM                                                       | ontology     |
+| [HSAPDV](https://bioportal.bioontology.org/ontologies/HSAPDV)  | Human Developmental Stages Ontology                        | ontology     |
+| [SBO](https://bioportal.bioontology.org/ontologies/SBO)        | Systems Biology Ontology                                   | ontology     |
+| [MI](https://bioportal.bioontology.org/ontologies/MI)          | Molecular Interactions                                     | ontology     |
+| [CHEBI](https://bioportal.bioontology.org/ontologies/CHEBI)    | Chemical Entities of Biological Interest Ontology          | ontology     |
+| [MP](https://bioportal.bioontology.org/ontologies/MP)          | Mammalian Phenotype Ontology                               | ontology     |
+| [ORDO](https://bioportal.bioontology.org/ontologies/ORDO)      | Orphan Rare Disease Ontology                               | ontology     |
+| [UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)        | Protein-gene relationships from UniProtKB                  | reference    |
+| [UO](https://bioportal.bioontology.org/ontologies/UO)          | Units of Measurement Ontology                              | ontology     |
+| [MONDO](https://bioportal.bioontology.org/ontologies/MONDO)    | MONDO Disease Ontology                                     | ontology     |
+| [EFO](https://bioportal.bioontology.org/ontologies/EFO)        | Experimental Factor Ontology                               | ontology     |
+| [AZ](https://azimuth.hubmapconsortium.org/)                    | Azimuth cell annotations mapped to Cell Ontology terms     | ontology     |
+| [PGO](https://bioportal.bioontology.org/ontologies/pseudo)     | Pseudogene                                                 | ontology     |
+| GENCODE_ONT                                                    | GenCode ontology support (valuesets)                       | ontology     |
+| [GENCODE](https://www.gencodegenes.org/)                       | GENCODE annotations and metadata                           | reference    |
+
 
 ### HuBMAP/SenNet context
 The HuBMAP/SenNet context appends to the UBKG base set assertions from the following SABs:
@@ -64,9 +69,6 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 
 | Data Coordinating Center / Domain                                                                                  | SAB                                                            | Description                               | Type of data |
 |--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|-------------------------------------------|--------------|
-| GENCODE                                                                                                            | [PGO](https://bioportal.bioontology.org/ontologies/pseudo)     | Pseudogene                                | ontology     |
-|                                                                                                                    | GENCODE_ONT                                                    | GenCode ontology support (valuesets)      | ontology     |
-|                                                                                                                    | [GENCODE](https://www.gencodegenes.org/)                       | GENCODE annotations and metadata          | reference    |
 | Data Distillery Support Mappings                                                                                   | [CLINVAR](https://www.ncbi.nlm.nih.gov/clinvar/)               | NCBI ClinVar                              | reference    |
 |                                                                                                                    | [CMAP](https://www.broadinstitute.org/connectivity-map-cmap)   | Connectivity Map                          | reference    |
 |                                                                                                                    | HPOMP                                                          | HPO-MP mapping                            | reference    |
