@@ -14,6 +14,7 @@ A SAB can correspond to one of the following types of sets of assertions:
 2. **Reference** data extracted from public sources such as UniProtKB.
 3. **Result** Summarized experimental result data obtained from entities such as NIH-supported laboratories.
 
+
 ### UMLS source context (UMLS-Graph)
 The UMLS context includes sets of assertions obtained from [over 100 vocabularies](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html) organized by the UMLS, including
 - SNOMEDCT_US
@@ -23,80 +24,88 @@ The UMLS context includes sets of assertions obtained from [over 100 vocabularie
 
 All of these assertions are considered as being from ontologies.
 
+### non-UMLS Source Platforms
+Sources of data for the UBKG (other than the UMLS base) include:
+
+1. [OBO Foundry](https://obofoundry.org/)
+2. [NCBO BioPortal](https://bioportal.bioontology.org/)
+3. Sites maintained by stewards, including GitHub repositories, FTP sites, etc.
+4. Globus (for sources specific to Data Distillery)
+5. Spreadsheets in the custom SimpleKnowledge Editor format, stored in Google Drive
+
+
 ### UBKG base context (UMLS plus)
 The UBKG base context appends to the UMLS context assertions from a number of other standard biomedical ontologies and data sources. 
 The UBKG base context includes assertions from the following SABs:
 
-| SAB                                                            | Description                                                | Type of data |
-|----------------------------------------------------------------|------------------------------------------------------------|--------------|
-| [UBERON](https://bioportal.bioontology.org/ontologies/UBERON)  | Uber Anatomy Ontology                                      | ontology     |
-| [PATO](https://bioportal.bioontology.org/ontologies/PATO)      | Phenotypic Quality Ontology                                | ontology     |
-| [CL](https://bioportal.bioontology.org/ontologies/CL)          | Cell Ontology                                              | ontology     |
-| [DOID](https://bioportal.bioontology.org/ontologies/DOID)      | Human Disease Ontology                                     | ontology     |
-| [HGNCNR](https://bioportal.bioontology.org/ontologies/HGNC-NR) | HGNC New Releases (HGNC-NR) Ontology                       | ontology     |
-| [CCF](https://bioportal.bioontology.org/ontologies/CCF)        | Human Reference Atlas Common Coordinate Framework Ontology | ontology     |
-| [OBI](https://bioportal.bioontology.org/ontologies/OBI)        | Ontology for Biomedical Investigations                     | ontology     |
-| [OBIB](https://bioportal.bioontology.org/ontologies/OBIB)      | Ontology for Biobanking                                    | ontology     |
-| [EDAM](https://bioportal.bioontology.org/ontologies/EDAM)      | EDAM                                                       | ontology     |
-| [HSAPDV](https://bioportal.bioontology.org/ontologies/HSAPDV)  | Human Developmental Stages Ontology                        | ontology     |
-| [SBO](https://bioportal.bioontology.org/ontologies/SBO)        | Systems Biology Ontology                                   | ontology     |
-| [MI](https://bioportal.bioontology.org/ontologies/MI)          | Molecular Interactions                                     | ontology     |
-| [CHEBI](https://bioportal.bioontology.org/ontologies/CHEBI)    | Chemical Entities of Biological Interest Ontology          | ontology     |
-| [MP](https://bioportal.bioontology.org/ontologies/MP)          | Mammalian Phenotype Ontology                               | ontology     |
-| [ORDO](https://bioportal.bioontology.org/ontologies/ORDO)      | Orphan Rare Disease Ontology                               | ontology     |
-| [UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)        | Protein-gene relationships from UniProtKB                  | reference    |
-| [UO](https://bioportal.bioontology.org/ontologies/UO)          | Units of Measurement Ontology                              | ontology     |
-| [MONDO](https://bioportal.bioontology.org/ontologies/MONDO)    | MONDO Disease Ontology                                     | ontology     |
-| [EFO](https://bioportal.bioontology.org/ontologies/EFO)        | Experimental Factor Ontology                               | ontology     |
-| [AZ](https://azimuth.hubmapconsortium.org/)                    | Azimuth cell annotations mapped to Cell Ontology terms     | ontology     |
-| [PGO](https://bioportal.bioontology.org/ontologies/pseudo)     | Pseudogene                                                 | ontology     |
-| GENCODE_ONT                                                    | GenCode ontology support (valuesets)                       | ontology     |
-| [GENCODE](https://www.gencodegenes.org/)                       | GENCODE annotations and metadata                           | reference    |
+| SAB                                                                | Description                                                | Type of data | platform                            |
+|--------------------------------------------------------------------|------------------------------------------------------------|--------------|-------------------------------------|
+| [UBERON](https://obofoundry.org/ontology/uberon.html)              | Uber Anatomy Ontology                                      | ontology     | OBO Foundry                         |
+| [PATO](https://obofoundry.org/ontology/pato.html)                  | Phenotypic Quality Ontology                                | ontology     | OBO Foundry                         |
+| [CL](https://obofoundry.org/ontology/cl.html)                      | Cell Ontology                                              | ontology     | OBO Foundry                         |
+| [DOID](https://obofoundry.org/ontology/doid.html)                  | Human Disease Ontology                                     | ontology     | OBO Foundry                         |
+| ~~[HGNCNR](https://bioportal.bioontology.org/ontologies/HGNC-NR)~~ | ~~HGNC New Releases (HGNC-NR) Ontology~~                   | ~~ontology~~ | ~~NCBO BioPortal~~                  |
+| [CCF](https://bioportal.bioontology.org/ontologies/CCF)            | Human Reference Atlas Common Coordinate Framework Ontology | ontology     | NCBO BioPortal                      |
+| [OBI](https://obofoundry.org/ontology/obi.html)                    | Ontology for Biomedical Investigations                     | ontology     | OBO Foundry                         |
+| [OBIB](https://obofoundry.org/ontology/obib.html)                  | Ontology for Biobanking                                    | ontology     | NCBO BioPortal                      |
+| [EDAM](http://edamontology.org/page)                               | EDAM                                                       | ontology     | EDAM                                |
+| [HSAPDV](https://obofoundry.org/ontology/hsapdv.html)              | Human Developmental Stages Ontology                        | ontology     | OBO Foundry                         |
+| [SBO](https://github.com/EBI-BioModels/SBO)                        | Systems Biology Ontology                                   | ontology     | SBO                                 |
+| [MI](https://obofoundry.org/ontology/mi.html)                      | Molecular Interactions                                     | ontology     | OBO Foundry                         |
+| [CHEBI](https://obofoundry.org/ontology/chebi.html)                | Chemical Entities of Biological Interest Ontology          | ontology     | OBO Foundry                         |
+| [MP](https://obofoundry.org/ontology/mp.html)                      | Mammalian Phenotype Ontology                               | ontology     | OBO Foundry                         |
+| [ORDO](https://bioportal.bioontology.org/ontologies/ORDO)          | Orphan Rare Disease Ontology                               | ontology     | NCBO BioPortal                      |
+| [UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)            | Protein-gene relationships from UniProtKB                  | reference    | UniProt                             |
+| [UO](https://bioportal.bioontology.org/ontologies/UO)              | Units of Measurement Ontology                              | ontology     | NCBO BioPortal                      |
+| [MONDO](https://obofoundry.org/ontology/mondo.html)                | MONDO Disease Ontology                                     | ontology     | OBO Foundry                         |
+| [EFO](https://bioportal.bioontology.org/ontologies/EFO)            | Experimental Factor Ontology                               | ontology     | NCBO BioPortal                      |
+| [AZ](https://azimuth.hubmapconsortium.org/)                        | Azimuth cell annotations mapped to Cell Ontology terms     | ontology     | Google Drive                        |
+| [PGO](https://bioportal.bioontology.org/ontologies/pseudo)         | Pseudogene                                                 | ontology     | NCBO BioPortal                      |
+| GENCODE_ONT                                                        | GenCode ontology support (valuesets)                       | ontology     | SimpleKnowledge       |
+| [GENCODE](https://www.gencodegenes.org/)                           | GENCODE annotations and metadata                           | reference    | custom (translation of FTP download) |
 
 
 ### HuBMAP/SenNet context
 The HuBMAP/SenNet context appends to the UBKG base set assertions from the following SABs:
 
-| SAB                                                           | Description                                                                     | Type of data |
-|---------------------------------------------------------------|---------------------------------------------------------------------------------|--------------|
-| [HRAVS](https://bioportal.bioontology.org/ontologies/HRAVS)   | Human Reference Atlas Value Set                                                 | ontology     |
-| [HUBMAP](https://hubmapconsortium.org/)                       | the application ontology supporting the infrastructure of the HuBMAP Consortium | ontology     |
-| [SENNET](https://sennetconsortium.org/)                       | the application ontology supporting the infrastructure of the SenNet Consortium | ontology     |
+| SAB                                                           | Description                                                                     | Type of data | platform        |
+|---------------------------------------------------------------|---------------------------------------------------------------------------------|--------------|-----------------|
+| [HRAVS](https://bioportal.bioontology.org/ontologies/HRAVS)   | Human Reference Atlas Value Set                                                 | ontology     | NCBO BioPortal  |
+| [HUBMAP](https://hubmapconsortium.org/)                       | the application ontology supporting the infrastructure of the HuBMAP Consortium | ontology     | SimpleKnowledge |
+| [SENNET](https://sennetconsortium.org/)                       | the application ontology supporting the infrastructure of the SenNet Consortium | ontology     | SimpleKnowledge |
 
 ### Data Distillery context
 The Data Distillery context appends to the UBKG base set assertions to support participants in [Data Distillery](https://commonfund.nih.gov/dataecosystem/highlights), a project of the National Institute of Health's [Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) (CFDE). SABs include:
 
 
-| Data Coordinating Center / Domain                                                                                  | SAB                                                            | Description                               | Type of data |
-|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|-------------------------------------------|--------------|
-| Data Distillery Support Mappings                                                                                   | [CLINVAR](https://www.ncbi.nlm.nih.gov/clinvar/)               | NCBI ClinVar                              | reference    |
-|                                                                                                                    | [CMAP](https://www.broadinstitute.org/connectivity-map-cmap)   | Connectivity Map                          | reference    |
-|                                                                                                                    | HPOMP                                                          | HPO-MP mapping                            | reference    |
-|                                                                                                                    | HGNCHPO                                                        | human genotype - phenotype mapping        | reference    |
-|                                                                                                                    | HCOPHGNC                                                       | human - mouse orthologs                   | reference    |
-|                                                                                                                    | HCOPMP                                                         | mouse genotype-phenotype mapping          | reference    |
-|                                                                                                                    | [MSIGDB](https://www.gsea-msigdb.org/gsea/msigdb)              | Molecular Signatures Database             | reference    |
-| [4DNucleome](https://www.4dnucleome.org/)                                                                          | CHLO                                                           | Chromosome Location Ontology              | ontology     |
-|                                                                                                                    | 4DN                                                            | 4D Nucleome                               | result       |
-| [External RNA Controls Consortium (ERCC)](https://www.nist.gov/programs-projects/external-rna-controls-consortium) |                                                                |                                           | result       |
-| [GlyGen](https://www.glygen.org/)                                                                                  | [FALDO](https://bioportal.bioontology.org/ontologies/FALDO)    | Feature Annotation Description Ontology   | ontology     |
-|                                                                                                                    | [UNIPROT](https://ftp.uniprot.org/pub/databases/uniprot/)      | Universal Protein Resource                | ontology     |
-|                                                                                                                    | [GLYCORDF](https://github.com/glycoinfo/GlycoRDF)              | Glycomics                                 | ontology     |
-|                                                                                                                    | [GLYCOCOO](https://github.com/glycoinfo/GlycoCoO)              | Glycoconjugate                            | ontology     |
-|                                                                                                                    | GLYCANS                                                        | Glycans data                              | result       |
-|                                                                                                                    | PROTEOFORM                                                     | Proteoform                                | result       |
-| [Genotype Tissue Expression (GTEx](https://gtexportal.org/home/)                                                   | GTEXCOEXP                                                      | Co-expression                             | result       |
-|                                                                                                                    | GTEXEQTL                                                       | Expression                                | result       |
-|                                                                                                                    | GTEXEXP                                                        | Expression quantitative trait loci (eQTL) | result       |
-| [Human BioMolecular Atlas Program (HuBMAP) ](https://hubmapconsortium.org/)                                        |                                                                |                                           |              |
-| [Illuminating the Druggable Genome (IDG)](https://commonfund.nih.gov/idg)                                          | IDG                                                            | Compound-protein interactions             | result       |
-|                                                                                                                    | IDG                                                            | Compound-disease interactions             | result       |
-| [Gabriella Miller Kids First](https://commonfund.nih.gov/KidsFirst)                                                |                                                                |                                           |              |
-| [Library of Integrated Network-Based Cellular Signatures (LINCS)](https://commonfund.nih.gov/LINCS/)               | LINCS                                                          |                                           | result       |
-| [Molecular Transducers of Physical Activity Consortium (MoTrPAC)](https://commonfund.nih.gov/MolecularTransducers) |                                                                |                                           |              |
-| [Metabolomics Workbench (MW)](https://commonfund.nih.gov/metabolomics/)                                            | MWCM                                                           | Cell-metabolite mappings                  | result       |
-|                                                                                                                    | MWGM                                                           | Gene-metabolite mappings                  | result       |
-|                                                                                                                    | MWDM                                                           | Disease-metabolite mappings               | result       |
-| [Stimulating Peripheral Activity to Relieve Conditions (SPARC)](https://commonfund.nih.gov/Sparc/)                 | [NPO](https://bioportal.bioontology.org/ontologies/NPOKB)      | Neuron Phenotype Ontology                 | ontology     |
-|                                                                                                                    | [NPOSCKAN](https://github.com/SciCrunch/NIF-Ontology/releases) | NPOSCKAN                                  | ontology     |
+| Data Coordinating Center / Domain                                                                                  | SAB                                                            | Description                               | Type of data | platform       |
+|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|-------------------------------------------|--------------|----------------|
+| Data Distillery Support Mappings                                                                                   | [CLINVAR](https://www.ncbi.nlm.nih.gov/clinvar/)               | NCBI ClinVar                              | reference    | Globus         |
+|                                                                                                                    | [CMAP](https://www.broadinstitute.org/connectivity-map-cmap)   | Connectivity Map                          | reference    | Globus         |
+|                                                                                                                    | HPOMP                                                          | HPO-MP mapping                            | reference    | Globus         |
+|                                                                                                                    | HGNCHPO                                                        | human genotype - phenotype mapping        | reference    | Globus         |
+|                                                                                                                    | HCOPHGNC                                                       | human - mouse orthologs                   | reference    | Globus         |
+|                                                                                                                    | HCOPMP                                                         | mouse genotype-phenotype mapping          | reference    | Globus         |
+|                                                                                                                    | [MSIGDB](https://www.gsea-msigdb.org/gsea/msigdb)              | Molecular Signatures Database             | reference    | Globus         |
+| [4DNucleome](https://www.4dnucleome.org/)                                                                          | CHLO                                                           | Chromosome Location Ontology              | ontology     | Globus         |
+|                                                                                                                    | 4DN                                                            | 4D Nucleome                               | result       | Globus         |
+| [External RNA Controls Consortium (ERCC)](https://www.nist.gov/programs-projects/external-rna-controls-consortium) |                                                                |                                           | result       | Globus         |
+| [GlyGen](https://www.glygen.org/)                                                                                  | [FALDO](https://bioportal.bioontology.org/ontologies/FALDO)    | Feature Annotation Description Ontology   | ontology     | NCBO BioPortal |
+|                                                                                                                    | [UNIPROT](https://ftp.uniprot.org/pub/databases/uniprot/)      | Universal Protein Resource                | ontology     | UniProt FTP    |
+|                                                                                                                    | [GLYCORDF](https://github.com/glycoinfo/GlycoRDF)              | Glycomics                                 | ontology     | GitHub         |
+|                                                                                                                    | [GLYCOCOO](https://github.com/glycoinfo/GlycoCoO)              | Glycoconjugate                            | ontology     | GitHub         |
+|                                                                                                                    | GLYCANS                                                        | Glycans data                              | result       | Globus         |
+|                                                                                                                    | PROTEOFORM                                                     | Proteoform                                | result       | Globus         |
+| [Genotype Tissue Expression (GTEx](https://gtexportal.org/home/)                                                   | GTEXCOEXP                                                      | Co-expression                             | result       | Globus         |
+|                                                                                                                    | GTEXEQTL                                                       | Expression                                | result       | Globus         |
+|                                                                                                                    | GTEXEXP                                                        | Expression quantitative trait loci (eQTL) | result       | Globus         |
+| [Human BioMolecular Atlas Program (HuBMAP) ](https://hubmapconsortium.org/)                                        |                                                                |                                           |              |                |
+| [Illuminating the Druggable Genome (IDG)](https://commonfund.nih.gov/idg)                                          | IDG                                                            | Compound-protein interactions             | result       | Globus         |
+|                                                                                                                    | IDG                                                            | Compound-disease interactions             | result       | Globus         |
+| [Gabriella Miller Kids First](https://commonfund.nih.gov/KidsFirst)                                                |                                                                |                                           |              |                |
+| [Library of Integrated Network-Based Cellular Signatures (LINCS)](https://commonfund.nih.gov/LINCS/)               | LINCS                                                          |                                           | result       | Globus         |
+| [Molecular Transducers of Physical Activity Consortium (MoTrPAC)](https://commonfund.nih.gov/MolecularTransducers) |                                                                |                                           |              |                |
+| [Metabolomics Workbench (MW)](https://commonfund.nih.gov/metabolomics/)                                            | MW                                                             | Cell-metabolite mappings                  | result       | Globus         |
+| [Stimulating Peripheral Activity to Relieve Conditions (SPARC)](https://commonfund.nih.gov/Sparc/)                 | [NPO](https://bioportal.bioontology.org/ontologies/NPOKB)      | Neuron Phenotype Ontology                 | ontology     | NCBO BioPortal |
+|                                                                                                                    | [NPOSCKAN](https://github.com/SciCrunch/NIF-Ontology/releases) | NPOSCKAN                                  | ontology     | GitHub         |
 
