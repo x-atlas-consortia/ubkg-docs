@@ -44,8 +44,6 @@ The UBKG base context includes assertions from the following SABs:
 | [PATO](https://obofoundry.org/ontology/pato.html)                  | Phenotypic Quality Ontology                                | ontology     | OBO Foundry                         |
 | [CL](https://obofoundry.org/ontology/cl.html)                      | Cell Ontology                                              | ontology     | OBO Foundry                         |
 | [DOID](https://obofoundry.org/ontology/doid.html)                  | Human Disease Ontology                                     | ontology     | OBO Foundry                         |
-| ~~[HGNCNR](https://bioportal.bioontology.org/ontologies/HGNC-NR)~~ | ~~HGNC New Releases (HGNC-NR) Ontology~~                   | ~~ontology~~ | ~~NCBO BioPortal~~                  |
-| [CCF](https://bioportal.bioontology.org/ontologies/CCF)            | Human Reference Atlas Common Coordinate Framework Ontology | ontology     | NCBO BioPortal                      |
 | [OBI](https://obofoundry.org/ontology/obi.html)                    | Ontology for Biomedical Investigations                     | ontology     | OBO Foundry                         |
 | [OBIB](https://obofoundry.org/ontology/obib.html)                  | Ontology for Biobanking                                    | ontology     | NCBO BioPortal                      |
 | [EDAM](http://edamontology.org/page)                               | EDAM                                                       | ontology     | EDAM                                |
