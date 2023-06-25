@@ -38,29 +38,29 @@ Sources of data for the UBKG (other than the UMLS base) include:
 The UBKG base context appends to the UMLS context assertions from a number of other standard biomedical ontologies and data sources. 
 The UBKG base context includes assertions from the following SABs:
 
-| SAB                                                                | Description                                                | Type of data | platform                            |
-|--------------------------------------------------------------------|------------------------------------------------------------|--------------|-------------------------------------|
-| [UBERON](https://obofoundry.org/ontology/uberon.html)              | Uber Anatomy Ontology                                      | ontology     | OBO Foundry                         |
-| [PATO](https://obofoundry.org/ontology/pato.html)                  | Phenotypic Quality Ontology                                | ontology     | OBO Foundry                         |
-| [CL](https://obofoundry.org/ontology/cl.html)                      | Cell Ontology                                              | ontology     | OBO Foundry                         |
-| [DOID](https://obofoundry.org/ontology/doid.html)                  | Human Disease Ontology                                     | ontology     | OBO Foundry                         |
-| [OBI](https://obofoundry.org/ontology/obi.html)                    | Ontology for Biomedical Investigations                     | ontology     | OBO Foundry                         |
-| [OBIB](https://obofoundry.org/ontology/obib.html)                  | Ontology for Biobanking                                    | ontology     | NCBO BioPortal                      |
-| [EDAM](http://edamontology.org/page)                               | EDAM                                                       | ontology     | EDAM                                |
-| [HSAPDV](https://obofoundry.org/ontology/hsapdv.html)              | Human Developmental Stages Ontology                        | ontology     | OBO Foundry                         |
-| [SBO](https://github.com/EBI-BioModels/SBO)                        | Systems Biology Ontology                                   | ontology     | SBO                                 |
-| [MI](https://obofoundry.org/ontology/mi.html)                      | Molecular Interactions                                     | ontology     | OBO Foundry                         |
-| [CHEBI](https://obofoundry.org/ontology/chebi.html)                | Chemical Entities of Biological Interest Ontology          | ontology     | OBO Foundry                         |
-| [MP](https://obofoundry.org/ontology/mp.html)                      | Mammalian Phenotype Ontology                               | ontology     | OBO Foundry                         |
-| [ORDO](https://bioportal.bioontology.org/ontologies/ORDO)          | Orphan Rare Disease Ontology                               | ontology     | NCBO BioPortal                      |
-| [UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)            | Protein-gene relationships from UniProtKB                  | reference    | UniProt                             |
-| [UO](https://bioportal.bioontology.org/ontologies/UO)              | Units of Measurement Ontology                              | ontology     | NCBO BioPortal                      |
-| [MONDO](https://obofoundry.org/ontology/mondo.html)                | MONDO Disease Ontology                                     | ontology     | OBO Foundry                         |
-| [EFO](https://bioportal.bioontology.org/ontologies/EFO)            | Experimental Factor Ontology                               | ontology     | NCBO BioPortal                      |
-| [AZ](https://azimuth.hubmapconsortium.org/)                        | Azimuth cell annotations mapped to Cell Ontology terms     | ontology     | Google Drive                        |
-| [PGO](https://bioportal.bioontology.org/ontologies/pseudo)         | Pseudogene                                                 | ontology     | NCBO BioPortal                      |
-| GENCODE_ONT                                                        | GenCode ontology support (valuesets)                       | ontology     | SimpleKnowledge       |
-| [GENCODE](https://www.gencodegenes.org/)                           | GENCODE annotations and metadata                           | reference    | custom (translation of FTP download) |
+| SAB                                                        | Description                                            | Type of data | platform                             |
+|------------------------------------------------------------|--------------------------------------------------------|--------------|--------------------------------------|
+| [UBERON](https://obofoundry.org/ontology/uberon.html)      | Uber Anatomy Ontology                                  | ontology     | OBO Foundry                          |
+| [PATO](https://obofoundry.org/ontology/pato.html)          | Phenotypic Quality Ontology                            | ontology     | OBO Foundry                          |
+| [CL](https://obofoundry.org/ontology/cl.html)              | Cell Ontology                                          | ontology     | OBO Foundry                          |
+| [DOID](https://obofoundry.org/ontology/doid.html)          | Human Disease Ontology                                 | ontology     | OBO Foundry                          |
+| [OBI](https://obofoundry.org/ontology/obi.html)            | Ontology for Biomedical Investigations                 | ontology     | OBO Foundry                          |
+| [OBIB](https://obofoundry.org/ontology/obib.html)          | Ontology for Biobanking                                | ontology     | NCBO BioPortal                       |
+| [EDAM](http://edamontology.org/page)                       | EDAM                                                   | ontology     | EDAM                                 |
+| [HSAPDV](https://obofoundry.org/ontology/hsapdv.html)      | Human Developmental Stages Ontology                    | ontology     | OBO Foundry                          |
+| [SBO](https://github.com/EBI-BioModels/SBO)                | Systems Biology Ontology                               | ontology     | SBO                                  |
+| [MI](https://obofoundry.org/ontology/mi.html)              | Molecular Interactions                                 | ontology     | OBO Foundry                          |
+| [CHEBI](https://obofoundry.org/ontology/chebi.html)        | Chemical Entities of Biological Interest Ontology      | ontology     | OBO Foundry                          |
+| [MP](https://obofoundry.org/ontology/mp.html)              | Mammalian Phenotype Ontology                           | ontology     | OBO Foundry                          |
+| [ORDO](https://bioportal.bioontology.org/ontologies/ORDO)  | Orphan Rare Disease Ontology                           | ontology     | NCBO BioPortal                       |
+| [UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)    | Protein-gene relationships from UniProtKB              | reference    | UniProt                              |
+| [UO](https://bioportal.bioontology.org/ontologies/UO)      | Units of Measurement Ontology                          | ontology     | NCBO BioPortal                       |
+| [MONDO](https://obofoundry.org/ontology/mondo.html)        | MONDO Disease Ontology                                 | ontology     | OBO Foundry                          |
+| [EFO](https://bioportal.bioontology.org/ontologies/EFO)    | Experimental Factor Ontology                           | ontology     | NCBO BioPortal                       |
+| [AZ](https://azimuth.hubmapconsortium.org/)                | Azimuth cell annotations mapped to Cell Ontology terms | ontology     | Google Drive                         |
+| [PGO](https://bioportal.bioontology.org/ontologies/pseudo) | Pseudogene                                             | ontology     | NCBO BioPortal                       |
+| GENCODE_ONT                                                | GenCode ontology support (valuesets)                   | ontology     | SimpleKnowledge                      |
+| [GENCODE](https://www.gencodegenes.org/)                   | GENCODE annotations and metadata                       | reference    | custom (translation of FTP download) |
 
 
 ### HuBMAP/SenNet context
