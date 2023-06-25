@@ -66,11 +66,12 @@ The UBKG base context includes assertions from the following SABs:
 ### HuBMAP/SenNet context
 The HuBMAP/SenNet context appends to the UBKG base set assertions from the following SABs:
 
-| SAB                                                           | Description                                                                     | Type of data | platform        |
-|---------------------------------------------------------------|---------------------------------------------------------------------------------|--------------|-----------------|
-| [HRAVS](https://bioportal.bioontology.org/ontologies/HRAVS)   | Human Reference Atlas Value Set                                                 | ontology     | NCBO BioPortal  |
-| [HUBMAP](https://hubmapconsortium.org/)                       | the application ontology supporting the infrastructure of the HuBMAP Consortium | ontology     | SimpleKnowledge |
-| [SENNET](https://sennetconsortium.org/)                       | the application ontology supporting the infrastructure of the SenNet Consortium | ontology     | SimpleKnowledge |
+| SAB                                                         | Description                                                                     | Type of data | platform        |
+|-------------------------------------------------------------|---------------------------------------------------------------------------------|--------------|-----------------|
+| [HRA](https://humanatlas.io/)                               | Human Reference Atlas                                                           | ontology     | Globus          |
+| [HRAVS](https://bioportal.bioontology.org/ontologies/HRAVS) | Human Reference Atlas Value Set                                                 | ontology     | NCBO BioPortal  |
+| [HUBMAP](https://hubmapconsortium.org/)                     | the application ontology supporting the infrastructure of the HuBMAP Consortium | ontology     | SimpleKnowledge |
+| [SENNET](https://sennetconsortium.org/)                     | the application ontology supporting the infrastructure of the SenNet Consortium | ontology     | SimpleKnowledge |
 
 ### Data Distillery context
 The Data Distillery context appends to the UBKG base set assertions to support participants in [Data Distillery](https://commonfund.nih.gov/dataecosystem/highlights), a project of the National Institute of Health's [Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) (CFDE). SABs include:
@@ -87,7 +88,8 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 |                                                                                                                    | [MSIGDB](https://www.gsea-msigdb.org/gsea/msigdb)              | Molecular Signatures Database             | reference    | Globus         |
 | [4DNucleome](https://www.4dnucleome.org/)                                                                          | CHLO                                                           | Chromosome Location Ontology              | ontology     | Globus         |
 |                                                                                                                    | 4DN                                                            | 4D Nucleome                               | result       | Globus         |
-| [External RNA Controls Consortium (ERCC)](https://www.nist.gov/programs-projects/external-rna-controls-consortium) |                                                                |                                           | result       | Globus         |
+| [External RNA Controls Consortium (ERCC)](https://www.nist.gov/programs-projects/external-rna-controls-consortium) | ERCCRBP                                                        | exRNA Remote Binding Proteins             | result       | Globus         |
+|                                                                                                                    | ERCCREG                                                        | Regulatory Elements                       | result       | Globus         |
 | [GlyGen](https://www.glygen.org/)                                                                                  | [FALDO](https://bioportal.bioontology.org/ontologies/FALDO)    | Feature Annotation Description Ontology   | ontology     | NCBO BioPortal |
 |                                                                                                                    | [UNIPROT](https://ftp.uniprot.org/pub/databases/uniprot/)      | Universal Protein Resource                | ontology     | UniProt FTP    |
 |                                                                                                                    | [GLYCORDF](https://github.com/glycoinfo/GlycoRDF)              | Glycomics                                 | ontology     | GitHub         |
@@ -100,7 +102,7 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 | [Human BioMolecular Atlas Program (HuBMAP) ](https://hubmapconsortium.org/)                                        |                                                                |                                           |              |                |
 | [Illuminating the Druggable Genome (IDG)](https://commonfund.nih.gov/idg)                                          | IDG                                                            | Compound-protein interactions             | result       | Globus         |
 |                                                                                                                    | IDG                                                            | Compound-disease interactions             | result       | Globus         |
-| [Gabriella Miller Kids First](https://commonfund.nih.gov/KidsFirst)                                                |                                                                |                                           |              |                |
+| [Gabriella Miller Kids First](https://commonfund.nih.gov/KidsFirst)                                                | KFPT                                                           |                                           | result       | Globus         |
 | [Library of Integrated Network-Based Cellular Signatures (LINCS)](https://commonfund.nih.gov/LINCS/)               | LINCS                                                          |                                           | result       | Globus         |
 | [Molecular Transducers of Physical Activity Consortium (MoTrPAC)](https://commonfund.nih.gov/MolecularTransducers) |                                                                |                                           |              |                |
 | [Metabolomics Workbench (MW)](https://commonfund.nih.gov/metabolomics/)                                            | MW                                                             | Cell-metabolite mappings                  | result       | Globus         |
