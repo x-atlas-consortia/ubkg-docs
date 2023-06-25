@@ -38,39 +38,40 @@ Sources of data for the UBKG (other than the UMLS base) include:
 The UBKG base context appends to the UMLS context assertions from a number of other standard biomedical ontologies and data sources. 
 The UBKG base context includes assertions from the following SABs:
 
-| SAB                                                                | Description                                                | Type of data | platform                            |
-|--------------------------------------------------------------------|------------------------------------------------------------|--------------|-------------------------------------|
-| [UBERON](https://obofoundry.org/ontology/uberon.html)              | Uber Anatomy Ontology                                      | ontology     | OBO Foundry                         |
-| [PATO](https://obofoundry.org/ontology/pato.html)                  | Phenotypic Quality Ontology                                | ontology     | OBO Foundry                         |
-| [CL](https://obofoundry.org/ontology/cl.html)                      | Cell Ontology                                              | ontology     | OBO Foundry                         |
-| [DOID](https://obofoundry.org/ontology/doid.html)                  | Human Disease Ontology                                     | ontology     | OBO Foundry                         |
-| [OBI](https://obofoundry.org/ontology/obi.html)                    | Ontology for Biomedical Investigations                     | ontology     | OBO Foundry                         |
-| [OBIB](https://obofoundry.org/ontology/obib.html)                  | Ontology for Biobanking                                    | ontology     | NCBO BioPortal                      |
-| [EDAM](http://edamontology.org/page)                               | EDAM                                                       | ontology     | EDAM                                |
-| [HSAPDV](https://obofoundry.org/ontology/hsapdv.html)              | Human Developmental Stages Ontology                        | ontology     | OBO Foundry                         |
-| [SBO](https://github.com/EBI-BioModels/SBO)                        | Systems Biology Ontology                                   | ontology     | SBO                                 |
-| [MI](https://obofoundry.org/ontology/mi.html)                      | Molecular Interactions                                     | ontology     | OBO Foundry                         |
-| [CHEBI](https://obofoundry.org/ontology/chebi.html)                | Chemical Entities of Biological Interest Ontology          | ontology     | OBO Foundry                         |
-| [MP](https://obofoundry.org/ontology/mp.html)                      | Mammalian Phenotype Ontology                               | ontology     | OBO Foundry                         |
-| [ORDO](https://bioportal.bioontology.org/ontologies/ORDO)          | Orphan Rare Disease Ontology                               | ontology     | NCBO BioPortal                      |
-| [UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)            | Protein-gene relationships from UniProtKB                  | reference    | UniProt                             |
-| [UO](https://bioportal.bioontology.org/ontologies/UO)              | Units of Measurement Ontology                              | ontology     | NCBO BioPortal                      |
-| [MONDO](https://obofoundry.org/ontology/mondo.html)                | MONDO Disease Ontology                                     | ontology     | OBO Foundry                         |
-| [EFO](https://bioportal.bioontology.org/ontologies/EFO)            | Experimental Factor Ontology                               | ontology     | NCBO BioPortal                      |
-| [AZ](https://azimuth.hubmapconsortium.org/)                        | Azimuth cell annotations mapped to Cell Ontology terms     | ontology     | Google Drive                        |
-| [PGO](https://bioportal.bioontology.org/ontologies/pseudo)         | Pseudogene                                                 | ontology     | NCBO BioPortal                      |
-| GENCODE_ONT                                                        | GenCode ontology support (valuesets)                       | ontology     | SimpleKnowledge       |
-| [GENCODE](https://www.gencodegenes.org/)                           | GENCODE annotations and metadata                           | reference    | custom (translation of FTP download) |
+| SAB                                                        | Description                                            | Type of data | platform                             |
+|------------------------------------------------------------|--------------------------------------------------------|--------------|--------------------------------------|
+| [UBERON](https://obofoundry.org/ontology/uberon.html)      | Uber Anatomy Ontology                                  | ontology     | OBO Foundry                          |
+| [PATO](https://obofoundry.org/ontology/pato.html)          | Phenotypic Quality Ontology                            | ontology     | OBO Foundry                          |
+| [CL](https://obofoundry.org/ontology/cl.html)              | Cell Ontology                                          | ontology     | OBO Foundry                          |
+| [DOID](https://obofoundry.org/ontology/doid.html)          | Human Disease Ontology                                 | ontology     | OBO Foundry                          |
+| [OBI](https://obofoundry.org/ontology/obi.html)            | Ontology for Biomedical Investigations                 | ontology     | OBO Foundry                          |
+| [OBIB](https://obofoundry.org/ontology/obib.html)          | Ontology for Biobanking                                | ontology     | NCBO BioPortal                       |
+| [EDAM](http://edamontology.org/page)                       | EDAM                                                   | ontology     | EDAM                                 |
+| [HSAPDV](https://obofoundry.org/ontology/hsapdv.html)      | Human Developmental Stages Ontology                    | ontology     | OBO Foundry                          |
+| [SBO](https://github.com/EBI-BioModels/SBO)                | Systems Biology Ontology                               | ontology     | SBO                                  |
+| [MI](https://obofoundry.org/ontology/mi.html)              | Molecular Interactions                                 | ontology     | OBO Foundry                          |
+| [CHEBI](https://obofoundry.org/ontology/chebi.html)        | Chemical Entities of Biological Interest Ontology      | ontology     | OBO Foundry                          |
+| [MP](https://obofoundry.org/ontology/mp.html)              | Mammalian Phenotype Ontology                           | ontology     | OBO Foundry                          |
+| [ORDO](https://bioportal.bioontology.org/ontologies/ORDO)  | Orphan Rare Disease Ontology                           | ontology     | NCBO BioPortal                       |
+| [UNIPROTKB](https://www.uniprot.org/uniprotkb/?query=*)    | Protein-gene relationships from UniProtKB              | reference    | UniProt                              |
+| [UO](https://bioportal.bioontology.org/ontologies/UO)      | Units of Measurement Ontology                          | ontology     | NCBO BioPortal                       |
+| [MONDO](https://obofoundry.org/ontology/mondo.html)        | MONDO Disease Ontology                                 | ontology     | OBO Foundry                          |
+| [EFO](https://bioportal.bioontology.org/ontologies/EFO)    | Experimental Factor Ontology                           | ontology     | NCBO BioPortal                       |
+| [AZ](https://azimuth.hubmapconsortium.org/)                | Azimuth cell annotations mapped to Cell Ontology terms | ontology     | Google Drive                         |
+| [PGO](https://bioportal.bioontology.org/ontologies/pseudo) | Pseudogene                                             | ontology     | NCBO BioPortal                       |
+| GENCODE_ONT                                                | GenCode ontology support (valuesets)                   | ontology     | SimpleKnowledge                      |
+| [GENCODE](https://www.gencodegenes.org/)                   | GENCODE annotations and metadata                       | reference    | custom (translation of FTP download) |
 
 
 ### HuBMAP/SenNet context
 The HuBMAP/SenNet context appends to the UBKG base set assertions from the following SABs:
 
-| SAB                                                           | Description                                                                     | Type of data | platform        |
-|---------------------------------------------------------------|---------------------------------------------------------------------------------|--------------|-----------------|
-| [HRAVS](https://bioportal.bioontology.org/ontologies/HRAVS)   | Human Reference Atlas Value Set                                                 | ontology     | NCBO BioPortal  |
-| [HUBMAP](https://hubmapconsortium.org/)                       | the application ontology supporting the infrastructure of the HuBMAP Consortium | ontology     | SimpleKnowledge |
-| [SENNET](https://sennetconsortium.org/)                       | the application ontology supporting the infrastructure of the SenNet Consortium | ontology     | SimpleKnowledge |
+| SAB                                                         | Description                                                                     | Type of data | platform        |
+|-------------------------------------------------------------|---------------------------------------------------------------------------------|--------------|-----------------|
+| [HRA](https://humanatlas.io/)                               | Human Reference Atlas                                                           | ontology     | Globus          |
+| [HRAVS](https://bioportal.bioontology.org/ontologies/HRAVS) | Human Reference Atlas Value Set                                                 | ontology     | NCBO BioPortal  |
+| [HUBMAP](https://hubmapconsortium.org/)                     | the application ontology supporting the infrastructure of the HuBMAP Consortium | ontology     | SimpleKnowledge |
+| [SENNET](https://sennetconsortium.org/)                     | the application ontology supporting the infrastructure of the SenNet Consortium | ontology     | SimpleKnowledge |
 
 ### Data Distillery context
 The Data Distillery context appends to the UBKG base set assertions to support participants in [Data Distillery](https://commonfund.nih.gov/dataecosystem/highlights), a project of the National Institute of Health's [Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) (CFDE). SABs include:
@@ -87,7 +88,8 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 |                                                                                                                    | [MSIGDB](https://www.gsea-msigdb.org/gsea/msigdb)              | Molecular Signatures Database             | reference    | Globus         |
 | [4DNucleome](https://www.4dnucleome.org/)                                                                          | CHLO                                                           | Chromosome Location Ontology              | ontology     | Globus         |
 |                                                                                                                    | 4DN                                                            | 4D Nucleome                               | result       | Globus         |
-| [External RNA Controls Consortium (ERCC)](https://www.nist.gov/programs-projects/external-rna-controls-consortium) |                                                                |                                           | result       | Globus         |
+| [External RNA Controls Consortium (ERCC)](https://www.nist.gov/programs-projects/external-rna-controls-consortium) | ERCCRBP                                                        | exRNA Remote Binding Proteins             | result       | Globus         |
+|                                                                                                                    | ERCCREG                                                        | Regulatory Elements                       | result       | Globus         |
 | [GlyGen](https://www.glygen.org/)                                                                                  | [FALDO](https://bioportal.bioontology.org/ontologies/FALDO)    | Feature Annotation Description Ontology   | ontology     | NCBO BioPortal |
 |                                                                                                                    | [UNIPROT](https://ftp.uniprot.org/pub/databases/uniprot/)      | Universal Protein Resource                | ontology     | UniProt FTP    |
 |                                                                                                                    | [GLYCORDF](https://github.com/glycoinfo/GlycoRDF)              | Glycomics                                 | ontology     | GitHub         |
@@ -100,7 +102,7 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 | [Human BioMolecular Atlas Program (HuBMAP) ](https://hubmapconsortium.org/)                                        |                                                                |                                           |              |                |
 | [Illuminating the Druggable Genome (IDG)](https://commonfund.nih.gov/idg)                                          | IDG                                                            | Compound-protein interactions             | result       | Globus         |
 |                                                                                                                    | IDG                                                            | Compound-disease interactions             | result       | Globus         |
-| [Gabriella Miller Kids First](https://commonfund.nih.gov/KidsFirst)                                                |                                                                |                                           |              |                |
+| [Gabriella Miller Kids First](https://commonfund.nih.gov/KidsFirst)                                                | KFPT                                                           |                                           | result       | Globus         |
 | [Library of Integrated Network-Based Cellular Signatures (LINCS)](https://commonfund.nih.gov/LINCS/)               | LINCS                                                          |                                           | result       | Globus         |
 | [Molecular Transducers of Physical Activity Consortium (MoTrPAC)](https://commonfund.nih.gov/MolecularTransducers) |                                                                |                                           |              |                |
 | [Metabolomics Workbench (MW)](https://commonfund.nih.gov/metabolomics/)                                            | MW                                                             | Cell-metabolite mappings                  | result       | Globus         |
