@@ -150,12 +150,12 @@ The following characters are reserved for use as delimiters:
 2. colon
 3. underscore
 
-For best results in your nodes, use only a space or an underscore to distinguish between the SAB and code. 
-For example, the following are both acceptable representations:
-1. UBERON 0004086
-2. UBERON_004086  
+For best results in your nodes, use a colon, an underscore, or a space, to separate the SAB and code. 
+For example, the following are all acceptable representations:
+1. UBERON:004086
+2. UBERON_0004086
+2. UBERON 004086  
 
-Avoid using colons as delimiters. 
 Do not use any of the reserved characters in node IDs.
 
 ###  Recommendations for edges
