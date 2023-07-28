@@ -24,6 +24,24 @@ The UMLS context includes sets of assertions obtained from [over 100 vocabularie
 
 All of these assertions are considered as being from ontologies.
 
+#### CodeID standardization
+
+In the UBKG, the colon is a reserved character, used to delimit SAB from code in a CodeID property of a Code node.
+
+A small number of  vocabularies from the UMLS have default code formats that either include the name of the vocabulary 
+in the code or contain a colon. These vocabularies and their formats include:
+
+| SAB                 | default format             |
+|---------------------|----------------------------|
+| HGNC                | HGNC HGNC:x                |
+| GO                  | GO GO:x                    |
+| HPO                 | HPO HP:x                   |
+| HCPCS (Level codes) | HCPCS Level n: Exxx-E-xxxx |
+
+Executing the generation script with the SAB argument of UMLS reformats codes from
+the UMLS to the format SAB:CODE. 
+
+
 ### non-UMLS Source Platforms
 Sources of data for the UBKG (other than the UMLS base) include:
 
@@ -40,6 +58,7 @@ The UBKG base context includes assertions from the following SABs:
 
 | SAB                                                        | Description                                            | Type of data | platform                             |
 |------------------------------------------------------------|--------------------------------------------------------|--------------|--------------------------------------|
+| UMLS                                                       | Standarizes format of CodeID                           | ontlogy      | DBMI Neptune                         |
 | [UBERON](https://obofoundry.org/ontology/uberon.html)      | Uber Anatomy Ontology                                  | ontology     | OBO Foundry                          |
 | [PATO](https://obofoundry.org/ontology/pato.html)          | Phenotypic Quality Ontology                            | ontology     | OBO Foundry                          |
 | [CL](https://obofoundry.org/ontology/cl.html)              | Cell Ontology                                          | ontology     | OBO Foundry                          |

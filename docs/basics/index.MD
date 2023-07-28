@@ -139,22 +139,22 @@ To integrate this data in to the UBKG, you do the following:
 
 | subject   | predicate  | object    |
 |-----------|------------|-----------|
-| FLOUR 001 | RO_0001000 | GRAIN 001 |
-| FLOUR 001 | product_of | MILL 001  |
-| FLOUR 001 | baked_into | BREAD 001 |   
-| FLOUR 002 | RO_0001000 | GRAIN 002 |  
-| FLOUR 002 | product_of | MILL 001  |
-| FLOUR 002 | baked_into | BREAD 002 |
-| FLOUR 003 | RO_0001000 | GRAIN 003 |
-| FLOUR 003 | product_of | MILL 003  |
-| FLOUR 003 | baked_into | BREAD 003 |
+| FLOUR:001 | RO_0001000 | GRAIN:001 |
+| FLOUR:001 | product_of | MILL:001  |
+| FLOUR:001 | baked_into | BREAD:001 |   
+| FLOUR:002 | RO_0001000 | GRAIN:002 |  
+| FLOUR:002 | product_of | MILL:001  |
+| FLOUR:002 | baked_into | BREAD:002 |
+| FLOUR:003 | RO_0001000 | GRAIN:003 |
+| FLOUR:003 | product_of | MILL:003  |
+| FLOUR:003 | baked_into | BREAD:003 |
 
 - Build your **nodes.tsv** file, including cross-references for grains that you identified.
 
 | node_id   | node_label  | node_definition       | node_synonyms     | node_dbxrefs          |
 |-----------|-------------|-----------------------|-------------------|-----------------------|
-| FLOUR 001 | Wheat flour | Flour made from wheat ||
-| GRAIN 001 | Wheat       | Wheat                 | Triticum asetivum | SNOMEDCT_US 65256004  |
-| MILL 001  | Ox Mill     | Mill driven by oxen   ||
-| FLOUR 002 | Rye flour   | Flour made from rye   ||
-| GRAIN 002 | Rye         |                       |                   | SNOMEDCT_US 412068007 |
+| FLOUR:001 | Wheat flour | Flour made from wheat ||
+| GRAIN:001 | Wheat       | Wheat                 | Triticum asetivum | SNOMEDCT_US:65256004  |
+| MILL:001  | Ox Mill     | Mill driven by oxen   ||
+| FLOUR:002 | Rye flour   | Flour made from rye   ||
+| GRAIN:002 | Rye         |                       |                   | SNOMEDCT_US:412068007 |

@@ -5,6 +5,10 @@ layout: default
 # Unified Biomedical Knowledge Graph (UBKG) 
 # Deployment
 
+# NOTE
+**To install a complete, containerized version of a UBKG instance,
+refer to the instructions in the [Docker]((/docker)) tab.**
+
 ---
 
 An UBKG infrastructure involves...

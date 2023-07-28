@@ -25,6 +25,10 @@
       "href": "/deployment"
     },
     {
+      "name": "Docker",
+      "href": "/docker"
+    },
+    {
       "name": "Glossary",
       "href": "/glossary"
     }
