@@ -81,6 +81,8 @@ The UBKG base context includes assertions from the following SABs:
 | GENCODE_ONT                                                | GenCode ontology support (valuesets)                   | ontology     | SimpleKnowledge                      |
 | [GENCODE](https://www.gencodegenes.org/)                   | GENCODE annotations and metadata                       | reference    | custom (translation of FTP download) |
 
+### RefSeq gene summaries
+A separate script adds summaries of genes from [RefSeq](https://www.ncbi.nlm.nih.gov/refseq/) to the UBKG. This import assumes that GenCode has been ingested.
 
 ### HuBMAP/SenNet context
 The HuBMAP/SenNet context appends to the UBKG base set assertions from the following SABs:
