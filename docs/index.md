@@ -110,11 +110,12 @@ The UBKG API is a REST API with endpoints that abstract common types of queries 
 A description of the UBKG API can be found [here](https://smart-api.info/ui/96e5b5c0b0efeef5b93ea98ac2794837).
 
 # Source repositories
-Source for components other than the sets of assertions are stored in repositories in the [x-atlas-consortia](https://github.com/x-atlas-consortia) Github organization.
 
-|repository | content|
-|--|--|
-|[ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)|this documentation|
-|[ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)|source framework; generation framework|
-|[ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j)|ontology knowledge graph neo4j instance|
-|[ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)|REST API server|
+The source for the infrastructure components of the UBKG (i.e., everything except assertion data from the UMLS and other SABs) is stored in public GitHub repositories in the [x-atlas-consortia](https://github.com/x-atlas-consortia) organization.
+
+| Repository                                                    | Components                             | Description                                                                                 |
+|---------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------------------------------|
+| [ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)     | generation framework; source framework | ETL scripts to build sources that are imported into a UBKG neo4j instance                   |
+| [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j) | UBKG neo4j                             | Tools to build and deploy a Docker container hosting a neo4j instance populated with a UBKG |
+| [ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)     | UBKG API                               | REST API to query a UBKG instance                                                           |
+| [ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)   | documentation                          | Source used to generate the content on this GitHub Docs site.                               |
