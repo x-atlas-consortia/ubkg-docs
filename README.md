@@ -1,5 +1,5 @@
 # ubkg-docs
-Unified Biomedical Knowledge Graph (UBKG) Documentation
+[Unified Biomedical Knowledge Graph (UBKG) Documentation](https://ubkg.docs.xconsortia.org/)
 
 ## Usage
 - Save your documentation files in the `docs/` directory.
