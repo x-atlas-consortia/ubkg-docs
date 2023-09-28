@@ -93,6 +93,7 @@ The HuBMAP/SenNet context appends to the UBKG base set assertions from the follo
 | [HRAVS](https://bioportal.bioontology.org/ontologies/HRAVS) | Human Reference Atlas Value Set                                                 | ontology     | NCBO BioPortal  |
 | [HUBMAP](https://hubmapconsortium.org/)                     | the application ontology supporting the infrastructure of the HuBMAP Consortium | ontology     | SimpleKnowledge |
 | [SENNET](https://sennetconsortium.org/)                     | the application ontology supporting the infrastructure of the SenNet Consortium | ontology     | SimpleKnowledge |
+| [CEDAR](https://metadatacenter.org/)                        | Custom HuBMAP/SenNet metadata templates built from CEDAR templates              | reference    | Globus          |
 
 ### Data Distillery context
 The Data Distillery context appends to the UBKG base set assertions to support participants in [Data Distillery](https://commonfund.nih.gov/dataecosystem/highlights), a project of the National Institute of Health's [Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) (CFDE). SABs include:
