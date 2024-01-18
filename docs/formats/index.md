@@ -124,7 +124,7 @@ The edges file lists the _triples_ (subject node - predicate - object node) that
 |                             |                               | Code for the concept in the format _SAB_ {space} _code in ontology_  OR _SAB_ {underscore} _code in ontology_. | UBERON 0004086, UBERON_004086                   |
 | predicate                   | relationships                 | For hierarchical relationships, the IRI http://www.w3.org/2000/01/rdf-schema#subClassOf OR the string “isa”    | http://www.w3.org/2000/01/rdf-schema#subClassOf |
 |                             |                               | For non-hierarchical relationships, an IRI for a relationship property in RO                                   | http://purl.obolibrary.org/obo/RO_0002292       |
-|                             |                               | Custom string                                                                                                  | drinks milkshake of                             |
+|                             |                               | Custom string that complies with neo4j relationship naming rules (see **relationship labels** below)           | drinks milkshake of                             |
 | object                      | **Code** node                 | same as for subject                                                                                            |                                                 |
 | evidence_class (_optional_) | **string**                    | Statement specific to an SAB to classify evidence                                                              | -0.016084092                                    |
 
@@ -172,6 +172,21 @@ The preferred format for a predicate is an IRI with format
 http://purl.obolibrary.org/obo/RO_code
 
 The format **RO:code** is accepted, but not preferred.
+
+#### Relationship label format
+The [neo4 naming rules](https://neo4j.com/docs/cypher-manual/current/syntax/naming/) specify that relationship names:
+1. Contain only alphanumeric characters or the underscore.
+2. Start with a alphabetic character.
+
+Although a relationship can include special characters or start with a number, Cypher queries that refer 
+to the relationship must escape the relationship name with backticks. To avoid the need
+for backticks, relationships in the UBKG are reformatted as follows:
+
+| Characters                        | Change                    | Example                      |
+|-----------------------------------|---------------------------|------------------------------|
+| hyphen                            | replaced with underscore  | **abc-def** to **abc_def**   |
+| other non-alphanumeric characters | replaced with underscores | **abc (def)** to **abc_def** |
+| leading numeric character         | preceded with 'REL_'      | **1abc** to **REL_1abc**     |
 
 ## nodes.tsv
  The nodes.tsv file provides metadata on entities.
