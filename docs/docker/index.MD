@@ -51,14 +51,15 @@ The **build_container.sh** will create a Docker container with the following def
 8. Open a browser window. Enter `http://localhost:4000/browser/`. 
 9. The neo4j browser window will appear. Enter connection information:
 
-| Property            | Value                 |
-|---------------------|-----------------------|
-| Connect URL         | bolt://localhost:4000 |
-| Authentication Type | Username/Password     |
-| Username            | neo4j                 |
-| Password            | abcd1234              |
+| Property            | Value                                                                 |
+|---------------------|-----------------------------------------------------------------------|
+| Connect URL         | bolt://localhost:4500                                                 |
+| Database name       | blank (the default). Note that this field may not appear on the page. |
+| Authentication Type | Username/Password                                                     |
+| Username            | neo4j                                                                 |
+| Password            | abcd1234                                                              |
 
-![img_7.png](img_7.png)
+![img_9.png](img_9.png)
 10. Select **Connect**. 
 
 # Custom Deployment
