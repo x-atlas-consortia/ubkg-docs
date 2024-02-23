@@ -78,7 +78,7 @@ The UBKG base context includes assertions from the following SABs:
 | [EFO](https://bioportal.bioontology.org/ontologies/EFO)    | Experimental Factor Ontology                           | ontology     | NCBO BioPortal                       |
 | [AZ](https://azimuth.hubmapconsortium.org/)                | Azimuth cell annotations mapped to Cell Ontology terms | ontology     | Google Drive                         |
 | [PGO](https://bioportal.bioontology.org/ontologies/pseudo) | Pseudogene                                             | ontology     | NCBO BioPortal                       |
-| GENCODE_VS                                                 | GenCode ontology support (valuesets)                   | ontology     | SimpleKnowledge                      |
+| GENCODE_VS                                                 | GENCODE ontology support (valuesets)                   | ontology     | SimpleKnowledge                      |
 | [GENCODE](https://www.gencodegenes.org/)                   | GENCODE annotations and metadata                       | reference    | custom (translation of FTP download) |
 
 ### RefSeq gene summaries
@@ -94,6 +94,7 @@ The HuBMAP/SenNet context appends to the UBKG base set assertions from the follo
 | [HUBMAP](https://hubmapconsortium.org/)                     | the application ontology supporting the infrastructure of the HuBMAP Consortium | ontology     | SimpleKnowledge |
 | [SENNET](https://sennetconsortium.org/)                     | the application ontology supporting the infrastructure of the SenNet Consortium | ontology     | SimpleKnowledge |
 | [CEDAR](https://metadatacenter.org/)                        | Custom HuBMAP/SenNet metadata templates built from CEDAR templates              | reference    | Globus          |
+| HMFIELD                                                     | Custom legacy HuBMAP metadata                                                   | reference    | SimpleKnowledge |
 
 ### Data Distillery context
 The Data Distillery context appends to the UBKG base set assertions to support participants in [Data Distillery](https://commonfund.nih.gov/dataecosystem/highlights), a project of the National Institute of Health's [Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) (CFDE). SABs include:
@@ -113,7 +114,7 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 |                                                                                                                    | GENCODEHSCLO                                                   | GENCODE-HSCLO mapping                        | reference    | Globus         |
 |                                                                                                                    | [WP](https://www.wikipathways.org/)                            | WikiPathways gene-gene interactions          | reference    | Globus         |
 |                                                                                                                    | [CLINGEN](https://clinicalgenome.org/)                         | Clinical Genome selected datasets            | reference    | Globus         |
-|                                                                                                                    | [STRING](https://string-db.org/)                                                         | StringDB Protein-Protein Interaction Network | reference    | Globus         |
+|                                                                                                                    | [STRING](https://string-db.org/)                               | StringDB Protein-Protein Interaction Network | reference    | Globus         |
 | [4DNucleome](https://www.4dnucleome.org/)                                                                          | 4DN                                                            | 4D Nucleome                                  | result       | Globus         |
 | [External RNA Controls Consortium (ERCC)](https://www.nist.gov/programs-projects/external-rna-controls-consortium) | ERCCRBP                                                        | exRNA RNA Binding Proteins                   | result       | Globus         |
 |                                                                                                                    | ERCCREG                                                        | Regulatory Elements                          | result       | Globus         |
@@ -127,7 +128,6 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 |                                                                                                                    | GTEXEQTL                                                       | Expression                                   | result       | Globus         |
 |                                                                                                                    | GTEXEXP                                                        | Expression quantitative trait loci (eQTL)    | result       | Globus         |
 | [Human BioMolecular Atlas Program (HuBMAP) ](https://hubmapconsortium.org/)                                        | HMAZ                                                           | HuBMAP Azimuth Cell Expression Summary       | result       | Globus         |  
-|                                                                                                                    | ~~HMCELL~~                                                     | ~~HuBMAP Cell Expression Summary~~           | ~~result~~   | ~~Globus~~     |
 | [Illuminating the Druggable Genome (IDG)](https://commonfund.nih.gov/idg)                                          | IDGP                                                           | Compound-protein interactions                | result       | Globus         |
 |                                                                                                                    | IDGD                                                           | Compound-disease interactions                | result       | Globus         |
 | [Gabriella Miller Kids First](https://commonfund.nih.gov/KidsFirst)                                                | KF                                                             |                                              | result       | Globus         |
