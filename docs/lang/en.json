@@ -29,6 +29,10 @@
       "href": "/docker"
     },
     {
+      "name": "API",
+      "href": "/api"
+    },
+    {
       "name": "Glossary",
       "href": "/glossary"
     }
