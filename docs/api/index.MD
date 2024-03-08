@@ -3,12 +3,12 @@ layout: default
 ---
 
 # Unified Biomedical Knowledge Graph (UBKG) 
-# API
+# REST APIs
 
 There are multiple implementations of REST APIs that connect to and abstract instances of the 
 the UBKG. Pitt DBMI maintains the following:
 
-## ubkg-api
+# ubkg-api
 The **ubkg-api** provides a core set of generic endpoints that return information that is common to all deployments of 
 the UBKG, such as relationships between Codes and Concepts.
 
@@ -17,18 +17,25 @@ The SmartAPI description for this API can be found [here](https://smart-api.info
 _Note: this specification currently describes the implementation of the **ubkg-api** that supports UBKG in 
 neo4j version 4. The **ubkg-api** is currently being upgraded to support version 5 of neo4j._
 
-The **ubkg-api** is compiled as a PyPI package and called as a Python package by other "child" API implementations.
-A child API deployment can expose both the generic endpoints of the **ubkg-api** and endpoints specific to the deployment.
+# "Child" API deployments
+The ubkg-api can be deployed either directly as a service or as a library, to be used by another 
+API service. The library architecture allows for the separation of functionality between the ubkg-api's core set
+of endpoints and endpoints in a "child API" that are specific to a particular UBKG deployment.
+
+When used as a library, the **ubkg-api** is compiled as a PyPI package.
+A child API exposes both the generic endpoints of the **ubkg-api** and endpoints specific to the deployment.
 
 ## Data Distillery API
 The Data Distillery API adds endpoints that are specific to the Data Distillery implementation of UBKG.
 The specification for the Data Distillery API is [here](https://smart-api.info/ui/55be2831c69b17f6bc975ddb58cabb5e).
 
+__Note: As of March 2024, there are no endpoints specific to Data Distillery, so the Data Distillery API is identical to the ubkg-api.__
+
 The following diagram illustrates the cloud-based application architecture of the Data Distillery deployment. 
 The API server and neo4j instance run in Docker containers behind an AWS API Gateway. Access to the API is controlled by 
 means of an API key.
 
-![img.png](img.png)
+![img_2.png](img_2.png)
 
 ## hs-ontology-api
 The **hs-ontology-api** adds endpoints that are specific to the HuBMAP and SenNet implementation of UBKG.
