@@ -27,12 +27,7 @@ This deployment uses default settings.
    - a directory named **Data**. This directory contains the UBKG neo4j database files.
    - a script named **build_container.sh**. This script builds a Docker container hosting the UBKG instance of neo4j.
    - **container.cfg.example**. This is an annotated example of the configuration file required by **build_container.sh**.
-2. Copy **container.cfg.example** to a file named **container.cfg**. 
-   - The **container.cfg** file is required by the distribution scripts.
-   - The **container.cfg.example** file assigns default configuration values to the distribution, including the password for the _neo4j_ user account.
-   - It is recommended that you change the password for the _neo4j_ user account in **container.cfg**. Passwords must:
-     - have at least 8 letters
-     - have at least one alphabetic and one numeric character
+2. Copy **container.cfg.example** to a file named **container.cfg**. The **container.cfg** file is required by the distribution scripts. The **container.cfg.example** file assigns default configuration values to the distribution, including the password for the _neo4j_ user account. It is recommended that you change the password for the _neo4j_ user account in **container.cfg**. Passwords must have at least 8 letters and have at least one alphabetic and one numeric character.
 4. Start Docker Desktop.
 5. Open a Terminal session.
 6. Move to the distribution directory.
