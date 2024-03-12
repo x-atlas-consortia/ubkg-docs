@@ -145,4 +145,5 @@ The Data Distillery context appends to the UBKG base set assertions to support p
 | [Metabolomics Workbench (MW)](https://commonfund.nih.gov/metabolomics/)                                            | MW                                                             | Cell-metabolite mappings                     | result       | Globus         |
 | [Stimulating Peripheral Activity to Relieve Conditions (SPARC)](https://commonfund.nih.gov/Sparc/)                 | [NPO](https://bioportal.bioontology.org/ontologies/NPOKB)      | Neuron Phenotype Ontology                    | ontology     | NCBO BioPortal |
 |                                                                                                                    | [NPOSCKAN](https://github.com/SciCrunch/NIF-Ontology/releases) | NPOSCKAN                                     | ontology     | GitHub         |
+| [Reactome](https://reactome.org/)                                                                                  | REACTOME                                                       | Pathways                                     | reference    | Globus         |
 
