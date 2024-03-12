@@ -27,16 +27,22 @@ This deployment uses default settings.
    - a directory named **Data**. This directory contains the UBKG neo4j database files.
    - a script named **build_container.sh**. This script builds a Docker container hosting the UBKG instance of neo4j.
    - **container.cfg.example**. This is an annotated example of the configuration file required by **build_container.sh**.
-2. Copy **container.cfg.example** to a file named **container.cfg**.
-3. Start Docker Desktop.
-4. Open a Terminal session.
-5. Move to the distribution directory.
-6. Execute `./build_container.sh`.
-7. The **build_container.sh** will run for a short time (1-2 minutes), and will be finished when it displays a message similar to ```[main] INFO org.eclipse.jetty.server.Server - Started Server@16fa5e34{STARTING}[10.0.15,sto=0] @11686ms```
+2. Copy **container.cfg.example** to a file named **container.cfg**. 
+   - The **container.cfg** file is required by the distribution scripts.
+   - The **container.cfg.example** file assigns default configuration values to the distribution, including the password for the _neo4j_ user account.
+   - It is recommended that you change the password for the _neo4j_ user account in **container.cfg**. Passwords must:
+     - have at least 8 letters
+     - have at least one alphabetic and one numeric character
+4. Start Docker Desktop.
+5. Open a Terminal session.
+6. Move to the distribution directory.
+7. Execute `./build_container.sh`.
+8. The **build_container.sh** will run for a short time (1-2 minutes), and will be finished when it displays a message similar to ```[main] INFO org.eclipse.jetty.server.Server - Started Server@16fa5e34{STARTING}[10.0.15,sto=0] @11686ms```
 
 ![img_3.png](img_3.png)
 
-The **build_container.sh** will create a Docker container with the following default properties:
+The **build_container.sh** will create a Docker container with properties that it obtains from **container.cfg**. 
+Following are the default properties:
 
 | Property       | Value                   |
 |----------------|-------------------------|
@@ -44,20 +50,20 @@ The **build_container.sh** will create a Docker container with the following def
 | image name     | hubmap/ubkg-neo4j       |
 | image tag      | current-release         |
 | ports          | 4000:7474<br/>4500:7687 |
-| read-write|read-only|
+| read-write     | read-only               |
 
 ![img_5.png](img_5.png)
 
-8. Open a browser window. Enter `http://localhost:4000/browser/`. 
+8. Open a browser window. Enter `http://localhost:<port>/browser/`, where <port> is the neo4j port specified in the configuration.
 9. The neo4j browser window will appear. Enter connection information:
 
 | Property            | Value                                                                 |
 |---------------------|-----------------------------------------------------------------------|
-| Connect URL         | bolt://localhost:4500                                                 |
+| Connect URL         | bolt://localhost:<bolt port>. This should load by default.            |
 | Database name       | blank (the default). Note that this field may not appear on the page. |
 | Authentication Type | Username/Password                                                     |
 | Username            | neo4j                                                                 |
-| Password            | abcd1234                                                              |
+| Password            | password from **container.cfg**                                       |
 
 ![img_9.png](img_9.png)
 10. Select **Connect**. 
