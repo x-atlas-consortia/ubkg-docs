@@ -13,13 +13,22 @@
       "href": "/basics"
     },
     {
-      "name": "Formats",
-      "href": "/formats"
+      "name": "Model",
+      "href": "/datamodel"
+    },
+    {
+      "name": "API",
+      "href": "/api"
     },
     {
       "name": "Contexts",
       "href": "/contexts"
     },
+    {
+      "name": "Formats",
+      "href": "/formats"
+    },
+
     {
       "name": "Deployment",
       "href": "/deployment"
@@ -27,10 +36,6 @@
     {
       "name": "Docker",
       "href": "/docker"
-    },
-    {
-      "name": "API",
-      "href": "/api"
     },
     {
       "name": "Glossary",
