@@ -63,7 +63,6 @@ conform to the following conventions:
   + following the question mark prefix
   + delimited with the ampersand
 
-```?sab=ABC&rel=isa```
 # Query parameter options for sab and rel
 Bothe _sab_ and _rel_ parameters accept multiple values. For example
 + The sab parameter can specify both SNOMEDCT_US and UBERON.
