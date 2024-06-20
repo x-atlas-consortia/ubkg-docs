@@ -61,10 +61,9 @@ conform to the following conventions:
 + Query parameters are used for optional filtering. A set of query parameters comprises key-value pairs
   + separated by the equals sign
   + following the question mark prefix
-  + delimited with the ampersand
-
+  + delimited with the ampersand 
 # Query parameter options for sab and rel
-Bothe _sab_ and _rel_ parameters accept multiple values. For example
+Both _sab_ and _rel_ parameters accept multiple values. For example
 + The sab parameter can specify both SNOMEDCT_US and UBERON.
 + The rel parameter can specify both _isa_ and _part_of_.
 
@@ -72,7 +71,7 @@ Multiple values of a parameter can be specified in two ways:
 + as a comma-delimited list–e.g., ?sab=SAB1,SAB2,SAB3
 + as a series of single key-value pairs–e.g., ?sab=SAB1&sab=SAB2&sab=SAB3
 
-Visualizations
+# Visualizations
 UBKG API responses are in JSON format. 
 This guide represents the responses of endpoints visually by means of annotated screen 
 captures from a neo4j browser in which the Cypher queries behind 
