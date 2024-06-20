@@ -250,6 +250,7 @@ properties were discussed previously:
 | Term node               | name     | Text of term                  |
 | Definition node         | SAB      | Source ABbreviation           |
 |                         | DEF      | Text of definition            |
+|                         | ATUI     | Attribute Unique Identifier   |
 | Semantic node           | STN      | Semantic Tree Number          |
 |                         | TUI      | Type Unique Identifier        |
 |                         | name     | Text for semantic type        |
