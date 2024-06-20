@@ -267,5 +267,8 @@ for a node in the node file:
 ### Edge properties
 The UBKG generation framework allows data sources to define a property named **evidence_class** for an assertion in the edge file.
 
-
+### Assertion relationship properties
+When the UBKG creates an assertion relationship between concepts, it assigns to the **SAB** property 
+of the relationship the SAB for the data source. For example, the _**isa**_ relationships asserted by the 
+UBERON ontology have the **SAB** value UBERON.
 
