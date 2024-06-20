@@ -120,7 +120,8 @@ A **Definition** node represents a definition of a concept.
 Although a source (e.g, a vocabulary) assigns a definition to a code, the UBKG links the Definition node to the 
 Concept node associated with the Code node from the source. 
 
-The Definition node has two properties:
+The Definition node has three properties:
++ **ATUI** - the ATtribute Unique Identifier
 + **DEF** – the definition string
 + **SAB** – the source that provided the definition
 
@@ -250,6 +251,7 @@ properties were discussed previously:
 | Term node               | name     | Text of term                  |
 | Definition node         | SAB      | Source ABbreviation           |
 |                         | DEF      | Text of definition            |
+|                         | ATUI     | Attribute Unique Identifier   |
 | Semantic node           | STN      | Semantic Tree Number          |
 |                         | TUI      | Type Unique Identifier        |
 |                         | name     | Text for semantic type        |
