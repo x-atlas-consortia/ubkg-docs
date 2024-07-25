@@ -266,6 +266,32 @@ The subgraph in this case is a simple set of concepts related by assertion relat
 The SmartAPI example returns the first 10 pairs of concepts that are associated with the SNOMEDCT_US _isa_ relationship.
 ![img_12.png](img_12.png)
 
+## /concepts/{concept_id}/paths/subgraph/sequential
+
+Returns the set of paths that originate from the concept with 
+CUI=_concept_id_ with a sequence of relationships that match a specified pattern,
+subject to filtering constraints (limit, skip). 
+
+The endpoint executes a Cypher query that employs the **apoc.path.expandConfig** routine.
+
+### relsequence
+The _relsequence_ parameter specifies the pattern of relationships that paths should match.
+ - The format of each element in _relsequence_ is _SAB_:_relationship_type_.
+ - Elements are ordered in terms of increasing number of hops from the starting concept.
+
+For example, the sequence `['UBERON:isa','PATO:has_part']`
+specifies the set of paths that match the pattern
+`(c:Concept{CUI:concept_id})-[rU:isa]->(c0:Concept)-[rP:has_part]`
+where rU.SAB='UBERON' and rP.SAB='PATO'.
+
+The following visualization illustrates the response of the endpoint for CUI **C0006142** (breast cancer)
+with relsequence=['NCI:is_marked_by_gene_product','NCI:gene_product_encoded_by_gene","GENCODE:transcribed_to","GENCODE:located_in"], limit=10, skip=0.
+
+This corresponds to a set of paths that associate particular transciptions on chromosome 17 with breast cancer.
+
+![img_16.png](img_16.png)
+
+
 ## concepts/{origin_concept_id}/paths/shortestpath/{terminus_concept_id}
 Returns the shortest path starting from _originating_concept_id_ 
 and ending at _terminus_concept_id_ characterized by the 
