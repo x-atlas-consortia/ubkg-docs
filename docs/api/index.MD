@@ -266,11 +266,13 @@ The subgraph in this case is a simple set of concepts related by assertion relat
 The SmartAPI example returns the first 10 pairs of concepts that are associated with the SNOMEDCT_US _isa_ relationship.
 ![img_12.png](img_12.png)
 
+## /concepts/paths/subgraph/sequential
 ## /concepts/{concept_id}/paths/subgraph/sequential
 
-Returns the set of paths that originate from the concept with 
-CUI=_concept_id_ with a sequence of relationships that match a specified pattern,
+Returns the set of paths with a sequence of relationships that match a specified pattern,
 subject to filtering constraints (limit, skip). 
+If a concept_id is provided in the path, the set of paths is filtered to those that originate from the
+concept with CUI _concept_id_ with the sequence of relationships that match the specified pattern.
 
 The endpoint executes a Cypher query that employs the **apoc.path.expandConfig** routine.
 
