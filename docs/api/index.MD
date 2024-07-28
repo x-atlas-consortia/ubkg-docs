@@ -113,7 +113,18 @@ Although most codes in the UBKG associate with one concept, a number
 associate with multiple concepts. The example in SmartAPI executes 
 the endpoint for the code **SNOMEDCT_US:79962008**, which associates 
 with five concepts. 
+
 ![img_4.png](img_4.png)
+
+## /codes/{code_id}/terms
+Returns the set of terms that link to the specified code. 
+
+The following visualization illustrates the set of terms that match the code **SNOMEDCT_US:254837009**.
+
+![img_17.png](img_17.png)
+
+
+
 ## /concepts/{concept_id}/codes
 Returns the set of codes that associate with a concept with the specified CUI–i.e., 
 the synonymous codes of the concept’s concept subgraph.
