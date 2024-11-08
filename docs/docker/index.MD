@@ -6,11 +6,18 @@ layout: default
 
 # Instructions for deploying the Docker neo4j v5 Distribution
 
-# Prerequisites
-## Access
-1. Obtain access to the Globus collection in which the distribution is stored. (Refer to the main README for details on obtaining access.)
-2. Download the distribution Zip archive, using Globus Connect Personal.
+# Scope
+A number of instances of various UBKG contexts are available as Docker distributions. 
+These distributions are designed to allow for turnkey deployment of a complete, fully-indexed, standalone UBKG instance 
+running in a Docker container on a local or networked machine. 
 
+# Prerequisites
+A UBKG instance will includes content from the Unified Medical Language System (UMLS), a repository of biomedical vocabularies that are maintained by the National Library of Medicine. The use of content from the UMLS is governed by the UMLS License Agreement.
+
+Use of the UMLS content in the UBKG requires two licenses:
+
+- The University of Pittsburgh distributes content originating from the UMLS by means of a distributor license.
+- Consumers of the UBKG have access to UMLS content through the license that is part of their UMLS Technology Services (UTS) accounts.
 
 ## Host machine
 1. Install [Docker](https://docs.docker.com/engine/install/) on the host machine.
