@@ -199,16 +199,16 @@ for backticks, relationships in the UBKG are reformatted as follows:
 |                              |                                                                        | Code for the concept in the format _SAB_ {space} _code in ontology_                                                           | UBERON 0004086                                              |
 | node_label                   | **Term** node, _Preferred Term_ (PT) relationship                      | Text string                                                                                                                   | Ventricles of hindbrain                                     |
 | node_definition (_optional_) | **Definition** node, _DEF_ relationship                                | Text string                                                                                                                   | One of the system of communicating cavities in the brain …. |
-| node_synonyms (_optional_)   | **Term** node; _Synonym_ (SYN) relationship                            | **Pipe-delimited** list of synonyms                                                                                           | Example for synonyms                                        |
-| node_dbxrefs (_optional_)    | Cross-references                                                       | Pipe-delimited list of references to cross-referenced concepts. Each cross-reference should be in format SAB:code or UMLS:CUI | Example for dbxrefs                                         |
-| value (_optional_)           | Numeric value                                                          | 20                                                                                                                            |                                                             |
-| lowerbound (_optional_)      | Lower bound of range for values                                        | 5                                                                                                                             |                                                             |
-| upperbound (_optional_)      | Upper bound of range for values                                        | 100                                                                                                                           |                                                             |
-| unit (_optional_)            | Unit of measure for value. This is currently not encoded to a concept. | mm                                                                                                                            |                                                             |
+| node_synonyms (_optional_)   | **Term** node; _Synonym_ (SYN) relationship                            | **Pipe-delimited** list of synonyms                                                                                           | See **Example for synonyms** below                          |
+| node_dbxrefs (_optional_)    | Cross-references                                                       | Pipe-delimited list of references to cross-referenced concepts. Each cross-reference should be in format SAB:code or UMLS:CUI | See **Example for dbxrefs** below                           |
+| value (_optional_)           | Numeric value                                                          | numeric                                                                                                                       | 20                                                          |
+| lowerbound (_optional_)      | Lower bound of range for values                                        | numeric                                                                                                                       | 5                                                           |
+| upperbound (_optional_)      | Upper bound of range for values                                        | numeric                                                                                                                       | 100                                                         |
+| unit (_optional_)            | Unit of measure for value. This is currently not encoded to a concept. | string                                                                                                                        | mm                                                          |
 
-#### Example for synonyms: 
+#### Example for synonyms 
 region of ventricular system of brain|brain ventricles|cerebral ventricle
-#### Example for dbxrefs:
+#### Example for dbxrefs
 umls:c0007799|fma:78447
 
 The UMLS cross-reference in the example is to a CUI; the fma cross-reference is to a code.
