@@ -28,7 +28,10 @@
       "name": "Formats",
       "href": "/formats"
     },
-
+    {
+      "name": "Version",
+      "href": "/version"
+    },
     {
       "name": "Deployment",
       "href": "/deployment"
