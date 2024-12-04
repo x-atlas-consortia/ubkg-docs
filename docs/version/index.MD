@@ -2,9 +2,10 @@
 layout: default
 ---
 
-# Unified Biomedical Knowledge Graph (UBKG)
+# Unified Biomedical Knowledge Graph (UBKG) 
+# Version Information
 
-## Version Information
+---
 
 A UBKG context comprises data imported from a large number of sources (SABs). 
 Source data comes in a variety of file formats, with varying frequencies of update:
