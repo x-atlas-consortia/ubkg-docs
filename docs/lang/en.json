@@ -41,6 +41,10 @@
       "href": "/docker"
     },
     {
+      "name": "Guesdt",
+      "href": "/guesdt"
+    },
+    {
       "name": "Glossary",
       "href": "/glossary"
     }
