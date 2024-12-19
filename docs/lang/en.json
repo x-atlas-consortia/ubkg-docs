@@ -11,52 +11,52 @@
     {
       "name": "Basics",
       "href": "/basics",
-      "class": "h5"
+      "class": "h6"
     },
     {
       "name": "Model",
       "href": "/datamodel",
-      "class": "h4"
+      "class": "h6"
     },
     {
       "name": "API",
       "href": "/api",
-      "class": "h4"
+      "class": "h6"
     },
     {
       "name": "Contexts",
       "href": "/contexts",
-      "class": "h4"
+      "class": "h6"
     },
     {
       "name": "Formats",
       "href": "/formats",
-      "class": "h4"
+      "class": "h6"
     },
     {
       "name": "Version",
       "href": "/version",
-      "class": "h4"
+      "class": "h6"
     },
     {
       "name": "Deployment",
       "href": "/deployment",
-      "class": "h4"
+      "class": "h6"
     },
     {
       "name": "Docker",
       "href": "/docker",
-      "class": "h4"
+      "class": "h6"
     },
     {
       "name": "Guesdt",
       "href": "/guesdt",
-      "class": "h4"
+      "class": "h6"
     },
     {
       "name": "Glossary",
       "href": "/glossary",
-      "class": "h4"
+      "class": "h6"
     }
   ]
 }
