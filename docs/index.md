@@ -119,3 +119,6 @@ The source for the infrastructure components of the UBKG (i.e., everything excep
 | [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j) | UBKG neo4j                             | Tools to build and deploy a Docker container hosting a neo4j instance populated with a UBKG |
 | [ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)     | UBKG API                               | REST API to query a UBKG instance                                                           |
 | [ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)   | documentation                          | Source used to generate the content on this GitHub Docs site.                               |
+
+# Deployments
+A description of deployment options can be found [here](https://ubkg.docs.xconsortia.org/deployment/).

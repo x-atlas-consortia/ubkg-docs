@@ -34,11 +34,6 @@
       "class": "h6"
     },
     {
-      "name": "Deployment",
-      "href": "/deployment",
-      "class": "h6"
-    },
-    {
       "name": "Docker",
       "href": "/docker",
       "class": "h6"
