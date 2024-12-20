@@ -29,11 +29,6 @@
       "class": "h6"
     },
     {
-      "name": "Formats",
-      "href": "/formats",
-      "class": "h6"
-    },
-    {
       "name": "Version",
       "href": "/version",
       "class": "h6"
@@ -51,11 +46,6 @@
     {
       "name": "Guesdt",
       "href": "/guesdt",
-      "class": "h6"
-    },
-    {
-      "name": "Glossary",
-      "href": "/glossary",
       "class": "h6"
     }
   ]
