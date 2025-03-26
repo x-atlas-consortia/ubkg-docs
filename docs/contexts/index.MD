@@ -139,7 +139,7 @@ The HuBMAP/SenNet context appends to the UBKG base set assertions from the follo
 | DCT                                                         | DeepCellType cell annotations mapped to Cell Ontology codes                       | ontology     | [SimpleKnowledge](https://github.com/x-atlas-consortia/SimpleKnowledge) |                                                             |                                               |                    |                                                                                                             |
 
 ### Data Distillery context
-The Data Distillery context appends to the UBKG base set assertions to support participants in [Data Distillery](https://commonfund.nih.gov/dataecosystem/highlights), a project of the National Institute of Health's [Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) (CFDE). 
+The Data Distillery context appends to the UBKG base set assertions to support participants in [Data Distillery](https://github.com/nih-cfde/data-distillery?tab=readme-ov-file), a project of the National Institute of Health's [Common Fund Data Ecosystem](https://commonfund.nih.gov/dataecosystem) (CFDE). 
 
 Starting with the January 2025 release, the Data Distillery context will include the SABs of the HuBMAP/SenNet context.
 
