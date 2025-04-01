@@ -113,13 +113,13 @@ A description of the UBKG API can be found [here](https://smart-api.info/ui/96e5
 
 The source for the infrastructure components of the UBKG (i.e., everything except assertion data from the UMLS and other SABs) is stored in public GitHub repositories in the [x-atlas-consortia](https://github.com/x-atlas-consortia) organization.
 
-| Repository                                                                | Components                             | Description                                                                                 |
-|---------------------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------------------------------|
-| [ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)                 | generation framework; source framework | ETL scripts to build sources that are imported into a UBKG neo4j instance                   |
-| [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j)             | UBKG neo4j                             | Tools to build and deploy a Docker container hosting a neo4j instance populated with a UBKG |
-| [ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)                 | UBKG API                               | REST API to query a UBKG instance                                                           |
-| [ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)               | documentation                          | Source used to generate the content on this GitHub Docs site.                               |
-| [[SimpleKnowledge](https://github.com/x-atlas-consortia/SimpleKnowledge)] | a spreadsheet format for UBKG sources  |                                                                                             |
+| Repository                                                               | Components                             | Description                                                                                 |
+|--------------------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------------------------------|
+| [ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)                | generation framework; source framework | ETL scripts to build sources that are imported into a UBKG neo4j instance                   |
+| [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j)            | UBKG neo4j                             | Tools to build and deploy a Docker container hosting a neo4j instance populated with a UBKG |
+| [ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)                | UBKG API                               | REST API to query a UBKG instance                                                           |
+| [ubkg-docs](https://github.com/x-atlas-consortia/ubkg-docs)              | documentation                          | Source used to generate the content on this GitHub Docs site.                               |
+| [SimpleKnowledge](https://github.com/x-atlas-consortia/SimpleKnowledge)] | a spreadsheet format for UBKG sources  |                                                                                             |
 
 # Deployments
 A description of deployment options can be found [here](https://ubkg.docs.xconsortia.org/deployment/).
