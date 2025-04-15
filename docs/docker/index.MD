@@ -4,7 +4,7 @@ layout: default
 
 # Unified Biomedical Knowledge Graph (UBKG) 
 
-# Deploying a Turnkey Docker neo4j Distribution
+# Deploying a Turn-key Docker neo4j Distribution
 
 # Scope
 Instances of UBKG with different source contexts (content) are available as Docker distributions.
