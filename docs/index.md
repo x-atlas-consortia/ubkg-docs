@@ -3,6 +3,7 @@ layout: default
 ---
 
 # Unified Biomedical Knowledge Graph (UBKG)
+
 ---
 
 The **Unified Biomedical Knowledge Graph (UBKG)** is a  [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) infrastructure that represents a set of interrelated concepts from biomedical ontologies and vocabularies. 
@@ -122,4 +123,4 @@ The source for the infrastructure components of the UBKG (i.e., everything excep
 | [SimpleKnowledge](https://github.com/x-atlas-consortia/SimpleKnowledge) | a spreadsheet format for UBKG sources  |                                                                                             |
 
 # Deployments
-A description of deployment options can be found [here](https://ubkg.docs.xconsortia.org/deployment/).
+A description of deployment options for the UBKG can be found [here](https://ubkg.docs.xconsortia.org/deployment/).

@@ -9,7 +9,7 @@ layout: default
 
 These instructions are intended for developers who wish to generate a UBKG instance from source.
 
-**To install a complete, containerized version of a UBKG instance,
+**To install a turn-key, fully-indexed, containerized version of a UBKG instance,
 refer to the instructions in the [Docker](/docker) tab.**
 
 ---
@@ -74,13 +74,6 @@ The [contexts](/contexts) page lists the sets of SABs for the known UBKG context
 ### Generate the ontology CSVs
 
 Use the scripts in the [generation framework](https://github.com/x-atlas-consortia/ubkg-etl/tree/main/generation_framework) of the **ubkg-etl** repository to build a set of ontology CSVs by appending SAB data to the UMLS CSVs.
-
-### Establish DockerHub access
-
-The Docker framework is based on a Docker image in DockerHub maintained by the HuBMAP Consortium.
-The account that uses the Docker framework will need a DockerHub account that has permissions to the DockerHub image.
-
-Contact the UBKG steward (Jonathan Silverstein) to obtain access to the image in DockerHub.
 
 ### Instantiate Docker
 Use the scripts in the [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j) repository to instantiate a Docker container

@@ -7,6 +7,13 @@ layout: default
 
 ---
 
+## Scope
+This page describes UBKG *source contexts*--the _form_ of UBKG content.
+To obtain actual UBKG _content_, refer to the [Docker](/docker) page.
+
+---
+
+## Definition
 The **source context** for an instance of the UBKG (or **UBKG context**) describes a collection of sets of assertions, each of which is identified by SAB.
 
 A SAB can correspond to one of the following types of sets of assertions:
@@ -49,7 +56,7 @@ If the citation or licensing information for a source needs to be updated, pleas
 
 
 
-## Contexts
+## Source Contexts
 ### UMLS source context (UMLS-Graph)
 The UMLS context includes sets of assertions obtained from [over 100 vocabularies](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html) organized by the UMLS, including
 - SNOMEDCT_US
@@ -57,13 +64,13 @@ The UMLS context includes sets of assertions obtained from [over 100 vocabularie
 - LOINC
 - HGNC
 
-All of these assertions are considered as being from ontologies.
+All these assertions are considered as being from ontologies.
 
-#### CodeID standardization
+#### CodeID standardization in the UMLS context
 
 In the UBKG, the colon is a reserved character, used to delimit SAB from code in a CodeID property of a Code node.
 
-A small number of  vocabularies from the UMLS have default code formats that either include the name of the vocabulary 
+A small number of vocabularies from the UMLS have default code formats that either include the name of the vocabulary 
 in the code or contain a colon. These vocabularies and their formats include:
 
 | SAB                 | default format             |
@@ -84,10 +91,10 @@ Sources of data for the UBKG (other than the UMLS base) include:
 3. Sites maintained by stewards, including GitHub repositories, FTP sites, etc.
 4. Globus (for sources specific to Data Distillery)
 5. Spreadsheets in the custom _**[SimpleKnowledge Editor](https://github.com/x-atlas-consortia/SimpleKnowledge)**_ format, stored in Google Drive
-6. Custom ETL scripts
+6. Custom ETL scripts with source in the **generation_framework** path of the [ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl/tree/main/generation_framework) GitHub repository.
 
-### UBKG base context (UMLS plus)
-The UBKG base context appends to the UMLS context assertions from a number of other standard biomedical ontologies and data sources. 
+### UBKG Base Context
+The **UBKG Base context** appends to the UMLS context assertions from a number of other standard biomedical ontologies and data sources. 
 The UBKG base context includes assertions from the following SABs:
 
 | SAB                                                        | Description                                                       | Type of data | platform                                                                | Citations                                                                                                                                                                         | Citation Reference                                                        | License                                                                                                              | Licensing Reference                                                  |
@@ -120,7 +127,8 @@ The base context includes summaries of genes from [RefSeq](https://www.ncbi.nlm.
  - Citation: [NCBI Handbook](https://www.ncbi.nlm.nih.gov/books/NBK21091/) ([Reference](https://www.ncbi.nlm.nih.gov/books/NBK50679/#RefSeqFAQ.how_do_i_cite_the_refseq_proje))
  - Licensing: [Public Domain](https://www.ncbi.nlm.nih.gov/home/about/policies/)
 
-A separate script (refseq.py) adds RefSeq summaries to the UBKG. This import assumes that GenCode has been ingested.
+A separate script (refseq.py) adds RefSeq summaries to the UBKG. 
+This import assumes that GenCode has been ingested.
 
 ### HuBMAP/SenNet context
 The HuBMAP/SenNet context appends to the UBKG base set assertions from the following SABs:

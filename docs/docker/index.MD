@@ -4,29 +4,54 @@ layout: default
 
 # Unified Biomedical Knowledge Graph (UBKG) 
 
-# Instructions for deploying the Docker neo4j v5 Distribution
+# Deploying a Turnkey Docker neo4j Distribution
 
 # Scope
-A number of instances of various UBKG contexts are available as Docker distributions. 
-These distributions are designed to allow for turnkey deployment of a complete, fully-indexed, standalone UBKG instance 
-running in a Docker container on a local or networked machine. 
+Instances of UBKG with different source contexts (content) are available as Docker distributions.
 
-# Prerequisites
-A UBKG instance will includes content from the Unified Medical Language System (UMLS), a repository of biomedical vocabularies that are maintained by the National Library of Medicine. The use of content from the UMLS is governed by the UMLS License Agreement.
+These distributions are designed for *turn-key deployment* of a complete, fully-indexed, standalone UBKG instance 
+running in neo4j, hosted in a Docker container, running on a local or networked machine. 
+
+Installation of a distribution is minimal--in particular, it does not require separate installation of neo4j locally. 
+The local machine only needs to have Docker installed.
+
+# Downloading from the UBKG Download site
+
+Distributions of the UBKG are available at the [UBKG download site](https://ubkg-downloads.xconsortia.org/).
+
+### UMLS API requirements
+
+A UBKG instance includes content from the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/index.html)), 
+a repository of biomedical vocabularies maintained by the National Library of Medicine. 
+The use of content from the UMLS is governed by the [UMLS License Agreement](https://uts.nlm.nih.gov/uts/assets/LicenseAgreement.pdf).
 
 Use of the UMLS content in the UBKG requires two licenses:
 
 - The University of Pittsburgh distributes content originating from the UMLS by means of a distributor license.
-- Consumers of the UBKG have access to UMLS content through the license that is part of their UMLS Technology Services (UTS) accounts.
+- Consumers of the UBKG have access to UMLS content through the license that is part of their [UMLS Technology Services (UTS)](https://documentation.uts.nlm.nih.gov/rest/authentication.html) accounts.
 
-## Host machine
+The UBKG download site combines the API key from the University of Pittsburgh with the API key from a user to authenticate a user's request to download the UBKG. 
+The user must provide the API for their UTS account to the UBKG Download site.
+
+To obtain a UTS API key:
+- Create a UTS user profile.
+- Generate an API key.
+
+### Downloading distribution Zip files
+After providing a API key, users can download distributions of the UBKG.
+Distributions are available as Zip archive files.
+
+# Host machine configuration
 1. Install [Docker](https://docs.docker.com/engine/install/) on the host machine.
-2. The host machine will require considerable disk space, depending on the distribution. As of December 2023, distribution sizes were around:
+2. The host machine will require considerable disk space to accommodate the unzipped distribution, depending on the distribution. As of December 2023, distribution sizes were around:
+   - base context: 9GB
    - HuBMAP/SenNet: 9GB
-   - Data Distillery: 20GB 
+   - Data Distillery: 20GB
 
 # Simple Deployment
 This deployment uses default settings. 
+These instructions assume that the operating system for the host machine 
+is either Linux or MacOs. 
 
 ![img_2.png](img_2.png)
 
@@ -34,10 +59,13 @@ This deployment uses default settings.
    - a directory named **Data**. This directory contains the UBKG neo4j database files.
    - a script named **build_container.sh**. This script builds a Docker container hosting the UBKG instance of neo4j.
    - **container.cfg.example**. This is an annotated example of the configuration file required by **build_container.sh**.
-2. Copy **container.cfg.example** to a file named **container.cfg**. The **container.cfg** file is required by the distribution scripts. The **container.cfg.example** file assigns default configuration values to the distribution, including the password for the _neo4j_ user account. It is recommended that you change the password for the _neo4j_ user account in **container.cfg**. Passwords must have at least 8 letters and have at least one alphabetic and one numeric character.
-4. Start Docker Desktop.
+2. The distribution scripts require a file named **container.cfg**. Create your own version of a **container.cfg** file by copy **container.cfg.example** to a file named **container.cfg**. 
+   - The **container.cfg.example** file assigns default configuration values to the distribution, including the password for the _neo4j_ user account. 
+   - It is recommended that you change the password for the _neo4j_ user account in **container.cfg**. 
+   - Passwords must have at least 8 letters and have at least one alphabetic and one numeric character.
+4. Start Docker Desktop. 
 5. Open a Terminal session.
-6. Move to the distribution directory.
+6. Move to the distribution directory (where the Zip was expanded).
 7. Execute `./build_container.sh`.
 8. The **build_container.sh** will run for a short time (1-2 minutes), and will be finished when it displays a message similar to ```[main] INFO org.eclipse.jetty.server.Server - Started Server@16fa5e34{STARTING}[10.0.15,sto=0] @11686ms```
 
@@ -56,23 +84,24 @@ Following are the default properties:
 
 ![img_5.png](img_5.png)
 
-8. Open a browser window. Enter `http://localhost:<port>/browser/`, where <port> is the neo4j port specified in the configuration.
+8. Open a browser window. Enter `http://localhost:<port>/browser/`, where <port> is the neo4j port specified in the configuration. The default value from **container.cfg**  is **4000**.
 9. The neo4j browser window will appear. Enter connection information:
 
-| Property            | Value                                                                 |
-|---------------------|-----------------------------------------------------------------------|
-| Connect URL         | bolt://localhost:<bolt port>. This should load by default.            |
-| Database name       | blank (the default). Note that this field may not appear on the page. |
-| Authentication Type | Username/Password                                                     |
-| Username            | neo4j                                                                 |
-| Password            | password from **container.cfg**                                       |
+| Property            | Value                                                                                                                                                                 |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Connect URL         | bolt://localhost:<bolt port>. This should load by default, with <bolt port> equal to the port specified in the **container.cfg** file. The default value is **4500**. |
+| Database name       | blank (the default). Note that this field may not appear on the page.                                                                                                 |
+| Authentication Type | Username/Password                                                                                                                                                     |
+| Username            | neo4j                                                                                                                                                                 |
+| Password            | password from **container.cfg**                                                                                                                                       |
 
 ![img_9.png](img_9.png)
 10. Select **Connect**. 
+11. You should be able to start running Cypher commands in the neo4j browser.
 
 # Custom Deployment
 ## Changes to Docker configuration
-To modify the Docker configuration, change values in the configuration file.
+To modify the Docker configuration, change values in the **container.cfg** file.
 Keeping the value commented results in the script using a default value.
 
 | Value          | Purpose                                                   | Recommendation                                                                         |
