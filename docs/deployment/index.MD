@@ -10,7 +10,7 @@ layout: default
 These instructions are intended for developers who wish to generate a UBKG instance from source.
 
 **To install a complete, containerized version of a UBKG instance,
-refer to the instructions in the [Docker]((/docker)) tab.**
+refer to the instructions in the [Docker](/docker) tab.**
 
 ---
 
