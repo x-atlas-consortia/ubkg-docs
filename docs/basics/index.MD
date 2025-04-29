@@ -3,7 +3,7 @@ layout: default
 ---
 
 # Unified Biomedical Knowledge Graph (UBKG) 
-# Building sets of assertions
+# Basics
 
 ---
 The Unified Biomedical Knowledge Graph (UBKG) is an organized collection of **assertions**--_relationships_ between things, or _entities_. 

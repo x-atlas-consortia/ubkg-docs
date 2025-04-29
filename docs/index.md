@@ -3,7 +3,7 @@ layout: default
 ---
 
 # Unified Biomedical Knowledge Graph (UBKG)
-
+# Introduction
 ---
 
 The **Unified Biomedical Knowledge Graph (UBKG)** is a  [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) infrastructure that represents a set of interrelated concepts from biomedical ontologies and vocabularies. 
@@ -24,10 +24,39 @@ The UBKG combines information from the National Library of Medicine's [Unified M
 An important goal of the UBKG is to establish connections _between_ sets of assertions. 
 For example, if information on the relationships between _proteins_ and _genes_ described in one set of assertions can be connected to information on the relationships between _genes_ and _diseases_ described in another set of assertions, it may be possible to identify previously unknown relationships between _proteins_ and _diseases_.
 
-# Introduction to assertions
+# Documentation contents
+## Basics
+Describes high-level characteristics of the UBKG and establishes a basic lexicon of terms used in the documentation.
 
-An assertion is the statement of a relationship between two entities. 
-If you are new to assertions, consult the [Basics](/basics) page.
+## Model
+Describes the underlying data model of the UBKG.
+
+## API
+Describes endpoints of the UBKG API.
+
+## Contexts
+Describes the data sources used to generate instances of the UBKG.
+
+## Version
+Describes the UBKG's source versioning methodology.
+
+## Docker
+Describes the Docker turn-key distribution of UBKG.
+
+## Guesdt
+Describes the **Guesdt** (*Graphing UMLS Enables Search In Dynamic Trees*) application, used to represent the UBKG in a tree view.
+
+# Documentation paths
+## Consumers
+Users who want to work with a public or local instance of the UBKG should consult:
+- Basics
+- Docker
+- API
+## Developers
+Developers who wish to build a UBKG from source should start with the documentation
+on this site. Additional technical documentation is also available in the GitHub repositories that house
+UBKG source code.
+
 
 # Components of the UBKG
 The primary components of an instance of the UBKG are:
