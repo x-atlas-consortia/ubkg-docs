@@ -4,20 +4,32 @@ layout: default
 
 # Unified Biomedical Knowledge Graph (UBKG) 
 
-# Deploying a Turn-key Docker neo4j Distribution
+# Obtaining and deploying UBKG content
 
-# Scope
-Instances of UBKG with different source contexts (content) are available as Docker distributions.
+Content related to the UBKG is available at the [UBKG download site](https://ubkg-downloads.xconsortia.org/). 
+With the exception of Petagraph, files on the donwload site are available as
+Zip archives.
 
-These distributions are designed for *turn-key deployment* of a complete, fully-indexed, standalone UBKG instance 
-running in neo4j, hosted in a Docker container, running on a local or networked machine. 
+## Types of UBKG content
 
-Installation of a distribution is minimal--in particular, it does not require separate installation of neo4j locally. 
-The local machine only needs to have Docker installed.
+### Turnkey neo4j distributions
+
+These Zip files expand to files that deploy fully-indexed, standalone UBKG instances 
+as neo4j graph databases, running in a Docker container. 
+
+Installation of a turnkey neo4j distribution is minimal--in particular, it does not require separate installation of neo4j locally. 
+The host machine only needs to have Docker installed.
+
+### Ontology CSV files
+
+These Zip files expand to the set of twelve ontology CSV files that can be imported into a neo4j instance, such as a 
+local ("bare metal") deployment on a machine. Importing and indexing of this content in a neo4j instance would involve 
+executing scripts in the [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j) repository.
+
+### Petagraph
+The Petagraph dump file is a neo4j database dump of the Petagraph neo4j database, described in [Stear et al](https://www.nature.com/articles/s41597-024-04070-w).
 
 # Downloading from the UBKG Download site
-
-Distributions of the UBKG are available at the [UBKG download site](https://ubkg-downloads.xconsortia.org/).
 
 ### UMLS API requirements
 
@@ -37,18 +49,16 @@ To obtain a UTS API key:
 - Create a UTS user profile.
 - Generate an API key.
 
-### Downloading distribution Zip files
-After providing a API key, users can download distributions of the UBKG.
-Distributions are available as Zip archive files.
+# Turnkey distribution
 
-# Host machine configuration
+## Host configuration
 1. Install [Docker](https://docs.docker.com/engine/install/) on the host machine.
 2. The host machine will require considerable disk space to accommodate the unzipped distribution, depending on the distribution. As of December 2023, distribution sizes were around:
    - base context: 9GB
    - HuBMAP/SenNet: 9GB
    - Data Distillery: 20GB
 
-# Simple Deployment
+## Simple Deployment
 This deployment uses default settings. 
 These instructions assume that the operating system for the host machine 
 is either Linux or MacOs. 
@@ -99,8 +109,8 @@ Following are the default properties:
 10. Select **Connect**. 
 11. You should be able to start running Cypher commands in the neo4j browser.
 
-# Custom Deployment
-## Changes to Docker configuration
+## Custom Deployment
+### Changes to Docker configuration
 To modify the Docker configuration, change values in the **container.cfg** file.
 Keeping the value commented results in the script using a default value.
 
@@ -115,5 +125,5 @@ Keeping the value commented results in the script using a default value.
 | db_mount_dir   | Path to the external neo4j database                       | accept default (/data)                                                                 |
 | all others     | Not used for deployment; values will be ignored           | accept default                                                                         |
 
-## Rename configuration file
+### Rename configuration file
 To specify another configuration file, execute the command ```/.build_container.sh external -c <your configuration file>```

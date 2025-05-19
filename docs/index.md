@@ -40,8 +40,12 @@ Describes the data sources used to generate instances of the UBKG.
 ## Version
 Describes the UBKG's source versioning methodology.
 
-## Docker
-Describes the Docker turn-key distribution of UBKG.
+## Downloads
+Describes the various forms of distributions available from the 
+[UBKG Downloads](https://ubkg-downloads.xconsortia.org/) site, including:
+ - the Docker turn-key distribution of UBKG
+ - archives of ontology CSV files
+ - the Petagraph data dump
 
 ## Guesdt
 Describes the **Guesdt** (*Graphing UMLS Enables Search In Dynamic Trees*) application, used to represent the UBKG in a tree view.
