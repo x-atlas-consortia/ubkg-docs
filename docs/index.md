@@ -133,7 +133,7 @@ The following diagram illustrates the basic workflow, showing four cases:
 3. The SKOWLNETS script that works with SimpleKnowledge data sources
 4. Files in the UBKG edges/nodes format
 
-<img src="images/ubkg-csv/ubkg-csv_generation_framework.jpg" alt="UBKG-CSV Source Framework">
+<img src="./images/ubkg-csv/ubkg-csv_generation_framework.jpg" alt="UBKG-CSV Source Framework">
 ## UBKG API
 It is possible to obtain information from an instance of the UBKG ontology graph databse by executing Cypher queries. 
 However, the complexity and likely size of a UBKG neo4j instance requires both knowledge of the UBKG schema and caution to avoid problems such as runaway queries.
