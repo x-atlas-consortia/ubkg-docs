@@ -49,7 +49,7 @@ One source uses the code **cat** to represent the concept _cat_; the other data 
 
 The data sources assert relationships between their respective codes and other codes.
 
-![img.png](img.png)
+<img src="../images/ubkg-csv/datamodel_0.png" alt="Relationships in different sources">
 
 Because **cat** and **feline** can be considered code synonyms for the concept _cat_, 
 it is possible to consolidate assertions from the two sources using concepts instead of codes. 
@@ -70,7 +70,7 @@ assertions at the **concept** level:
 Because of synonymy, either of the codes **cat** or **feline** can be used as the subject for an assertion. 
 The assertion is actually between the associated concepts.
 
-![img_1.png](img_1.png)
+<img src="../images/ubkg-csv/datamodel_1.png" alt="Relationships in different sources">
 
 # The concept subgraph
 An idea in the UBKG can be considered on two levels of knowledge:
@@ -83,7 +83,8 @@ In other words, a concept subgraph represents both a concept and all the ways th
 The following image illustrates the general form of a concept subgraph. 
 In general, a concept will be encoded in multiple data sources; however, the image illustrates the encoding of a 
 concept in a single data source for clarity.
-![img_2.png](img_2.png)
+
+<img src="../images/ubkg-csv/concept_subgraph.png" alt="Relationships in different sources">
 
 A concept subgraph features both nodes and edges (relationships).
 
@@ -228,7 +229,7 @@ which defines a large number of bidirectional pairs of assertion predicates.
 In a previous example, the concept of _cat_ was the subject of two assertions–**_isa_** and **_chases_**. 
 The UBKG might represent the bidirectional sets of assertions as follows:
 
-![img_3.png](img_3.png)
+<img src="../images/ubkg-csv/bidirectional_assertions.png" alt="Relationships in different sources">
 
 # Properties in the UBKG
 Discussions of graph databases often distinguish between 
