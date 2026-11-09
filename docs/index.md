@@ -102,7 +102,7 @@ A python script then executes SQL scripts that perform Extraction, Transformatio
 
 The following diagram illustrates the source framework workflow.
 
-![Source_framework](/docs/images/ubkg-csv/ubkg-csv_source_framework.jpg)
+![Source_framework](docs/images/ubkg-csv/ubkg-csv_source_framework.jpg)
 
 ## UBKG Generation framework
 
