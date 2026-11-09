@@ -102,7 +102,7 @@ A python script then executes SQL scripts that perform Extraction, Transformatio
 
 The following diagram illustrates the source framework workflow.
 
-![Source_framework](https://user-images.githubusercontent.com/10928372/202307155-5bfd7a77-e858-4e5c-89a1-a42d964b871d.jpg)
+![Source_framework](/docs/images/ubkg-csv/ubkg-csv%20source%20framework.jpg)
 
 ## UBKG Generation framework
 
@@ -133,8 +133,7 @@ The following diagram illustrates the basic workflow, showing four cases:
 3. The SKOWLNETS script that works with SimpleKnowledge data sources
 4. Files in the UBKG edges/nodes format
 
-![generation_framework](https://user-images.githubusercontent.com/10928372/202308840-1abc0684-684d-476a-8ed5-1a1b4118ffc6.jpg)
-
+![generation_framework](/docs/images/ubkg-csv/ubkg-csv%20generation%20framework.jpg)
 ## UBKG API
 It is possible to obtain information from an instance of the UBKG ontology graph databse by executing Cypher queries. 
 However, the complexity and likely size of a UBKG neo4j instance requires both knowledge of the UBKG schema and caution to avoid problems such as runaway queries.
