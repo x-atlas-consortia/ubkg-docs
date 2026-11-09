@@ -63,7 +63,7 @@ This deployment uses default settings.
 These instructions assume that the operating system for the host machine 
 is either Linux or MacOs. 
 
-![img_2.png](img_2.png)
+<img src="../images/ubkg-csv/simple_deployment.png" alt="Simple deployment">
 
 1. Expand the Zip archive. The expanded distribution directory will contain:
    - a directory named **Data**. This directory contains the UBKG neo4j database files.
@@ -79,7 +79,8 @@ is either Linux or MacOs.
 7. Execute `./build_container.sh`.
 8. The **build_container.sh** will run for a short time (1-2 minutes), and will be finished when it displays a message similar to ```[main] INFO org.eclipse.jetty.server.Server - Started Server@16fa5e34{STARTING}[10.0.15,sto=0] @11686ms```
 
-![img_3.png](img_3.png)
+
+<img src="../images/ubkg-csv/deployment_neo4j_started.png" alt="neo4j started">
 
 The **build_container.sh** will create a Docker container with properties that it obtains from **container.cfg**. 
 Following are the default properties:
@@ -92,7 +93,7 @@ Following are the default properties:
 | ports          | 4000:7474<br/>4500:7687 |
 | read-write     | read-only               |
 
-![img_5.png](img_5.png)
+<img src="../images/ubkg-csv/deployment_docker_container.png" alt="Docker container">
 
 8. Open a browser window. Enter `http://localhost:<port>/browser/`, where <port> is the neo4j port specified in the configuration. The default value from **container.cfg**  is **4000**.
 9. The neo4j browser window will appear. Enter connection information:
@@ -105,7 +106,9 @@ Following are the default properties:
 | Username            | neo4j                                                                                                                                                                 |
 | Password            | password from **container.cfg**                                                                                                                                       |
 
-![img_9.png](img_9.png)
+
+<img src="../images/ubkg-csv/neo4j_browser.png" alt="neo4j Browser">
+
 10. Select **Connect**. 
 11. You should be able to start running Cypher commands in the neo4j browser.
 
