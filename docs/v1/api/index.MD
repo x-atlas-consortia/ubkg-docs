@@ -103,7 +103,7 @@ This returns all of the codes that are synonyms in the UBKG–i.e., that share a
 with the concept with CUI C0006142. The visualization of the query is below, 
 with the code for **SNOMEDCT_US:254837009** circled in green.
 
-<img src="../images/ubkg-csv/api_codes_codes.png" alt="codes/{code_id}/codes">
+<img src="../../images/ubkg-csv/api_codes_codes.png" alt="codes/{code_id}/codes">
 
 ## /codes/{code_id}/concepts
 Returns the set of concepts with which the code with the specified 
@@ -114,14 +114,14 @@ associate with multiple concepts. The example in SmartAPI executes
 the endpoint for the code **SNOMEDCT_US:79962008**, which associates 
 with five concepts. 
 
-<img src="../images/ubkg-csv/api_codes_concepts.png" alt="codes/{code_id}/concepts">
+<img src="../../images/ubkg-csv/api_codes_concepts.png" alt="codes/{code_id}/concepts">
 
 ## /codes/{code_id}/terms
 Returns the set of terms that link to the specified code. 
 
 The following visualization illustrates the set of terms that match the code **SNOMEDCT_US:254837009**.
 
-<img src="../images/ubkg-csv/api_codes_terms.png" alt="codes/{code_id}/terms">
+<img src="../../images/ubkg-csv/api_codes_terms.png" alt="codes/{code_id}/terms">
 
 ## /concepts/{concept_id}/codes
 Returns the set of codes that associate with a concept with the specified CUI–i.e., 
@@ -130,7 +130,7 @@ the synonymous codes of the concept’s concept subgraph.
 The SmartAPI example executes the endpoint for the concept with CUI 
 C067822. The following visualization shows the response of the endpoint query without optional filtering.
 
-<img src="../images/ubkg-csv/api_concepts_codes.png" alt="concepts/{concept_id}/codes">
+<img src="../../images/ubkg-csv/api_concepts_codes.png" alt="concepts/{concept_id}/codes">
 
 ## /concepts/{concept_id}/definition
 Returns the set of definitions that associate with the concept with 
@@ -143,7 +143,7 @@ This concept has definitions from three data sources
 definitions to codes, the UBKG associates definitions with the 
 associated concepts.
 
-<img src="../images/ubkg-csv/api_concepts_definitions.png" alt="concepts/{concept_id}/definitions">
+<img src="../../images/ubkg-csv/api_concepts_definitions.png" alt="concepts/{concept_id}/definitions">
 
 ## /concepts/{concept_id}/nodeobjects
 The **nodeobjects** endpoint returns information on the concept 
@@ -174,11 +174,11 @@ neoplasm of breast” also finds “Malignant neoplasm of skin of breast”.
   + “NCI:C12508” - the CodeId for one of the codes associated with the concept
   + C0007634 - the CUI
 
-<img src="../images/ubkg-csv/api_concepts_cells_nodeobjects.png" alt="concepts/cells/nodeobjects">
+<img src="../../images/ubkg-csv/api_concepts_cells_nodeobjects.png" alt="concepts/cells/nodeobjects">
 
 + /concepts/Heart/nodeobjects returns multiple concept graphs, due to the generality of the term “Heart”.
 
-<img src="../images/ubkg-csv/api_concepts_heart_nodeobjects.png" alt="concepts/heart/nodeobjects">
+<img src="../../images/ubkg-csv/api_concepts_heart_nodeobjects.png" alt="concepts/heart/nodeobjects">
 
 ## /terms/{term_id}/codes
 Returns the set of codes with terms that exactly match term_id.
@@ -186,7 +186,7 @@ Returns the set of codes with terms that exactly match term_id.
 The SmartAPI example returns the codes that match the term 
 “Breast Cancer”.
 
-<img src="../images/ubkg-csv/api_terms_breast_cancer_codes.png" alt="terms/breast cancer/codes">
+<img src="../../images/ubkg-csv/api_terms_breast_cancer_codes.png" alt="terms/breast cancer/codes">
 
 ## /terms/{term_id}/concepts
 Returns the set of concepts that associate with the codes having 
@@ -194,7 +194,7 @@ terms that exactly match term_id.
 The SmartAPI example returns the concepts associated with the 
 term “Breast Cancer”.
 
-<img src="../images/ubkg-csv/api_terms_breast_cancer_concepts.png" alt="terms/breast cancer/concepts">
+<img src="../../images/ubkg-csv/api_terms_breast_cancer_concepts.png" alt="terms/breast cancer/concepts">
 
 # Concept assertion path endpoints
 As described in the [data model](https://ubkg.docs.xconsortia.org/datamodel/#assertion-concept-concept-relationship-model), the 
@@ -229,7 +229,7 @@ only the first 40 paths that are within 3 hops of the origin,
 in which the hops are defined by isa relationships with 
 SAB=SNOMEDCT_US.
 
-<img src="../images/ubkg-csv/api_concepts_paths_isa_C2720507.png" alt="concepts/patb/C2720507">
+<img src="../../images/ubkg-csv/api_concepts_paths_isa_C2720507.png" alt="concepts/patb/C2720507">
 
 Because of the large number of paths that may originate from a 
 concept, path-related endpoint queries can either exceed the 
@@ -280,7 +280,7 @@ The subgraph in this case is a simple set of concepts related by assertion relat
 
 The SmartAPI example returns the first 10 pairs of concepts that are associated with the SNOMEDCT_US _isa_ relationship.
 
-<img src="../images/ubkg-csv/api_concepts_subpaths_isa.png" alt="concepts/subpatbs/isa">
+<img src="../../images/ubkg-csv/api_concepts_subpaths_isa.png" alt="concepts/subpatbs/isa">
 
 ## /concepts/paths/subgraph/sequential
 ## /concepts/{concept_id}/paths/subgraph/sequential
@@ -307,7 +307,7 @@ with relsequence=['NCI:is_marked_by_gene_product','NCI:gene_product_encoded_by_g
 
 This corresponds to a set of paths that associate particular transciptions on chromosome 17 with breast cancer.
 
-<img src="../images/ubkg-csv/api_concepts_paths_chromosome_17.png" alt="concepts/subpatbs chromosome 17">
+<img src="../../images/ubkg-csv/api_concepts_paths_chromosome_17.png" alt="concepts/subpatbs chromosome 17">
 
 ## concepts/{origin_concept_id}/paths/shortestpath/{terminus_concept_id}
 Returns the shortest path starting from _originating_concept_id_ 
@@ -318,7 +318,7 @@ The SmartAPI example returns the shortest path starting with the
 concept with CUI **C2720507** and ending with the concept with CUI **C1272753**, 
 featuring _isa_ relationships from SNOMEDCT_US.
 
-<img src="../images/ubkg-csv/api_concepts_shortestpath.png" alt="concepts shortestpath">
+<img src="../../images/ubkg-csv/api_concepts_shortestpath.png" alt="concepts shortestpath">
 
 
 # Semantic endpoints
@@ -369,7 +369,7 @@ example, for Data Distillery, the
 - Add To: Header
 
 
-<img src="../images/ubkg-csv/api_postman_setup.png" alt="Postman setup">
+<img src="../../images/ubkg-csv/api_postman_setup.png" alt="Postman setup">
 
 
 ## Python and Jupyter Notebook

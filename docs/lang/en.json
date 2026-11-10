@@ -4,43 +4,28 @@
   "breadcrumbRoot": "Home",
   "menu": [
     {
-      "name": "UBKG",
+      "name": "Home",
       "href": "/",
       "class": "h2"
     },
     {
-      "name": "Basics",
-      "href": "/basics",
+      "name": "About",
+      "href": "/about",
       "class": "h6"
     },
     {
-      "name": "Model",
-      "href": "/datamodel",
+      "name": "Using UBKG",
+      "href": "/using",
       "class": "h6"
     },
     {
-      "name": "API",
-      "href": "/api",
+      "name": "UBKG-CSV",
+      "href": "/ubkg-csv",
       "class": "h6"
     },
     {
-      "name": "Contexts",
-      "href": "/contexts",
-      "class": "h6"
-    },
-    {
-      "name": "Version",
-      "href": "/version",
-      "class": "h6"
-    },
-    {
-      "name": "Downloads",
-      "href": "/downloads",
-      "class": "h6"
-    },
-    {
-      "name": "Guesdt",
-      "href": "/guesdt",
+      "name": "UBKG-JKG",
+      "href": "/ubkg-jkg",
       "class": "h6"
     }
   ]

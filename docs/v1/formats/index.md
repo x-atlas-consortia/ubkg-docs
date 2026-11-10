@@ -262,7 +262,7 @@ In the UBKG, the Code node for MP:0009920 has a path to the Code node for MP:000
 concepts that link via an isa relationship. Each Code node (orange) associates with a separate Concept node (blue).
 In other words, the UBKG considers the two Codes to represent different concepts.
 
-<img src="../images/ubkg-csv/formats_isa_2_codes_2_concepts.png" alt="neo4j started">
+<img src="../../images/ubkg-csv/formats_isa_2_codes_2_concepts.png" alt="neo4j started">
 
 
 ## dbxref
@@ -272,7 +272,7 @@ For example, MP cross-references MP 0009920 to CL:0000959 (T2 B cell).
 
 In the UBKG, the Code nodes share the same Concept node. The two Code nodes represent the same Concept.
 
-<img src="../images/ubkg-csv/formats_isa_2_codes_1_concept.png" alt="neo4j started">
+<img src="../../images/ubkg-csv/formats_isa_2_codes_1_concept.png" alt="neo4j started">
 
 It is not necessary to link two concepts with both an *isa* relationship in the edge file and a *node_dbxref* in the node file.
 
