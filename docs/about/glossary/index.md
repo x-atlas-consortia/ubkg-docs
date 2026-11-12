@@ -6,7 +6,6 @@ layout: default
 
 ---
 
-
 ## Assertion
 An assertion establishes a [relationship](#relationship) between two [entities](#entity).
 
@@ -41,6 +40,9 @@ In the UBKG-CSV data model, a concept subgraph is a subgraph of Code, Term, Defi
 ## Concept Unique Identifier (CUI)
 A unique identifier for a [concept](#concept) in the UBKG. For example, the CUI _C0678222_ identifies the concept for "breast cancer" in the UMLS.
 
+## Context 
+A UBKG _context_ (or _source context_) is a collection of sets of [assertions](#assertion) from different [sources](#source).
+
 ## Cross-reference
 A link between a [code](#code) from a [source](#source) and another [entity](#entity). 
 
@@ -57,6 +59,9 @@ A synonym for the [relationship](#relationship) of an [assertion](#assertion). I
 A source's edge file asserts [relationships](#relationship) between [codes](#code). 
 Edge files conform to the UBKG Edge Node format (link to page).
 
+## UBKG Edge/Node format
+The format for [source files](#source-files), as described here (link to page).
+
 ## Encode
 To represent a [concept](#concept) in a [source](#source) with a discrete [code](#code). 
 For example, the SNOMED source encodes the UMLS concept of C0678222 (breast cancer) with code 254838004.
@@ -72,7 +77,7 @@ may be described as _equivalence_classes_.
 
 Equivalence is a fundamental feature of both the UMLS and the UBKG, because it identifies possible synonymy between sources. 
 
-For example, the concept for "breast cancer" (UMLS:C0678222) has concept-code [cross-references](#cross-reference-dbxref) to codes in a number of sources, including:
+For example, the concept for "breast cancer" (UMLS:C0678222) has concept-code cross-references to codes in a number of sources, including:
 * SNOMEDCT_US:254838004 
 * CHV:0000042783
 * HPO:0003002
@@ -80,10 +85,9 @@ For example, the concept for "breast cancer" (UMLS:C0678222) has concept-code [c
 * NCI:C4872
 * MEDCIN:232274
 
-Because of the equivalence between the concepts, it may be possible to replace a code from one source in a relationship defined by another source.
+Because of the equivalence between the codes from different sources, it may be possible to substitute a code from one source in a relationship defined by another source.
 
 ##  Inverse relationship
-
 A [relationship](#relationship) in a [source](#source) has a direction: it starts with one node and “goes toward” another. 
 For example, in the assertion
 
@@ -100,19 +104,18 @@ For example, the _located_in_ relationship may have _location_of_ as an inverse:
 Inverse relationships can be ambiguously named: for example, the inverse relationship of _has_gene_product_ is _gene_product_of_. 
 To obtain inverse relationships that are ambiguously named, the UBKG refers to the [Relationship Ontology](#relationship-ontology-ro).
 
-Inverse relationships are primarily a feature of the UBKG-CSV architecture. The UBKG-JKG architecture does not add inverse relationships explicitly.
+Inverse relationships are primarily a feature of the UBKG-CSV architecture. The [UBKG-JKG](../../ubkg-jkg) architecture does not add inverse relationships explicitly.
 
 ## IRI
 A [source file](#source-files) may identify an entity or a relationship with an _International Resource Indicator_ (IRI). 
 An IRI is a _PURL_ (Permanent Uniform Resource Locator) that refers to a published online resource.
 
-The UBKG system recognizes entity IRIs in format 
-_OBO PURL_/_source identifier___code in source_.
+The UBKG system recognizes entity IRIs that conform to [OBO Prinicple 3](#obo-principles)--i.e.,
+_OBO PURL_/_source identifier___code in source_. For example, the IRI for UBERON:0000344 (vocal fold mucosa) is [http://purl.obolibrary.org/obo/UBERON_0000344](#http://purl.obolibrary.org/obo/UBERON_0000344).
 
-For example, the IRI for UBERON:0000344 (vocal fold mucosa) is
-http://purl.obolibrary.org/obo/UBERON_0000344
-
-UBKG recognizes relationship IRIs formatted in the same manner as for entities, provided that the OBO PURL is from the [Relationship Ontology (RO)](#relationship-ontology-ro)--e.g., http://purl.obolibrary.org/obo/RO_0002160.
+UBKG recognizes relationship IRIs formatted in the same manner as for entities, provided that the OBO PURL is from the [Relationship Ontology (RO)](#relationship-ontology-ro).
+An example of a relationship IRI is 
+[http://purl.obolibrary.org/obo/RO_0002160](#http://purl.obolibrary.org/obo/RO_0002160).
 
 ## Knowledge Graph (database)
 A knowledge graph is a representation of information characterized by the [relationships](#relationship) between a set of [entities](#entity). 
@@ -136,7 +139,7 @@ A node file describes [entities](#entity) used by a source in its [assertions](#
 Node files conform to the UBKG Edge Node format (link to page).
 
 ## Ontology
-For the purposes of the UBKG, an ontology is the representation of a set of entities and the relationships between them. 
+For the purposes of the UBKG, an ontology is the representation of a set of [entities](#entity) and the [relationships](#relationship) between them. 
 
 ## OLS 
 The Ontology Lookup Service [OLS](https://www.ebi.ac.uk/ols/index) is a repository of biomedical [ontologies](#ontology). The OLS allows for searches of relationship properties, including those from the [Relationship Ontology](#relationship-ontology-ro).
@@ -144,7 +147,9 @@ The Ontology Lookup Service [OLS](https://www.ebi.ac.uk/ols/index) is a reposito
 ## OBO Foundry
 The Open Biological and Biomedical Ontology Foundry [OBO](https://obofoundry.org/) is a community that maintains a set of “interoperable ontologies for the biomedical sciences”, as well as a set of [principles](https://obofoundry.org/principles/fp-000-summary.html)–i.e., best practices and standards for representing ontologies in OWL.
 
-Many of the ontology sources in UBKG follow OBO principles.
+## OBO Principles
+[Guidelines](https://obofoundry.org/principles/fp-000-summary.html) that the [OBO Foundry](#obo-foundry) recommends for [OWL files](#owl-files). 
+Of particular relevance to the UBKG is [OBO Principle 3](https://obofoundry.org/principles/fp-003-uris.html), which recommends the use of [IRIs](#iri) for namespaces.
 
 ## OWL files
 The **Web Ontology Language** [OWL](https://www.w3.org/OWL/) is a language for representing [ontologies](#ontology) in a standard format that can be interpreted by software applications. 
@@ -152,6 +157,9 @@ Biomedical ontologies can be published as OWL files in reference sites such as t
 
 ## Predicate
 Synonym for [relationship](#relationship) used in source [edge files](#edge-file).
+
+## Preferred term (pref_term)
+The recognized [term](#term) for a code or concept. The UMLS uses _pref_term_ to identify the preferred term of a Concept.
 
 ## Property graph
 A property graph database is related to a [knowledge graph database](#knowledge-graph-database) in that a property graph database also models relationships between entities. 
@@ -165,13 +173,15 @@ A relationship can be:
 ### Types of relationships
 #### Ontological
 Most of the relationships in biomedical ontologies are one of two types:
-- **hierarchical**, linking concepts of different scope--e.g., **_isa_** in
-    
-   **UBERON:0015458** (_mediastinal fat pad_) _**isa**_ **UBERON:0003593** (_fat pad_)
+##### hierarchical
+A hierarchical relationship links entities of different scope. 
+For example, the **_isa_** relationship is hierarchical in the assertion
+**UBERON:0015458** (_mediastinal fat pad_) _**isa**_ **UBERON:0003593** (_fat pad_)
 
-- **non-hierarchical**--e.g., **_located_in_** in the assertion
-
-   **UBERON:0018395** (_cardiac baroreceptor_) **_located_in_** **UBERON:0000948** (_heart_)
+##### non-hierarchical
+A non-hierarchical relationship describes a functional link between two entities.
+An example is the **_located_in_** relationship in the assertion
+**UBERON:0018395** (_cardiac baroreceptor_) **_located_in_** **UBERON:0000948** (_heart_)
 
 #### Graph (UBKG-CSV)
 The nodes of a UBKG database in UBKG-CSV format can have a variety of other relationships that represent node properties in a [concept subgraph](#concept-subgraph).
@@ -193,18 +203,27 @@ For sources outside of UMLS (such as ontologies), UBKG uses published acronyms w
 ## Semantic Type
 A concept category defined in the [UMLS Semantic Network](https://www.nlm.nih.gov/research/umls/knowledge_sources/semantic_network/index.html).
 
-* UBKG-CSV represents semantic types as distinct Semantic Type nodes, linked to Concept nodes via relationships.
-* UBKG-JKG represents semantic types as node labels on Concept nodes.
+* [UBKG-CSV](../../ubkg-csv) represents semantic types as distinct Semantic Type nodes, linked to Concept nodes via relationships.
+* [UBKG-JKG](../../ubkg-jkg) represents semantic types as node labels on Concept nodes.
 
 ## Source
 A collection of [assertions](#assertion) maintained by an organization.
 
+### Organization types
 Types of source organizations include:
+
 * ontology authorities (e.g., Uberon)
 * reference database publishers (e.g. UniProt)
 * laboratories (e.g., the Jackson Lab)
 
-Types of assertion sources for the UBKG include:
+### Source types
+Types of sources include:
+1. **Ontology** data, such as that extracted from OWL files published in sources such as the NCBO BioPortal or the OBO Foundry.
+2. **Reference** data extracted from public sources such as UniProtKB.
+3. **Result** Summarized experimental result data 
+
+### Source forms
+Forms of assertion sources include:
 * [OWL files](#owl-files)
 * databases
 * [vocabularies](#vocabulary)
@@ -214,10 +233,12 @@ Types of assertion sources for the UBKG include:
 A set of two files that describe the [assertions](#assertion) of a [source](#source) that is to be integrated into the UBKG. 
 The source files are the [edge file](#edge-file) and the [node file](#node-file).
 
+The UBKG recognizes source files that are in UBKG Edge/Node format.
+
 ## Term
 A short text descriptor for a [code](#code) in an [source](#source). For example, a term for code 64033007 in SNOMED_CT is “kidney”.
 
-# Term Type
+## Term Type
 A term category from the UMLS. Term types include _Preferred_Term_ (PT) and _Synonym_ (SY). 
 
 ## Triple
@@ -230,10 +251,12 @@ where
 * _subject_ and _object_ are both entities (nodes). 
 * _predicate_ is a relationship (edge).
 
-## Vocabulary
-For the purposes of the UBKG, a vocabulary is similar to an [ontology](#ontology). Some vocabularies (e.g., SNOMED_CT) are also ontologies.
+## UBKG Distribution
+A Zip archive containing a set of files that can build a local Docker container hosting an instance of neo4j populated with a UBKG database.
 
 ## UMLS
 The Unified Medical Language System [UMLS](https://www.nlm.nih.gov/research/umls/index.html) consolidates a number of different biomedical [ontologies](#ontology), [vocabularies](#vocabulary), and standards. 
 
+## Vocabulary
+For the purposes of the UBKG, a vocabulary is similar to an [ontology](#ontology). Some vocabularies (e.g., SNOMED_CT) are also ontologies.
 
