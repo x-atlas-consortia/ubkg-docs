@@ -6,15 +6,7 @@ layout: default
 # Source Contexts
 
 ---
-
-## Scope
-This page describes UBKG *source contexts*--the _form_ of UBKG content.
-
-
----
-
-## Definition
-The _source context_ (or just _context_) for an instance of the UBKG (or **UBKG context**) describes the [sources](../glossary/#source) used to generate the instance.
+Following are details on available [UBKG contexts](../glossary#context).
 
 ## Citations
 We have sought to identify citations for the sources used in UBKG contexts. 
@@ -24,6 +16,7 @@ The sources for citation references are included. Sources are of the following t
 1. OBO home page
 2. Web pages of source stewards
 3. GitHub repositories of source stewards
+
 
 ## Licensing
 We have sought to identify licensing under which sources are distributed. 
@@ -51,7 +44,7 @@ If the citation or licensing information for a source needs to be updated, pleas
 
 
 ## Source Contexts
-### UMLS source context (UMLS-Graph)
+### UMLS source context
 The UMLS context includes sets of assertions obtained from [over 100 vocabularies](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html) organized by the UMLS, including
 - SNOMEDCT_US
 - ICD10
@@ -76,16 +69,6 @@ in the code or contain a colon. These vocabularies and their formats include:
 
 UBKG ETL framework scripts reformat codes from
 the UMLS to the format _SAB:CODE_. HPO codes are standardized to **HP** as the SAB.
-
-### non-UMLS Source Platforms
-Sources of data for the UBKG (other than the UMLS base) include:
-
-1. [OBO Foundry](https://obofoundry.org/)
-2. [NCBO BioPortal](https://bioportal.bioontology.org/)
-3. Sites maintained by stewards, including GitHub repositories, FTP sites, etc.
-4. Globus (for sources specific to Data Distillery)
-5. Spreadsheets in the custom _**[SimpleKnowledge Editor](https://github.com/x-atlas-consortia/SimpleKnowledge)**_ format, stored in Google Drive
-6. Custom ETL scripts with source in the **generation_framework** path of the [ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl/tree/main/generation_framework) GitHub repository.
 
 ### UBKG Base Context
 The **UBKG Base context** appends to the UMLS context assertions from a number of other standard biomedical ontologies and data sources. 
