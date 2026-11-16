@@ -26,7 +26,7 @@ For example, SNOMED represents the concept of "breast cancer" (UMLS:C0678222) wi
 Codes are unique in the UBKG.
 
 ## Concept
-As with the UMLS, a concept in the UBKG is the discrete representation of an idea, process, characteristic, finding, or physical item. 
+As with the [UMLS](#https://www.ncbi.nlm.nih.gov/books/NBK9684/#ch02.sec2.3), a concept in the UBKG is the discrete representation oF meaning--e.g., an idea, process, characteristic, finding, or physical item. 
 Examples include:
 * "breast cancer"
 * "blue"
@@ -172,14 +172,15 @@ A relationship can be:
 
 ### Types of relationships
 #### Ontological
-Most of the relationships in biomedical ontologies are one of two types:
+Most of the relationships in biomedical ontologies are one of two types, similar to the [UMLS](https://pmc.ncbi.nlm.nih.gov/articles/PMC308795/#sec1):
+
 ##### hierarchical
 A hierarchical relationship links entities of different scope. 
 For example, the **_isa_** relationship is hierarchical in the assertion
 **UBERON:0015458** (_mediastinal fat pad_) _**isa**_ **UBERON:0003593** (_fat pad_)
 
-##### non-hierarchical
-A non-hierarchical relationship describes a functional link between two entities.
+##### associative 
+An associative (non-hierarchical) relationship describes a non-hierarchical functional link between two entities.
 An example is the **_located_in_** relationship in the assertion
 **UBERON:0018395** (_cardiac baroreceptor_) **_located_in_** **UBERON:0000948** (_heart_)
 

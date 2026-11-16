@@ -7,16 +7,30 @@ layout: default
 ---
 # Introduction
 
-The **Unified Biomedical Knowledge Graph (UBKG)** specifies a system that can be used to build and use a [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) of information consolidated from a variety of biomedical sources. 
+The **Unified Biomedical Knowledge Graph (UBKG)** is a system to 
+build and use a [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) of biomedical [assertions](/about/glossary#assertion).
 
-An instance of a knowledge graph database in UBKG format combines information from the National Library of Medicine's [Unified Medical Language System](https://www.nlm.nih.gov/research/umls/index.html) (UMLS) with sets of assertions maintained by the vocabularies of other organizations, including:
+An instance of UBKG combines information from the vocabularies managed by the 
+**Unified Medical Language System** ([UMLS](https://www.nlm.nih.gov/research/umls/index.html)) 
+with sets of assertions from other _sources_. 
 
-* ontology files published in references such as [NCBO Bioportal](https://bioportal.bioontology.org/) and the [OBO Foundry](https://obofoundry.org/)
-* public reference databases and biomedical vocabularies available via file transfer or API
-* custom ontologies or sets of assertions produced by laboratories or data providers
+## UMLS information
+Information from the UMLS includes:
++ A concept model similar to that of the [Metathesaurus](https://www.ncbi.nlm.nih.gov/books/NBK9684/)
++ Semantic types from the [Semantic Network](https://www.ncbi.nlm.nih.gov/books/NBK9679/)
 
+## Non-UMLS information
+Examples of data sources that are not in the UMLS include:
++ ontology files available from registries such as [OBO Foundry](https://obofoundry.org/
+) and [NCBO BioPortal](https://bioportal.bioontology.org/)
++ ontology files available from GitHub repositories
++ exports from public data sources, such as [RefSeq](https://www.ncbi.nlm.nih.gov/refseq/), [UniProt](https://www.uniprot.org/), and [GENCODE](https://www.gencodegenes.org/)
++ custom data sources
+
+## Goals
 Goals of the UBKG include:
-* to identify _equivalence_ (or synonymy) for concepts that are shared by multiple vocabularies 
+* to extend the [UMLS operational model](/about/models/#operational_model) to non-UMLS data
+* to identify [equivalence](/about/glossary#equivalence-synonymy) between different biomedical sources for shared concepts 
 * to aid in the identification of connections that may exist between different sets of assertions
 
 # Version history 
@@ -27,12 +41,12 @@ The current version of UBKG is built around a JSON source file in [JSON Knowledg
 
 ## [UBKG-CSV](/ubkg-csv)
 The original version of UBKG was built around a set of CSV extracts of UMLS data.
-This version is no longer being enhanced. 
-
-### Citations
-This documentation site has been cited by a number of publications. Unless otherwise specified, citations from publications dated before 2027
-refer to the UBKG-CSV.
+This version is no longer being enhanced.
 
 # Getting Started
 * To use an existing instance of a UBKG database, refer [to these instructions](/using#using-an-existing-instance-of-ubkg).
 * To build a new instance of UBKG, refer [to these instructions](/using#building-a-new-instance-of-ubkg).
+
+# Citations
+Unless otherwise specified, citations pointing to this website from publications dated before 2027
+refer to the [UBKG-CSV](/ubkg-csv) architecture.
