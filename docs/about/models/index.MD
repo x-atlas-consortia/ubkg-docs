@@ -37,7 +37,7 @@ In the UBKG, equivalent codes link to the same concept that represents the idea.
 For example, both the SNOMEDCT_US and FMA (_Functional Model Ontology_) sources are equivalent, encoding the idea of "T-lymphocyte". 
 The concept **C0039194** ("T-lymphocyte") associates with:
 * code **57184004** in the SNOMEDCT_US vocabulary
-* code **62870** in the FMA. 
+* code **62870** in the FMA.
 
 ### Extension
 The UBKG extends the UMLS Metathesaurus equivalence architecture by integrating information from sources outside the UMLS.
