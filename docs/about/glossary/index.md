@@ -175,7 +175,7 @@ A relationship can be:
 Most of the relationships in biomedical ontologies are one of two types, similar to the [UMLS](https://pmc.ncbi.nlm.nih.gov/articles/PMC308795/#sec1):
 
 ##### hierarchical
-A hierarchical relationship links entities of different scope. 
+A hierarchical (or _taxonomic_) relationship links entities of different scope. 
 For example, the **_isa_** relationship is hierarchical in the assertion
 **UBERON:0015458** (_mediastinal fat pad_) _**isa**_ **UBERON:0003593** (_fat pad_)
 

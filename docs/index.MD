@@ -34,7 +34,8 @@ Goals of the UBKG include:
 * to aid in the identification of connections that may exist between different sets of assertions
 
 # Version history 
-There are two different versions of the UBKG. Although the different versions share similar representations of biomedical data, they have different data models and solution architectures.
+There are two different versions of the UBKG. Although the versions have similar representations of biomedical data, 
+they have different data models and solution architectures.
 
 ## [UBKG-JKG](/ubkg-jkg)
 The current version of UBKG is built around a JSON source file in [JSON Knowledge Graph (JKG)](https://github.com/x-atlas-consortia/json-knowledge-graph) format.
@@ -47,6 +48,41 @@ This version is no longer being enhanced.
 * To use an existing instance of a UBKG database, refer [to these instructions](/using#using-an-existing-instance-of-ubkg).
 * To build a new instance of UBKG, refer [to these instructions](/using#building-a-new-instance-of-ubkg).
 
+# Implementations
+
+Implementations of the UBKG include:
+
+## Petagraph
+* [Publication](https://pubmed.ncbi.nlm.nih.gov/39695169/)
+
+## CFDE Data Distillery
+* [Publication](https://pubmed.ncbi.nlm.nih.gov/40832351/)
+* [Web site](https://github.com/nih-cfde/data-distillery)
+
+## HuBMAP/SenNet ontology
+* [Publication](https://www.nature.com/articles/s41467-026-77835-z)
+* [Website](https://docs.hubmapconsortium.org/apis.html)
+
 # Citations
 Unless otherwise specified, citations pointing to this website from publications dated before 2027
 refer to the [UBKG-CSV](/ubkg-csv) architecture.
+
+# Development Team
+The UBKG system was developed by a collaboration between the [University of Pittsburgh's 
+Department of Biomedical Informatics](https://www.dbmi.pitt.edu/) (DBMI) and the 
+[Children's Hospital of Philadelphia's Department of Biomedical and Health Informatics](https://www.research.chop.edu/) (CHOP).
+
+The development team includes:
+
+| Institution | Name                    | Role                   |
+|-------------|-------------------------|------------------------|
+| DBMI        | Jonathan C. Silverstein | Principal Investigator |
+|             | J. Alan Simmons         | Developer              |
+|             | William Shirey          | Developer              |
+| CHOP        | Deanne Taylor           | Principal Investigator |
+|             | Benjamin Stear          | Developer              |
+|             | Taha Mohseni Ahooyi     | Developer              |
+
+## Software Dependency
+To extract information from OWL files, the UBKG ETL components use the 
+[PheKnowLator](https://github.com/callahantiff/PheKnowLator) package. 
