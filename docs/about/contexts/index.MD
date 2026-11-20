@@ -1,14 +1,15 @@
 ---
 layout: default
 ---
-
 # Unified Biomedical Knowledge Graph (UBKG) 
-# Source Contexts
+<br>
+
+# UBKG Contexts
 
 ---
 Following are details on available [UBKG contexts](../glossary#context).
 
-## Citations
+### Citations
 We have sought to identify citations for the sources used in UBKG contexts. 
 The preferred form of citation is a PubMed ID. 
 
@@ -17,12 +18,15 @@ The sources for citation references are included. Sources are of the following t
 2. Web pages of source stewards
 3. GitHub repositories of source stewards
 
+<br>
 
-## Licensing
+### Licensing
 We have sought to identify licensing under which sources are distributed. 
 The majority of the sources use [Creative Commons](https://creativecommons.org/) licenses.
 
-## Adaptations
+<br>
+
+### Adaptations
 The following is intended to satisfy requirements for licenses that require descriptions of adaptation (e.g., CC BY-SA).
 
 Adaptations to source data include:
@@ -31,7 +35,9 @@ Adaptations to source data include:
 3. Use of content from multiple sources to generate new "mappings" sources--e.g., between HGNC and HPO.
 4. Transformation of downloaded content into files in UBKG Edge/Node format--e.g., as done with UniProtKB and GENCODE data.
 
-## Citation or Licensing Questions
+<br>
+
+### Citation or Licensing Questions
 
 If the citation or licensing information for a source needs to be updated, please contact the UBKG steward.
 
@@ -42,8 +48,12 @@ If the citation or licensing information for a source needs to be updated, pleas
     Department of Biomedical Informatics
     University of Pittsburgh
 
+<br>
 
 ## Source Contexts
+<br>
+
+---
 ### UMLS source context
 The UMLS context includes sets of assertions obtained from [over 100 vocabularies](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html) organized by the UMLS, including
 - SNOMEDCT_US
@@ -53,22 +63,6 @@ The UMLS context includes sets of assertions obtained from [over 100 vocabularie
 
 All these assertions are considered as being from ontologies.
 
-#### CodeID standardization in the UMLS context
-
-In the UBKG, the colon is a reserved character, used to delimit SAB from code in a CodeID property of a Code node.
-
-A small number of vocabularies from the UMLS have default code formats that either include the name of the vocabulary 
-in the code or contain a colon. These vocabularies and their formats include:
-
-| SAB                 | default format             |
-|---------------------|----------------------------|
-| HGNC                | HGNC HGNC:x                |
-| GO                  | GO GO:x                    |
-| HPO                 | HPO HP:x                   |
-| HCPCS (Level codes) | HCPCS Level n: Exxx-E-xxxx |
-
-UBKG ETL framework scripts reformat codes from
-the UMLS to the format _SAB:CODE_. HPO codes are standardized to **HP** as the SAB.
 
 ### UBKG Base Context
 The **UBKG Base context** appends to the UMLS context assertions from a number of other standard biomedical ontologies and data sources. 

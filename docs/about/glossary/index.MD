@@ -2,6 +2,8 @@
 layout: default
 ---
 # Unified Biomedical Knowledge Graph 
+<br>
+
 # Glossary
 
 ---
@@ -15,33 +17,63 @@ For example, one can assert that
 
 where **sky** and **blue** are entities and _has_color_ is a relationship.
 
+## Assigned concept
+In general, a [code](#code) in an instance of the UBKG can be assigned to more than one
+[concept](#concept). To mitigate the risk of duplication in queries involving codes,
+the UBKG designates one [code link](#code-link) as the "assigned" or "preferred" code link.
+
+The form of assignment is specific to the version of the UBKG system.
+
 ## BioPortal
 A repository of biomedical ontologies maintained by [NCBO](https://bioportal.bioontology.org/). 
 
 Although many of the ontologies published in BioPortal follow [OBO principles](https://obofoundry.org/principles/fp-000-summary.html), including the use of [IRIs](#iri),  compliance is optional.
 
 ## Code
-The discrete representation of a [concept](#concept) in a [source](#source) in the UBKG. 
-For example, SNOMED represents the concept of "breast cancer" (UMLS:C0678222) with code 254838004.
-Codes are unique in the UBKG.
+An entity in the UBKG that [encodes](#encode) an [idea](#idea) in a [source vocabulary](#source).
+A code is _specific_ to a source vocabulary, but is not _generic_ in the UBKG--i.e., a code does not have an exclusive relationship with 
+an idea in the UBKG.
+
+For example, the idea of "breast cancer" is represented with code **254838004** in the 
+SNOMEDCT source vocabulary, but also with code **0003002** in the HPO source vocabulary.
+
+## Code link
+Each [code](#code) in the UBKG is linked to at least one [concept](#concept).
+In the UBKG data model, the code link is implemented with a _code relationship_ (or _coderel_)--
+a relationship with the label "CODE".
+
+Although a code may have more than one code link, one link is designated the [assigned concept](#assigned-concept) for the code.
 
 ## Concept
-As with the [UMLS](#https://www.ncbi.nlm.nih.gov/books/NBK9684/#ch02.sec2.3), a concept in the UBKG is the discrete representation oF meaning--e.g., an idea, process, characteristic, finding, or physical item. 
-Examples include:
-* "breast cancer"
-* "blue"
-* "tomography"
+An entity in the UBKG's [concept hierarchy](#concept-hierarchy) that [encodes](#encode) an [idea](#idea).
+A concept is _generic_ in the UBKG--i.e., it is not associated exclusively with a source vocabulary.
+For example, the concept with CUI C0678222 encodes the idea of "breast cancer".
 
-A concept is a type of [entity](#entity) in the UBKG data model, represented with a type of [node](#node) in a UBKG database.
+## Concept hierarchy
+As with the [UMLS Metathesaurus](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/index.html), the UBKG relies on a hierarchy of generic [concepts](#concept). [Codes](#code) associate
+with concepts via [code links](#code-link). 
+
+The UBKG concept hierarchy can be considered as a "metavocabulary", in which the concepts are like the codes of a source vocabulary.
 
 ## Concept subgraph
-In the UBKG-CSV data model, a concept subgraph is a subgraph of Code, Term, Definition, and Semantic Type nodes that link to a Concept node. 
+In the [UBKG-CSV data model](../../ubkg-csv#data-model), a concept subgraph is a subgraph of Code, Term, Definition, and Semantic Type nodes that link to a Concept node. 
 
 ## Concept Unique Identifier (CUI)
-A unique identifier for a [concept](#concept) in the UBKG. For example, the CUI _C0678222_ identifies the concept for "breast cancer" in the UMLS.
+A unique identifier for a [concept](#concept) in the UBKG. 
+
+The UBKG extends the UMLS use of CUI to non-UMLS vocabularies. In particular,
+if a code in a non-UMLS source vocabulary does not have a cross-reference to a UMLS CUI, the UBKG translation workflow will
+[mint](#mint) a new CUI for the code. The format of minted CUIs depends on the version of the [UBKG system](#ubkg-system).
+
+For example, the CUI **C0678222** identifies the concept for "breast cancer".
 
 ## Context 
 A UBKG _context_ (or _source context_) is a collection of sets of [assertions](#assertion) from different [sources](#source).
+
+Examples of [contexts](../../about/contexts) include:
+* the UMLS context
+* the base context (which appends to the UMLS context)
+* the Data Distillery context (which appends to the base context)
 
 ## Cross-reference
 A link between a [code](#code) from a [source](#source) and another [entity](#entity). 
@@ -57,14 +89,19 @@ A synonym for the [relationship](#relationship) of an [assertion](#assertion). I
 
 ## Edge file
 A source's edge file asserts [relationships](#relationship) between [codes](#code). 
-Edge files conform to the UBKG Edge Node format (link to page).
+Edge files are in [Edge Node format](#edgenode-format)
 
-## UBKG Edge/Node format
-The format for [source files](#source-files), as described here (link to page).
+## Edge/Node format
+The triple-based format used for [source files](#source-files).
+
+* In the UBKG-CSV architecture, the format is known as the _UBKG Edge/Node format_.
+* In the UBKG-JKG architecture, the format is known as the _JKG Edge/Node format_, or **JKGEN**.
 
 ## Encode
-To represent a [concept](#concept) in a [source](#source) with a discrete [code](#code). 
-For example, the SNOMED source encodes the UMLS concept of C0678222 (breast cancer) with code 254838004.
+To represent an [idea](#idea) with a discrete identifier.
+For example,
+* The SNOMED source vocabulary encodes the idea of "breast cancer" with [code](#code) **254838004**.
+* The UBKG concept hiearchy encodes the idea of "breast cancer" with [concept](#concept) **C0678222**.
 
 ## Entity
 An entity represents an element of an [ontology](#ontology) that participates in a [relationship](#relationship). 
@@ -72,12 +109,12 @@ An entity represents an element of an [ontology](#ontology) that participates in
 In a [knowledge graph database](#knowledge-graph-database), an entity is represented by a [node](#node).
 
 ## Equivalence (synonymy)
-When multiple codes share a concept-code [cross-reference](#cross-reference) to a concept, the two codes are _equivalent_, or synonyms, and the two codes
+When multiple codes have [code links](#code-link) to the same [concept](#concept), the two codes are _equivalent_ (or _synonyms_), and the two codes
 may be described as _equivalence_classes_. 
 
 Equivalence is a fundamental feature of both the UMLS and the UBKG, because it identifies possible synonymy between sources. 
 
-For example, the concept for "breast cancer" (UMLS:C0678222) has concept-code cross-references to codes in a number of sources, including:
+For example, the concept for "breast cancer" (UMLS:C0678222) has code links with codes in a number of source vocabularies, including:
 * SNOMEDCT_US:254838004 
 * CHV:0000042783
 * HPO:0003002
@@ -87,7 +124,19 @@ For example, the concept for "breast cancer" (UMLS:C0678222) has concept-code cr
 
 Because of the equivalence between the codes from different sources, it may be possible to substitute a code from one source in a relationship defined by another source.
 
-##  Inverse relationship
+## Framework
+In a [UBKG System](#ubkg-system), a _framework_ is a set of interrelated shell scripts, Python scripts, and files used to execute a function in the system.
+
+## Idea
+A "meaning" (or _semiotic unit_) that can be represented with a discrete identifier. 
+Examples of biomedical ideas found in the UBKG are "heart" and "diabetes".
+In the UBKG, ideas are encoded with both [concepts](#concept) and [codes](#code).
+
+## Import file(s)
+The files used by the [UBKG System](#ubkg-system) to import data into a neo4j graph database. The form of import file depends on the 
+version of the UBKG architecture.
+
+## Inverse relationship
 A [relationship](#relationship) in a [source](#source) has a direction: it starts with one node and “goes toward” another. 
 For example, in the assertion
 
@@ -117,11 +166,20 @@ UBKG recognizes relationship IRIs formatted in the same manner as for entities, 
 An example of a relationship IRI is 
 [http://purl.obolibrary.org/obo/RO_0002160](#http://purl.obolibrary.org/obo/RO_0002160).
 
+# JKGEN
+A format for [source files](#source-files) in the [UBKG-JKG](/ubkg-jkg) version of the [UBKG system](#ubkg-system).
+
+## JSON Knowledge Graph (JKG)
+The [JSON schema](https://github.com/x-atlas-consortia/json-knowledge-graph) of the [import file](#import-files) for the [UBKG-JKG](/ubkg-jkg) version of the [UBKG system](#ubkg-system).
+
 ## Knowledge Graph (database)
 A knowledge graph is a representation of information characterized by the [relationships](#relationship) between a set of [entities](#entity). 
 Whereas relational databases (RDBMS) organize information into tables, rows, and fields, knowledge graph databases organize information into [nodes](#node) and [edges](#edge).
 
 In a strict knowledge graph, properties of entities and relationships are also represented by assertions, unlike a [property graph](#property-graph).
+
+## Mint
+When a [UBKG translation workflow](#../../system#translation-workflows) creates a new [CUI](#concept-unique-identifier-cui) for a [code](#code) that does not have a [cross-reference](#cross-reference) to a UMLS CUI.
 
 ## NCBO
 The National Center for Biomedical Ontology (NCBO) maintains [BioPortal](https://bioportal.bioontology.org/), a repository of biomedical ontologies.
@@ -136,10 +194,14 @@ Nodes are defined in a [node file](#node-file) and represented as node objects i
 
 ## Node file
 A node file describes [entities](#entity) used by a source in its [assertions](#assertion).
-Node files conform to the UBKG Edge Node format (link to page).
+Node files should be in [Edge/Node format](#edgenode-format)
 
 ## Ontology
 For the purposes of the UBKG, an ontology is the representation of a set of [entities](#entity) and the [relationships](#relationship) between them. 
+
+## Ontology CSVs
+In the UBKG-CSV version of the UBKG system, the [UBKG import files](#import-files) are in the form of 12 CSV files. The format of the ontology 
+CSVs match the structure of queries used to export data from a DBMI data warehouse.
 
 ## OLS 
 The Ontology Lookup Service [OLS](https://www.ebi.ac.uk/ols/index) is a repository of biomedical [ontologies](#ontology). The OLS allows for searches of relationship properties, including those from the [Relationship Ontology](#relationship-ontology-ro).
@@ -185,7 +247,7 @@ An example is the **_located_in_** relationship in the assertion
 **UBERON:0018395** (_cardiac baroreceptor_) **_located_in_** **UBERON:0000948** (_heart_)
 
 #### Graph (UBKG-CSV)
-The nodes of a UBKG database in UBKG-CSV format can have a variety of other relationships that represent node properties in a [concept subgraph](#concept-subgraph).
+The nodes of a UBKG database in the UBKG-CSV architecture can have a variety of other relationships that represent node properties in a [concept subgraph](#concept-subgraph).
 
 ## Relationship Ontology (RO)
 The Relationship Ontology (RO) is an [ontology](#ontology) of discrete [relationships](#relationship) that are used in other ontologies. 
@@ -208,7 +270,7 @@ A concept category defined in the [UMLS Semantic Network](https://www.nlm.nih.go
 * [UBKG-JKG](../../ubkg-jkg) represents semantic types as node labels on Concept nodes.
 
 ## Source
-A collection of [assertions](#assertion) maintained by an organization.
+A collection of [assertions](#assertion) maintained by an organization. Also known as a _source vocabulary_.
 
 ### Organization types
 Types of source organizations include:
@@ -234,8 +296,6 @@ Forms of assertion sources include:
 A set of two files that describe the [assertions](#assertion) of a [source](#source) that is to be integrated into the UBKG. 
 The source files are the [edge file](#edge-file) and the [node file](#node-file).
 
-The UBKG recognizes source files that are in UBKG Edge/Node format.
-
 ## Term
 A short text descriptor for a [code](#code) in an [source](#source). For example, a term for code 64033007 in SNOMED_CT is “kidney”.
 
@@ -243,21 +303,34 @@ A short text descriptor for a [code](#code) in an [source](#source). For example
 A term category from the UMLS. Term types include _Preferred_Term_ (PT) and _Synonym_ (SY). 
 
 ## Triple
-A triple is the recognized form of an [assertion](#assertion) in a source [edge file](#edge-file).
+A _triple_ is the recognized form of an [assertion](#assertion) in a source [edge file](#edge-file).
 
 A triple uses the format
-_subject_ _predicate_	_object_
+**subject** _predicate_	**object**
 
 where
-* _subject_ and _object_ are both entities (nodes). 
-* _predicate_ is a relationship (edge).
+* **subject** and **object** are both [entities](#entity) (nodes). 
+* _predicate_ is a [relationship](#relationship) (edge).
 
 ## UBKG Distribution
-A Zip archive containing a set of files that can build a local Docker container hosting an instance of neo4j populated with a UBKG database.
+A Zip archive containing a set of files that builds a local Docker container that hosts an instance of neo4j populated with a UBKG database.
+UBKG distributions are designed to be turnkey installations.
+
+A number of "standard" UBKG distributions are available on the [UBKG Download site](#ubkg-download-site).
+
+## UBKG Download site
+The University of Pittsburgh DBMI maintains a [public site](https://ubkg-downloads.xconsortia.org/) from which to obtain [UBKG distributions](#ubkg-distribution).
+Users must have a UMLS user license to download distributions from the site.
+
+## UBKG System
+The [UBKG System](../system) comprises a set of components that support the construction, deployment, and use of a UBKG knowledge graph database.
 
 ## UMLS
-The Unified Medical Language System [UMLS](https://www.nlm.nih.gov/research/umls/index.html) consolidates a number of different biomedical [ontologies](#ontology), [vocabularies](#vocabulary), and standards. 
+The Unified Medical Language System [(UMLS)](https://www.nlm.nih.gov/research/umls/index.html) consolidates a number of different biomedical [ontologies](#ontology), [vocabularies](#vocabulary), and standards. 
 
 ## Vocabulary
-For the purposes of the UBKG, a vocabulary is similar to an [ontology](#ontology). Some vocabularies (e.g., SNOMED_CT) are also ontologies.
+For the purposes of the UBKG, _vocabulary_ is a generic term to describe an organization of [assertions](#assertion) from a [source](#source). 
 
+
+## Workflow
+In a [UBKG System](#ubkg-system), a workflow is a set of ordered processes that a [framework](#framework) uses to execute tasks.

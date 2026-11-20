@@ -1,8 +1,11 @@
 ---
 layout: default
 ---
+# Unified Biomedical Knowledge Graph (UBKG) 
+<br>
 
 # The UBKG System
+---
 
 The **UBKG System** comprises a set of components that support the construction, deployment, and use of a UBKG knowledge graph database.
 
@@ -31,7 +34,7 @@ Types of sources are:
 * non-UMLS sources
 
 ## Translation workflows
-Two types of workflows translate assertion data from sources into files that can be imported into a UBKG instance:
+Two types of [ETL workflows](../etl) translate assertion data from sources into files that can be imported into a UBKG instance:
 * the translation of UMLS data
 * the translation of non-UMLS source data
 
@@ -55,11 +58,11 @@ source files in UBKG Edge/Node format.
 
 ## Import files
 
-The product of the translation workflows is a set of one or more import files that can be imported into a neo4j instance to 
+The product of the translation workflows is a set of one or more _import files_ that can be imported into a neo4j instance to 
 create a UBKG database. 
 
 The form of import file depends on the UBKG architecture. 
-* In the [UBKG-CSV](../../ubkg-csv), UMLS distribution files are imported into an Oracle database and extracted to a set of _ontology CSV_ files.
+* In the [UBKG-CSV](../../ubkg-csv), UMLS distribution files are imported into an Oracle database and extracted to a set of 12 [ontology CSV](../glossary/ontology-csvs) files.
 * In the [UBKG-JKG](../,,/ubkg-jkg), scripts translate UMLS distribution content into a single JKG JSON file.
 
 The build of import files is iterative:

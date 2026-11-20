@@ -1,19 +1,28 @@
 ---
 layout: default
 ---
+# Unified Biomedical Knowledge Graph (UBKG) 
+
 # UBKG Models
+
+---
 
 Two models are relevant to the UBKG:
 
 1. an **operational model** that describes the function of the UBKG
 2. a **data model** that represents a UBKG in a graph database
-
+<br>
+<br>
 # Operational Model
-
 The operational model of the UBKG is independent of the knowledge graph database platform.
 
-## Concepts 
+## Idea
+In the UBKG system, an _idea_ is a "meaning", or a semiotic unit, that can be represented with a discrete identifier. 
+Examples of biomedical ideas found in the UBKG are "heart" and "diabetes".
 
+Two types of entities in the UBKG operational model _[encode](/about/glossary#encode)_ ideas, or represent ideas with discrete identifiers.
+
+## Concepts
 Like the UMLS Metathesaurus, the UBKG is structured around _concepts_. 
 A concept is a discrete codification of an _idea_–e.g., the idea of "T-lymphocyte". 
 Concepts are encoded with unique alphanumeric identifiers (referred to as _Concept Unique Identifiers_, or _CUIs_, in UMLS): 
@@ -78,8 +87,8 @@ Examples of properties include:
 * ranges
 * definitions
 * sources
-
-
+<br>
+<br>
 # Data Model: Dependencies
 Unlike the operational model, the data model for a UBKG database depends on:
 
