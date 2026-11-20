@@ -12,7 +12,7 @@ There are two different versions of the [UBKG System](/about/system). Although t
 they have different data models and solution architectures.
 
 ## [UBKG-JKG](../../ubkg-jkg)
-The current version of the UBKG system is built around a JSON source file in [JSON Knowledge Graph (JKG)](https://github.com/x-atlas-consortia/json-knowledge-graph) format.
+The current version of the UBKG system is built around a JSON source file in [JSON Knowledge Graph (JKG)](/about/glossary#json-knowledge-graph-jkg) format.
 The UBKG-JKG system is used to build distributions of the [Data Distillery implementation](/about/implementations/cfde-data-distillery)
 released from 2027.
 

@@ -166,7 +166,7 @@ UBKG recognizes relationship IRIs formatted in the same manner as for entities, 
 An example of a relationship IRI is 
 [http://purl.obolibrary.org/obo/RO_0002160](#http://purl.obolibrary.org/obo/RO_0002160).
 
-# JKGEN
+## JKGEN
 A format for [source files](#source-files) in the [UBKG-JKG](/ubkg-jkg) version of the [UBKG system](#ubkg-system).
 
 ## JSON Knowledge Graph (JKG)
