@@ -125,7 +125,7 @@ For example, the concept for "breast cancer" (UMLS:C0678222) has code links with
 Because of the equivalence between the codes from different sources, it may be possible to substitute a code from one source in a relationship defined by another source.
 
 ## Framework
-In a [UBKG System](#ubkg-system), a _framework_ is a set of interrelated shell scripts, Python scripts, and files used to execute a function in the system.
+In a [UBKG System](#ubkg-system), a _framework_ is a set of interrelated shell scripts, Python scripts, and resource files used to execute a function in the system.
 
 ## Idea
 A "meaning" (or _semiotic unit_) that can be represented with a discrete identifier. 
@@ -333,4 +333,4 @@ For the purposes of the UBKG, _vocabulary_ is a generic term to describe an orga
 
 
 ## Workflow
-In a [UBKG System](#ubkg-system), a workflow is a set of ordered processes that a [framework](#framework) uses to execute tasks.
+In a [UBKG System](#ubkg-system), a workflow is a set of tasks executed in a specific order that employ [frameworks](#framework).

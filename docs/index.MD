@@ -40,19 +40,20 @@ For instructions on building a new instance of UBKG,  [go here](/using#building-
 ---
 
 ## [About](/about)
-The **About** tab points to pages that describe details of the UBKG:
+The **About** tab links to pages that provide details on the UBKG, including:
    * the [UBKG System](/about/system) of components 
-   * the [versions](/about/versions) of the UBKG architecture
-   * [implementations](/about/implementations) of the UBKG
+   * the [versions](/about/versions) of the UBKG System
+   * [implementations](/about/implementations) of the UBKG 
    * the operational and data [models](/about/models) of the UBKG
-   * the [Extract, Transform, and Load (ETL)](/about/etl) processes employed by the UBKG System
-   * descriptions of [UBKG contexts]/about/contexts)
+   * the [Extract, Transformation, and Load (ETL)](/about/etl) processes employed by the UBKG System
+   * [UBKG contexts](/about/contexts)
    * a [Glossary](/about/glossary) of terms
    * [Credits](/about/credits) for development team members and software dependencies
+   * [Licensing](/about/licensing)
 
 ## [Using UBKG](/using)
 The  **Using UBKG** tab provides instructions for downloading, deploying, and building UBKG graph databases
 ## [UBKG-CSV](/ubkg-csv), [UBKG-JKG](/ubkg-jkg)
-These tabs provide information specific to each version of the UBKG architecture
+These tabs provide information specific to each version of the UBKG System
 
 

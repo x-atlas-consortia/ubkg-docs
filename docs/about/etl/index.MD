@@ -8,24 +8,56 @@ layout: default
 
 ---
 
-The [UBKG system](../system) is used to build an instance of UBKG from a variety of biomedical sources.
+The [UBKG system](../system) is used to build an instance of UBKG from a collection of biomedical sources.
 
-The _Extraction, Translation, and Load_ (ETL) process used to build the [import files](../system#import-files) 
+The _Extraction, Transformation, and Load_ (ETL) process used to build the [import files](../system#import-files) 
 for a UBKG instance depends on
-the version of the UBKG architecture. 
+the version of the UBKG system. 
 
-ETL information common to both architectures is discussed here.
-
-Information specific to a version of the UBKG system is discussed in the architecture detail pages:
-* [UBKG-CSV](../../../ubkg-csv)
-* [UBKG-JKG](../../../ubkg-jkg)
+This page describes elements of ETL workflows common to both versions of the UBKG System.
 
 # Extraction
-The U
+
 The biomedical assertion data used to build an instance of the UBKG
-comes from a variety of sources, including:
-* the [UMLS Metathesaurus](https://uts.nlm.nih.gov/uts/umls/home)
-* the [UMLS Semantic Network](https://www.nlm.nih.gov/research/umls/knowledge_sources/semantic_network/index.html)
+is obtained from two types of source:
+* UMLS
+* non-UMLS
+
+## UMLS extraction
+### Source files
+The National Library of Medicine provides [biannual releases](https://www.nlm.nih.gov/research/umls/licensedcontent/umlsknowledgesources.html) of UMLS content.
+Each release includes:
+* source files of data from the [UMLS Metathesaurus](https://uts.nlm.nih.gov/uts/umls/home)
+* source files of data from the [UMLS Semantic Network](https://www.nlm.nih.gov/research/umls/knowledge_sources/semantic_network/index.html)
+* the [MetamorphoSys](https://www.nlm.nih.gov/research/umls/implementation_resources/metamorphosys/help.html) installation application
+
+### Translation workflows
+UMLS translation workflows involve:
+* obtaining a UMLS release file
+* using the MetamorphoSys application to build a UMLS distribution
+* executing scripts that extract and translate data from UMLS distribution files into UBKG import files
+
+Translation workflows depend on 
+
+### UMLS translation 
+The UMLS releases distributions of source data biannually. Distributions are available from the [UMLS website](https://www.nlm.nih.gov/research/umls/licensedcontent/umlsknowledgesources.html).
+
+
+### SAB translation
+Sources that are not part of the UMLS are available via a variety of forms, including:
+* OWL files
+* REST APIs
+* custom file types
+* source files in UBKG Edge/Node format
+
+SAB translation workflows involve executing _translator_ scripts that are appropriate to source formats to produce
+source files in UBKG Edge/Node format.
+
+
+
+
+a variety of sources, including:
+
 * [ontology](../../about/glossary#ontology) files available from:
    * registries such as [OBO Foundry](https://obofoundry.org/
 ) and [NCBO BioPortal](https://bioportal.bioontology.org/)

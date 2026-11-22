@@ -14,13 +14,17 @@ Releases of UBKG implementations in UBKG-CSV format include:
 * releases of the CFDE [Data Distillery](../#cfde-data-distillery) in 2024 and 2025
 * the [HuBMAP/SenNet application ontology](../#hubmapsennet-ontology)
 
-The UBKG-CSV architecture is based on a set of CSV files of data extracted from a 
+The UBKG-CSV system is based on a set of CSV files of data extracted from a 
 release of the UMLS. Data from non-UMLS sources is appended to the CSV files. The
 CSV files are imported into a neo4j graph database.
 
-# Currency of terminology
-The terminology used to describe the UBKG has evolved over time. The terminology used in
-UBKG-CSV documentation such as README files of the GitHub repositories may reflect an older state.
+# Currency
+The UBKG-CSV system supported implementations of the UBKG prior to 2027.
+Implementations of the UBKG from 2027 are based on the [UBKG-JKG](/ubkg-jkg) version of the UBKG System.
+
+The source code and documentation for the UBKG-CSV version of the UBKG System will not be enhanced.
+Because the terminology used to describe the UBKG has evolved over time, documentation used in
+files such as README files of the GitHub repositories will reflect an earlier state.
 
 # GitHub repositories
 The components of the UBKG-CSV system are distributed among a number of 
@@ -34,11 +38,11 @@ GitHub repositories.
 | [Guesdt](../about/system/#guesdt)                            | [Guesdt](https://github.com/x-atlas-consortia/Guesdt)         |
 
 # Data Model
-A UBKG-CSV database can be considered a _[knowledge graph](../about/glossary/#knowledge-graph-database)_ for which 
+A UBKG database can be considered a _[knowledge graph](../about/glossary/#knowledge-graph-database)_ for which 
 * Nodes and edges are annotated with a constrained set of important properties.
 * Some properties are represented as nodes.
 
-In other words, a UBKG-CSV is primarily a knowledge graph with some characteristics of a _[property graph](../about/glossary/#property-graph-database)_.
+A UBKG database is thus primarily a knowledge graph with some characteristics of a _[property graph](../about/glossary/#property-graph-database)_.
 
 ## Concept subgraphs
 The [UBKG operational model](../about/models/#operational-model) features
@@ -52,7 +56,7 @@ properties. UBKG-CSV represents some properties as nodes linked to other nodes v
 The process to translate biomedical source data into the CSV import files is complex.
 
 1. The UBKG-CSV [_source framework_](https://github.com/x-atlas-consortia/ubkg-etl/blob/main/source_framework/README.md) uses [data from a UMLS release](https://github.com/x-atlas-consortia/ubkg-etl/blob/main/source_framework/UMLS%20Extraction%20Process.md) to build a set of import files.
-2. The UBKG-CSV _https://github.com/x-atlas-consortia/ubkg-etl/blob/main/generation_framework/README.md_ iteratively appends data from source files to the import files. 
+2. The UBKG-CSV [_generation_framework_](https://github.com/x-atlas-consortia/ubkg-etl/blob/main/generation_framework/README.md) iteratively appends data from non-UMLS source files to import files. 
 
 # Distribution
 Once 
