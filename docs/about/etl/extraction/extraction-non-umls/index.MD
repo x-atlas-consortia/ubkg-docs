@@ -14,12 +14,6 @@ layout: default
 
 Sources that are not part of the UMLS are available via a variety of [formats](../../format).
 
-
-# Translation workflows
----
-Translation workflows for non-UMLS (SAB) sources involve executing [translator scripts](/about/glossary/#translator-scripts) to produce
-source files in Edge/Node format.
-
 # Contexts
 ---
 
@@ -40,6 +34,20 @@ For example, because UBERON assertions refer to PATO codes, PATO should be impor
 
 The generation order for the reference implementations of UBKG is described [here](https://github.com/x-atlas-consortia/ubkg-jkg-generation/blob/main/docs/contexts.md).
 
+# Translation workflows
+---
+Translation workflows for non-UMLS (SAB) sources involve executing [translator scripts](/about/glossary/#translator-script) to produce
+source files in Edge/Node format.
 
+## UBKG-CSV
+
+In [UBKG-CSV](/ubkg-csv), the set of translation workflows for SABs is called the [generation framework](https://github.com/x-atlas-consortia/ubkg-etl/blob/main/generation_framework/README.md).
+
+<img src="https://user-images.githubusercontent.com/10928372/202733307-d9a7c76d-8a0a-401f-a0e2-011d8449ac41.jpg" alt="UBKG-CSV SAB ETL workflow">
+
+## UBKG-JKG
+
+In [UBKG-JKG](/ugkg-jkg), the set of translation workflows for SABs is described in the [ubkg-jkg-generation](https://github.com/x-atlas-consortia/ubkg-jkg-generation) repository.
+<img src="https://github.com/x-atlas-consortia/ubkg-jkg-generation/blob/main/img_2.png?raw=true" alt="UBKG-JKG SAB ETL workflow">
 
 
