@@ -9,8 +9,9 @@ layout: default
 
 The **Unified Biomedical Knowledge Graph (UBKG)** is a system to 
 build and use a [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) of biomedical [assertions](/about/glossary#assertion).
+The UBKG is both a knowledge graph format and a set of workflows used to build and distribute knowledge graphs.
 
-An instance of UBKG combines information from the vocabularies managed by the 
+An instance of UBKG combines information from vocabularies managed by the 
 **Unified Medical Language System** ([UMLS](https://www.nlm.nih.gov/research/umls/index.html)) 
 with sets of assertions from other [sources](/about/glossary/#source).
 
@@ -22,38 +23,29 @@ Goals of the UBKG include:
 <br>
 <br>
 
-
-# Getting Started with the UBKG
+# Tabs
 ---
 
-## Download and deploy
-For instructions on downloading and deploying an existing instance of a UBKG database, [go here](/using#using-an-existing-instance-of-ubkg).
-
-## Build
-For instructions on building a new instance of UBKG,  [go here](/using#building-a-new-instance-of-ubkg).
-<br>
-<br>
-<br>
-
-
-# Tab Descriptions
----
+## [Getting Started](/start)
+The  **Getting Started** tab provides instructions for 
+* building an instance of UBKG
+* downloading and deploying a distribution of UBKG
 
 ## [About](/about)
 The **About** tab links to pages that provide details on the UBKG, including:
-   * the [UBKG System](/about/system) of components 
-   * the [versions](/about/versions) of the UBKG System
-   * [implementations](/about/implementations) of the UBKG 
-   * the operational and data [models](/about/models) of the UBKG
-   * the [Extract, Transformation, and Load (ETL)](/about/etl) processes employed by the UBKG System
-   * [UBKG contexts](/about/contexts)
-   * a [Glossary](/about/glossary) of terms
-   * [Credits](/about/credits) for development team members and software dependencies
-   * [Licensing](/about/licensing)
+* the [UBKG System](/about/system) of components 
+* the [versions](/about/versions) of the UBKG System
+* [implementations](/about/implementations) of the UBKG 
+* the operational and data [models](/about/models) of the UBKG
+* the [Extract, Transformation, and Load (ETL)](/about/etl) processes employed by the UBKG System to build import files
+* [distribution workflows](/about/distribution)
+* [UBKG contexts](/about/contexts)
+* a [Glossary](/about/glossary) of terms
+* [Credits](/about/credits) for development team members and software dependencies
+* [Licensing](/about/licensing)
 
-## [Using UBKG](/using)
-The  **Using UBKG** tab provides instructions for downloading, deploying, and building UBKG graph databases
+
 ## [UBKG-CSV](/ubkg-csv), [UBKG-JKG](/ubkg-jkg)
-These tabs provide information specific to each version of the UBKG System
+These tabs provide information specific to each [version](/about/versions) of the [UBKG System](/about/system).
 
 

@@ -312,15 +312,34 @@ where
 * **subject** and **object** are both [entities](#entity) (nodes). 
 * _predicate_ is a [relationship](#relationship) (edge).
 
-## UBKG Distribution
-A Zip archive containing a set of files that builds a local Docker container that hosts an instance of neo4j populated with a UBKG database.
-UBKG distributions are designed to be turnkey installations.
+## Turnkey distribution
+A [UBKG distribution](#ubkg-distribution) in the form of a Zip archive file. The distribution contains:
+* a Bash Shell script that builds a local Docker container
+* files that will become the external bind mount of the local Docker container
+* a configuration file
 
-A number of "standard" UBKG distributions are available on the [UBKG Download site](#ubkg-download-site).
+A turnkey distribution requires a few simple steps to build a local instance of UBKG.
+
+## UBKG Distribution
+An archive file that can be used to build an instance of UBKG.
+
+Distributions of known [implementations](/about/implementations) are available on the [UBKG Download site](#ubkg-download-site).
+
+### Zip distributions
+Implementations of [UBKG-CSV](/ubkg-csv) and [UBKG-JKG](/ubkg-jkg) are distributed in the form of Zip archive files. 
+Types of Zip distributions include:
+* a **turnkey distribution** that build a local Docker container running an instance of neo4j populated with a UBKG database
+* a **import file distribtion** that contains the [import files](#import-files) that can be used to build an instance of neo4j populated with a UBKG database
+### neo4j database dumps
+The [Petagraph implementation of UBKG](/about/implementations/#petagraph) is distributed as a neo4j dump file.
 
 ## UBKG Download site
 The University of Pittsburgh DBMI maintains a [public site](https://ubkg-downloads.xconsortia.org/) from which to obtain [UBKG distributions](#ubkg-distribution).
-Users must have a UMLS user license to download distributions from the site.
+
+Users must have a [UMLS user license](https://uts.nlm.nih.gov/uts/?_gl=1*bpmx4o*_ga*MTc3MTg2Nzg2MS4xNzgxNTMwMDgx*_ga_P1FPTH9PL4*czE3OTU1MzIxMTkkbzg1JGcwJHQxNzk1NTMyMTE5JGo2MCRsMCRoMA..*_ga_7147EPK006*czE3OTU1MzIxMTkkbzg1JGcwJHQxNzk1NTMyMTE5JGo2MCRsMCRoMA..) to download distributions from the site.
+
+## UBKG Implementation
+A "standard" [UBKG context](#context).
 
 ## UBKG System
 The [UBKG System](../system) comprises a set of components that support the construction, deployment, and use of a UBKG knowledge graph database.

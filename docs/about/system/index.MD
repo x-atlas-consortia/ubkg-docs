@@ -11,10 +11,10 @@ The **UBKG System** comprises a set of components that support the construction,
 
 System components have one of two roles:
 
-1. **Builders** _construct_ and _deploy_ a UBKG database
-2. **Clients** _use_ a UBKG database
+1. **Builder components** _construct_ and _deploy_ a UBKG database
+2. **Client components** _use_ a UBKG database
 
-Most of the components of the UBKG system are builders.
+Most of the components of the UBKG system are builder components.
 
 # System Diagram
 <img src="../../images/ubkg_system.png" alt="UBKG System">
@@ -24,31 +24,32 @@ Most of the components of the UBKG system are builders.
 * A _workflow_ in a UBKG system is a set of tasks executed in a specific order that employ frameworks. 
 
 # Builder components
+---
 
 ## Source assertion data
 The content of a UBKG database comes from sets of annotated [assertions](./glossary/#assertion) from a variety of [sources](./glossary/#source).
 
-Types of sources are:
+Sources are classed by whether they are managed by:
 * the [UMLS](./glossary/#umls)
-* non-UMLS sources
+* non-UMLS publishers
 
 ## ETL workflows
-Two types of [ETL workflows](../etl) translate assertion data from sources into files that can be imported into a UBKG instance:
-* the translation of UMLS data
-* the translation of non-UMLS source data
+Two types of [Extraction, Transformation, and Load (ETL)L workflows](../etl) translate assertion data 
+from sources into [import files](#import-files) that can be imported into a UBKG instance.
 
 ## Import files
-
-The product of the translation workflows is a set of one or more _import files_ that can be imported into a neo4j instance to 
+The product of the ETL workflows is a set of one or more files that can be imported into a neo4j instance to 
 create a UBKG database. 
 
-## Deployment workflow
-Once import files are complete, a deployment workflow is used to build a _UBKG distribution_--a Zip archive 
+## Distribution workflow
+Once import files are complete, a deployment workflow is used to build a [UBKG distribution](./glossary/#ubkg-distribution)--a Zip archive 
 containing a set of files that can build a local Docker container hosting an instance of neo4j populated with a UBKG database.
 
 After being generated, a UBKG distribution can be uploaded to the [UBKG Download site](https://ubkg-downloads.xconsortia.org/). 
 
 # Client components
+---
+
 Once an instance of UBKG has been deployed from a UBKG distribution, client applications can 
 query the UBKG.
 
