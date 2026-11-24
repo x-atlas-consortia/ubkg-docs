@@ -11,9 +11,9 @@ The [UBKG system](/about/system) has been used to build a number of implementati
 UBKG. 
 
 An implementation includes [distributions](/about/glossary/#ubkg-distribution) of the UBKG with a 
-particular [context](/about/contexts), or collection of imported sources.
+particular [context](/about/contexts).
 
-Distributions of many of the following implementations are available from the [UBKG Download site](https://ubkg-downloads.xconsortia.org/).
+Distributions are available from the [UBKG Download site](https://ubkg-downloads.xconsortia.org/).
 
 # Petagraph
 ---
@@ -27,7 +27,7 @@ Distributions of many of the following implementations are available from the [U
 <br>
 # CFDE Data Distillery
 ---
-**Data Distillery** is the product of the CFDE Data Distillery Partnership.
+**Data Distillery** is the product of the [CFDE Data Distillery Partnership](https://github.com/nih-cfde/data-distillery).
 
 ## Architecture
 * prior to 2027: [UBKG-CSV](/ubkg-csv)

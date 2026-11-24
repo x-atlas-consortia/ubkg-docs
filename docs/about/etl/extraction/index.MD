@@ -8,15 +8,8 @@ layout: default
 
 ---
 
-The [UBKG system](../system) is used to build an instance of UBKG from a collection of biomedical sources.
 
-The _Extraction, Transformation, and Load_ (ETL) process used to build the [import files](../system#import-files) 
-for a UBKG instance depends on
-the version of the UBKG system. 
-
-This page describes elements of ETL workflows common to both versions of the UBKG System.
-
-# Extraction
+# Sources for Extraction
 
 The biomedical assertion data used to build an instance of the UBKG
 is obtained from two types of source:
