@@ -178,6 +178,9 @@ Whereas relational databases (RDBMS) organize information into tables, rows, and
 
 In a strict knowledge graph, properties of entities and relationships are also represented by assertions, unlike a [property graph](#property-graph).
 
+## MetamorphoSys
+The application provided as part of the UMLS that builds a [UMLS distribution](#umls-distribution).
+
 ## Mint
 When a [UBKG translation workflow](#../../system#translation-workflows) creates a new [CUI](#concept-unique-identifier-cui) for a [code](#code) that does not have a [cross-reference](#cross-reference) to a UMLS CUI.
 
@@ -270,14 +273,7 @@ A concept category defined in the [UMLS Semantic Network](https://www.nlm.nih.go
 * [UBKG-JKG](../../ubkg-jkg) represents semantic types as node labels on Concept nodes.
 
 ## Source
-A collection of [assertions](#assertion) maintained by an organization. Also known as a _source vocabulary_.
-
-### Organization types
-Types of source organizations include:
-
-* ontology authorities (e.g., Uberon)
-* reference database publishers (e.g. UniProt)
-* laboratories (e.g., the Jackson Lab)
+A collection of [assertions](#assertion) maintained by a [steward](#steward). Also known as a _source vocabulary_.
 
 ### Source types
 Types of sources include:
@@ -296,11 +292,25 @@ Forms of assertion sources include:
 A set of two files that describe the [assertions](#assertion) of a [source](#source) that is to be integrated into the UBKG. 
 The source files are the [edge file](#edge-file) and the [node file](#node-file).
 
+## Steward
+Authority that maintains a [source](#source).
+
+Types of stewards include:
+
+* ontology authorities (e.g., Uberon)
+* reference database publishers (e.g. UniProt)
+* laboratories (e.g., the Jackson Lab)
+
 ## Term
 A short text descriptor for a [code](#code) in an [source](#source). For example, a term for code 64033007 in SNOMED_CT is “kidney”.
 
 ## Term Type
 A term category from the UMLS. Term types include _Preferred_Term_ (PT) and _Synonym_ (SY). 
+
+## Translator script
+In a UBKG ETL workflow, a translator is a [framework](#framework) that 
+* extracts assertion [triples](#triple) from a non-UMLS source 
+* writes assertion triples into files in [Edge/Node format](#edgenode-format)
 
 ## Triple
 A _triple_ is the recognized form of an [assertion](#assertion) in a source [edge file](#edge-file).
@@ -347,9 +357,11 @@ The [UBKG System](../system) comprises a set of components that support the cons
 ## UMLS
 The Unified Medical Language System [(UMLS)](https://www.nlm.nih.gov/research/umls/index.html) consolidates a number of different biomedical [ontologies](#ontology), [vocabularies](#vocabulary), and standards. 
 
+## UMLS distribution
+A subset of files exported from [MetamorphoSys](#metamorphosys) that correspond to the [Metathesaurus](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/index.html) and the [Semantic Network](https://www.nlm.nih.gov/research/umls/knowledge_sources/semantic_network/index.html).
+
 ## Vocabulary
 For the purposes of the UBKG, _vocabulary_ is a generic term to describe an organization of [assertions](#assertion) from a [source](#source). 
-
 
 ## Workflow
 In a [UBKG System](#ubkg-system), a workflow is a set of tasks executed in a specific order that employ [frameworks](#framework).

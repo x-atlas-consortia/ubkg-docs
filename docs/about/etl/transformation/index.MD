@@ -8,6 +8,45 @@ layout: default
 
 ---
 
+
+
+#### CodeID standardization in the UMLS context
+
+In the UBKG, the colon is a reserved character, used to delimit SAB from code in a CodeID property of a Code node.
+
+A small number of vocabularies from the UMLS have default code formats that either include the name of the vocabulary 
+in the code or contain a colon. These vocabularies and their formats include:
+
+| SAB                 | default format             |
+|---------------------|----------------------------|
+| HGNC                | HGNC HGNC:x                |
+| GO                  | GO GO:x                    |
+| HPO                 | HPO HP:x                   |
+| HCPCS (Level codes) | HCPCS Level n: Exxx-E-xxxx |
+
+UBKG ETL framework scripts reformat codes from
+the UMLS to the format _SAB:CODE_. HPO codes are standardized to **HP** as the SAB.
+
+## Transformation
+### Entities
+### Concept-code associations
+#### Equivalence algorithm
+#### Assignment algorithm
+### Relationships
+### Properties
+## Data Quality
+### Self-referential edges
+### Obsolete UMLS CUIs
+
+
+
+
+
+
+---
+---
+
+
 The [UBKG system](../system) is used to build an instance of UBKG from a collection of biomedical sources.
 
 The _Extraction, Transformation, and Load_ (ETL) process used to build the [import files](../system#import-files) 

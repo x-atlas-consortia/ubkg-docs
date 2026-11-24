@@ -3,24 +3,24 @@ layout: default
 ---
 
 # Unified Biomedical Knowledge Graph (UBKG)
-# Accepted Source Assertion File Formats
+# Accepted Source (SAB) Assertion File Formats
 
 ---
 
 ## Objectives
-This guide describes how to format a set of assertions so that it can be added to a UBKG database. 
+This guide describes how to format a set of assertions so that it can be appended to a set of UBKG [import files](/about/glossary/#import-files). 
  
 The guide includes recommendations for optimizing and deepening the integration of a set of assertions into the UBKG 
 to establish new relationships among entities and cross-references between sources.
 
 ## Guiding Principles for Integrating a Set of Assertions
 
-If the UBKG is to connect sets of assertions from different SABs, the sets of assertions should, as much as possible, represent entities and relationships similarly. 
+If the UBKG is to connect sets of [assertions](/about/glossary/#assertion) from different [sources](/about/glossary/#source), the sets of assertions should, as much as possible, represent [entities](/about/glossary/#entity) and [relationships](/about/glossary/#relationship) similarly. 
 
 **_To the degree possible_**,
-1. Entities should be _encoded_ with codes from published biomedical ontologies and vocabularies. For example, genes should be encoded in a standard vocabulary such as HGNC.
-2. Relationships should be represented with properties from the [Relations Ontology](https://www.ebi.ac.uk/ols/ontologies/ro).
-3. Codes for entities should be _cross-referenced_ to UMLS CUIs (via the **node_dbxrefs** column, described below).
+1. Entities should be [encoded](/about/glossary/#encode) with codes from published biomedical [ontologies](/about/glossary/#ontology) or [vocabularies](/about/glossary/#vocabulary). For example, genes should be encoded in a standard vocabulary such as [HGNC](https://www.genenames.org/).
+2. Relationships should be represented with entities from the [Relations Ontology](https://www.ebi.ac.uk/ols/ontologies/ro).
+3. Codes for entities should be [cross-referenced](/about/glossary/#cross-reference) to UMLS CUIs (via the _node_dbxrefs_ column, described below).
 
 ---
 
@@ -40,27 +40,33 @@ The generation framework can work with OWL files in serializations including:
 Files can be online or stored locally.
 
 ## Custom data formats
-Some data sources are available in custom formats, such as files in FTP sites. The UBKG development team can build custom 
+Some data sources are available in custom formats, such as files in FTP sites. 
+
+The [UBKG development team](/about/credits/#development-team) can build custom 
 scripts that extract and translate assertion content.
 
-## UBKG Edges/Nodes format
+## Edge/Node format
 
-The rest of this document will discuss the UBKG Edges/Nodes format.
+The rest of this document will discuss the [Edge/Node](/about/glossary/#edge-node-format) format.
 
 ### PubChem
 Additional information to guide ingestion of PubChem information, a type of 
-UBKG Edge/Node file, is [here](/pubchem).
+Edge/Node file, is [here](/pubchem).
 
 # Edge/Node Format
-Files in _Edge/Node format_ describe the entities and relationships of a set of assertions that is to be integrated into the UBKG. 
+Files in _Edge/Node format_ describe the [entities](/about/glossary/#entity) and [relationships](/about/glossary/#relationship) of a set of [assertions](/about/glossary/#assertion) that is to be integrated into the UBKG. 
  
-A file set of Edge/Node files consists of two Tab-Separated Variables (TSV) files.
+A file set of Edge/Node files consists of two _Tab-Separated Variables_ (TSV) files.
 
-* **edges.tsv**: Describes the triples comprising the source (e.g., ontology)
-* **nodes.tsv**: Describes metadata for entities
+| description                             | version of UBKG | file name    |
+|-----------------------------------------|-----------------|--------------|
+| Assertion triples comprising the source | UBKG-CSV        | edges.tsv    |
+|                                         | UBKG-JKG        | jkg_edge.tsv |
+| Metadata for entities                   | UBKG-CSV        | nodes.tsv    |
+|                                         | UBKG-JKG        | jkg-node.tsv |
 
 ## Compression
-UBKG Edge/Node files can be compressed in GZIP:
+Edge/Node files can be compressed in GZIP:
 
 1. Each file should be in its own GZIP file.
 2. The filename of the GZIP should correspond to the file name of the contents.
@@ -71,16 +77,17 @@ In other words, if files are compressed, there should be files named
 
 ## Source Abbreviations (SABs) 
 
-A __Source Abbreviation__ (SAB) is an uppercase acronym that identifies a set of assertions.
+A __Source ABbreviation__ (SAB) is an uppercase acronym that identifies a [source](/about/glossary/#source).
 The SAB is based on the UMLS SAB, which the UMLS uses to identify a vocabulary or domain. 
 The UBKG extends the SAB identifier to include sets of assertions that are not in the UMLS.
 
 The SAB is synonymous with an ontological _namespace_.
 
+### Node and Edge SABs
 In general, a set of assertions can employ multiple SABs, of two types:
 
-- **Node SAB**: The code for a subject or object node associates with the SAB that identifies the code's _steward_. The steward maintain the code source. Examples of stewards include the organization that publishes an ontology to NCBO BioPortal or OBO.
-- **Edge SAB**: A set of assertions associates with a SAB that may be different from the SABs of the nodes in the set. 
+- **Node SAB**: The code for a subject or object node associates with the SAB that identifies the code's [steward](/about/glossary/#steward). The steward maintain the code source. Examples of stewards include the organization that publishes an ontology to NCBO BioPortal or OBO.
+- **Edge SAB**: A set of assertions may associates with a SAB that may be different from the SABs of the nodes used in assertions. 
 
 The steward of a set of assertions is, in general, not the steward of all the codes involved in the assertions.
 
@@ -96,32 +103,32 @@ Consider the following subset of assertions from the Phenotypic Quality Ontology
 | PATO:0001894   | subClassOf        | UBERON:0000061 |
 
 This set contains three types of assertions:
-- assertions involving only codes from PATO
-- assertions involving codes from ontologies other than PATO (UBERON, CL, GO)
-- assertions involving codes from PATO and other ontologies (e.g. PATO and UBERON)
+1. assertions involving only codes from PATO
+2. assertions involving codes from ontologies other than PATO (UBERON, CL, GO)
+3. assertions involving codes from PATO and other ontologies (e.g. PATO and UBERON)
 
 The types of SABs in this set of assertions:
-- SABs for the nodes: PATO, UBERON, CL, GO
-- SAB for all the edges: PATO
+- Node SABs: PATO, UBERON, CL, GO 
+- Edge SAB: PATO
 
 In other words, PATO is the steward of a set of assertions that involve codes maintained by other stewards (e.g., UBERON).
 
-When ingesting a set of assertions, it is necessary to define a preferred SAB to represent the steward of the set--e.g., an initiative, project, or institution.
+When ingesting a source, it is necessary to define the edge SAB.
 
-## edges.tsv
-The edges file lists the _triples_ (subject node - predicate - object node) that constitute a set of assertions.
+## edges.tsv (jkg_edge.tsv)
+The edges file lists the [triples](/about/glossary/#triple) (subject node - predicate - object node) that constitute a set of assertions.
 
 ###  Fields
 
-| Field                       | Corresponding element in UBKG | Accepted formats                                                                                               | Examples                                        |
-|-----------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
-| subject                     | **Code** node                 | _OBO Principle 3 conforming_ (see note below) IRI for a concept in a published ontology                        | http://purl.obolibrary.org/obo/UBERON_0004086   |
-|                             |                               | Code for the concept in the format _SAB_ {space} _code in ontology_  OR _SAB_ {underscore} _code in ontology_. | UBERON 0004086, UBERON_004086                   |
-| predicate                   | relationships                 | For hierarchical relationships, the IRI http://www.w3.org/2000/01/rdf-schema#subClassOf OR the string “isa”    | http://www.w3.org/2000/01/rdf-schema#subClassOf |
-|                             |                               | For non-hierarchical relationships, an IRI for a relationship property in RO                                   | http://purl.obolibrary.org/obo/RO_0002292       |
-|                             |                               | Custom string that complies with neo4j relationship naming rules (see **relationship labels** below)           | drinks milkshake of                             |
-| object                      | **Code** node                 | same as for subject                                                                                            |                                                 |
-| evidence_class (_optional_) | **string**                    | Statement specific to an SAB to classify evidence                                                              | -0.016084092                                    |
+| Field                       | Corresponding element in UBKG [**operational model**](/about/models/#operational-model) | Accepted formats                                                                                                                                | Examples                                        |
+|-----------------------------|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
+| subject                     | code                                                                                    | [OBO Principles](/about/glossary/#obo-principles)-conforming (see note below) [IRI](/about/glossary/#iri) for a concept in a published ontology | http://purl.obolibrary.org/obo/UBERON_0004086   |
+|                             |                                                                                         | Code for the concept in the format _SAB_ {space} _code in ontology_  OR _SAB_ {underscore} _code in ontology_                                   | UBERON 0004086, UBERON_004086                   |
+| predicate                   | relationships                                                                           | For hierarchical relationships, the IRI http://www.w3.org/2000/01/rdf-schema#subClassOf OR the string “isa”                                     | http://www.w3.org/2000/01/rdf-schema#subClassOf |
+|                             |                                                                                         | For non-hierarchical relationships, an IRI for a relationship property in RO                                                                    | http://purl.obolibrary.org/obo/RO_0002292       |
+|                             |                                                                                         | Custom string that complies with neo4j relationship naming rules (see **relationship labels** below)                                            | drinks milkshake of                             |
+| object                      | **Code** node                                                                           | same as for subject                                                                                                                             |                                                 |
+| evidence_class (_optional_) | **string**                                                                              | Statement specific to an SAB to classify evidence                                                                                               | -0.016084092                                    |
 
 ### Requirements for nodes
 
@@ -183,7 +190,7 @@ for backticks, relationships in the UBKG are reformatted as follows:
 | other non-alphanumeric characters | replaced with underscores | **abc (def)** to **abc_def** |
 | leading numeric character         | preceded with 'REL_'      | **1abc** to **REL_1abc**     |
 
-## nodes.tsv
+## nodes.tsv (jkg_node.tsv)
  The nodes.tsv file provides metadata on entities.
 
 ### Fields
@@ -245,7 +252,7 @@ If it is not feasible to cross-reference a UMLS CUI, then try to cross-reference
 
 # Cross-references vs. isa
 
-A cross-reference (**dbxref**) is not the same thing as an **isa** relationship. 
+A cross-reference (or **dbxref**) is not the same thing as an **isa** relationship. 
 
 ## isa
 An **isa** assertion between two nodes indicates that the subject node relates to the object node hierarchically.
@@ -257,20 +264,15 @@ In the UBKG, the Code node for MP:0009920 has a path to the Code node for MP:000
 concepts that link via an isa relationship. Each Code node (orange) associates with a separate Concept node (blue).
 In other words, the UBKG considers the two Codes to represent different concepts.
 
-<img src="../../images/ubkg-csv/formats_isa_2_codes_2_concepts.png" alt="neo4j started">
-
-
 ## dbxref
-A **dbxref** establishes an equivalence between two nodes.
+A **dbxref** establishes an [equivalence](/about/glossary/#equivalence) between two nodes.
 
-For example, MP cross-references MP 0009920 to CL:0000959 (T2 B cell).
+For example, MP cross-references **MP 0009920** to **CL:0000959** (T2 B cell).
 
-In the UBKG, the Code nodes share the same Concept node. The two Code nodes represent the same Concept.
-
-<img src="../../images/ubkg-csv/formats_isa_2_codes_1_concept.png" alt="neo4j started">
+In the UBKG, the codes share the same [code-concept link](/about/glossary/#code-link). 
 
 It is not necessary to link two concepts with both an *isa* relationship in the edge file and a *node_dbxref* in the node file.
 
 Another way to think of this is:
 - **isa** means "is a type of"
-- **dbxref** means "is the same as"
+- **dbxref** means "shares a reference with"

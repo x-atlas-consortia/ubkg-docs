@@ -30,12 +30,12 @@ files such as README files of the GitHub repositories will reflect an earlier st
 The components of the UBKG-CSV system are distributed among a number of 
 GitHub repositories.
 
-| Component                                                    | GitHub repository                                             |
-|--------------------------------------------------------------|---------------------------------------------------------------|
-| [translation workflows](../about/system/#umls-translation)   | [ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)     |
-| [deployment workflows](../about/system/#deployment-workflow) | [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j) |
-| [API](../about/system/#apis)                                 | [ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)     |
-| [Guesdt](../about/system/#guesdt)                            | [Guesdt](https://github.com/x-atlas-consortia/Guesdt)         |
+| Component                                                      | GitHub repository                                             |
+|----------------------------------------------------------------|---------------------------------------------------------------|
+| [ETL workflows](../about/system/#umls-translation)             | [ubkg-etl](https://github.com/x-atlas-consortia/ubkg-etl)     |
+| [Distribution workflows](../about/system/#deployment-workflow) | [ubkg-neo4j](https://github.com/x-atlas-consortia/ubkg-neo4j) |
+| [API](../about/system/#apis)                                   | [ubkg-api](https://github.com/x-atlas-consortia/ubkg-api)     |
+| [Guesdt](../about/system/#guesdt)                              | [Guesdt](https://github.com/x-atlas-consortia/Guesdt)         |
 
 # Data Model
 A UBKG database can be considered a _[knowledge graph](../about/glossary/#knowledge-graph-database)_ for which 
@@ -51,12 +51,3 @@ a set of entities, releationships, and properties.
 The UBKG-CSV data model emulates the UMLS model in which all elements are discretely encoded, including
 properties. UBKG-CSV represents some properties as nodes linked to other nodes via special relationships between 
 "property" nodes and other nodes. As a result, each concept will have one or more [concept subraphs](concept_subgraph).
-
-# Translation workflows
-The process to translate biomedical source data into the CSV import files is complex.
-
-1. The UBKG-CSV [_source framework_](https://github.com/x-atlas-consortia/ubkg-etl/blob/main/source_framework/README.md) uses [data from a UMLS release](https://github.com/x-atlas-consortia/ubkg-etl/blob/main/source_framework/UMLS%20Extraction%20Process.md) to build a set of import files.
-2. The UBKG-CSV [_generation_framework_](https://github.com/x-atlas-consortia/ubkg-etl/blob/main/generation_framework/README.md) iteratively appends data from non-UMLS source files to import files. 
-
-# Distribution
-Once 
