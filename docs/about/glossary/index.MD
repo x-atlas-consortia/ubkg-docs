@@ -24,6 +24,12 @@ the UBKG designates one [code link](#code-link) as the "assigned" or "preferred"
 
 The form of assignment is specific to the version of the UBKG system.
 
+## Bare-metal distribution
+A [UBKG distribution](#ubkg-distribution) that runs directly on the local machine, using an instance of neo4j installed directly on the machine.
+
+## Bidirectional link
+A set of relationships between two concepts in which each relationship is the [inverse](#inverse-relationship) of the other.
+
 ## BioPortal
 A repository of biomedical ontologies maintained by [NCBO](https://bioportal.bioontology.org/). 
 
@@ -84,12 +90,16 @@ Types of cross-references are:
 - **concept-code** between a code in a source and a concept. For example, the code 254838004 (Carcinoma of breast) in SNOMED has a code reference to the concept with CUI C0678222.
 - **equivalence** between a code in one source and a code in another source. For example, the code UBERON:0005047 (mucosa of vocal fold) is cross-referenced to the code FMA:64017 (Mucosa of vocal fold).
 
+## CURIE
+A _Compact Uniform Resource Identifier_ is a shortened identifer for an entity in an ontology that can be expanded 
+to an [IRI](#iri). The CURIE format is _namespace_:_identifier_, where _namespace_ corresponds to a [SAB](#sab).
+
 ## Edge
 A synonym for the [relationship](#relationship) of an [assertion](#assertion). In the UBKG, "edge" is used to identify the entities in an [edge file](#edge-file).
 
 ## Edge file
 A source's edge file asserts [relationships](#relationship) between [codes](#code). 
-Edge files are in [Edge Node format](#edgenode-format)
+Edge files are in [Edge Node format](#edgenode-format).
 
 ## Edge/Node format
 The triple-based format used for [source files](#source-files).
@@ -124,6 +134,10 @@ For example, the concept for "breast cancer" (UMLS:C0678222) has code links with
 
 Because of the equivalence between the codes from different sources, it may be possible to substitute a code from one source in a relationship defined by another source.
 
+## External bind mount
+In a [turnkey distribution](#turnkey-distribution), the set of files comprising the UBKG neo4j database that resides on the local machine, used by the 
+distribution's Docker container.
+
 ## Framework
 In a [UBKG System](#ubkg-system), a _framework_ is a set of interrelated shell scripts, Python scripts, and resource files used to execute a function in the system.
 
@@ -134,7 +148,9 @@ In the UBKG, ideas are encoded with both [concepts](#concept) and [codes](#code)
 
 ## Import file(s)
 The files used by the [UBKG System](#ubkg-system) to import data into a neo4j graph database. The form of import file depends on the 
-version of the UBKG architecture.
+version of the UBKG architecture:
+* The UBKG-CSV import files are a set of 12 [ontology CSVs](#ontology-csvs).
+* The UBKG-JKG import file is a JSON that conforms to the [JKG Schema](https://github.com/x-atlas-consortia/json-knowledge-graph/blob/main/JKG_Schema.json).
 
 ## Inverse relationship
 A [relationship](#relationship) in a [source](#source) has a direction: it starts with one node and “goes toward” another. 
@@ -153,7 +169,7 @@ For example, the _located_in_ relationship may have _location_of_ as an inverse:
 Inverse relationships can be ambiguously named: for example, the inverse relationship of _has_gene_product_ is _gene_product_of_. 
 To obtain inverse relationships that are ambiguously named, the UBKG refers to the [Relationship Ontology](#relationship-ontology-ro).
 
-Inverse relationships are primarily a feature of the UBKG-CSV architecture. The [UBKG-JKG](../../ubkg-jkg) architecture does not add inverse relationships explicitly.
+Inverse relationships are primarily a feature of the [UBKG-CSV](/ubkg-csv) architecture. The [UBKG-JKG](../../ubkg-jkg) architecture does not add inverse relationships explicitly.
 
 ## IRI
 A [source file](#source-files) may identify an entity or a relationship with an _International Resource Indicator_ (IRI). 
@@ -177,6 +193,9 @@ A knowledge graph is a representation of information characterized by the [relat
 Whereas relational databases (RDBMS) organize information into tables, rows, and fields, knowledge graph databases organize information into [nodes](#node) and [edges](#edge).
 
 In a strict knowledge graph, properties of entities and relationships are also represented by assertions, unlike a [property graph](#property-graph).
+
+## License key
+A string (such as a UUID) that allows the presenting user access to licensed content.
 
 ## MetamorphoSys
 The application provided as part of the UMLS that builds a [UMLS distribution](#umls-distribution).
@@ -204,7 +223,7 @@ For the purposes of the UBKG, an ontology is the representation of a set of [ent
 
 ## Ontology CSVs
 In the UBKG-CSV version of the UBKG system, the [UBKG import files](#import-files) are in the form of 12 CSV files. The format of the ontology 
-CSVs match the structure of queries used to export data from a DBMI data warehouse.
+CSVs are optimized for import into neo4j via the neo4-admin's CLI function.
 
 ## OLS 
 The Ontology Lookup Service [OLS](https://www.ebi.ac.uk/ols/index) is a repository of biomedical [ontologies](#ontology). The OLS allows for searches of relationship properties, including those from the [Relationship Ontology](#relationship-ontology-ro).
@@ -328,7 +347,7 @@ A [UBKG distribution](#ubkg-distribution) in the form of a Zip archive file. The
 * files that will become the external bind mount of the local Docker container
 * a configuration file
 
-A turnkey distribution requires a few simple steps to build a local instance of UBKG.
+A turnkey distribution requires a few simple steps to build a local containerized instance of UBKG.
 
 ## UBKG Distribution
 An archive file that can be used to build an instance of UBKG.

@@ -6,7 +6,7 @@ layout: default
 ---
 
 The **UBKG-CSV** version of the [UBKG system](../about/system) was the original 
-version deployed in [implementations](../about/implementations) such as the CFDE Data Distillery
+version deployed in [implementations](../about/implementations) such as the [CFDE Data Distillery](/about/implementations)
 and Petagraph. 
 
 Releases of UBKG implementations in UBKG-CSV format include:

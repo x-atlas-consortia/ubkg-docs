@@ -7,12 +7,12 @@ layout: default
 ---
 
 ## [The UBKG System](system)
-## [UBKG Versions](versions)
+## [Versions of the UBKG System](versions)
 ## [UBKG Implementations](implementations)
 ## [UBKG Contexts](contexts)
 ## [UBKG Models](models)
 ## [UBKG Extract, Transformation, and Load (ETL) workflows](etl)
-## [UBKG Distribution worflows](distribution)
+## [UBKG Distribution workflows](distribution)
 ## [Glossary](glossary)
 ## [Credits](credits)
 ## [Licensing](licensing)

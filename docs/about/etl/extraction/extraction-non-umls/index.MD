@@ -43,11 +43,19 @@ source files in Edge/Node format.
 
 In [UBKG-CSV](/ubkg-csv), the set of translation workflows for SABs is called the [generation framework](https://github.com/x-atlas-consortia/ubkg-etl/blob/main/generation_framework/README.md).
 
+The **build_csv** script of the generation framework executes _translator scripts_ that
+* obtain assertion data from sources
+* write to files in [Edge/Node format](/about/glossary/#edgenode-format)
+
 <img src="https://user-images.githubusercontent.com/10928372/202733307-d9a7c76d-8a0a-401f-a0e2-011d8449ac41.jpg" alt="UBKG-CSV SAB ETL workflow">
 
 ## UBKG-JKG
 
 In [UBKG-JKG](/ugkg-jkg), the set of translation workflows for SABs is described in the [ubkg-jkg-generation](https://github.com/x-atlas-consortia/ubkg-jkg-generation) repository.
+
+The **sab2jkgen** script calls translator scripts that 
+* obtain assertion data from sources
+* write to [JKGEN files](/about/glossary/#jkgen)
 <img src="https://github.com/x-atlas-consortia/ubkg-jkg-generation/blob/main/img_2.png?raw=true" alt="UBKG-JKG SAB ETL workflow">
 
 
