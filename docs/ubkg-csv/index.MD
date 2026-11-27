@@ -51,3 +51,16 @@ a set of entities, releationships, and properties.
 The UBKG-CSV data model emulates the UMLS model in which all elements are discretely encoded, including
 properties. UBKG-CSV represents some properties as nodes linked to other nodes via special relationships between 
 "property" nodes and other nodes. As a result, each concept will have one or more [concept subraphs](concept_subgraph).
+
+# Extraction, Transformation, and Load (ETL) Workflows
+The general explanation of UBKG ETL workflows can be found [here](/about/etl).
+## [UMLS ETL workflow (source framework)](https://github.com/x-atlas-consortia/ubkg-etl/tree/main/source_framework)
+## [non-UMLS ETL workflow (generation framework)](https://github.com/x-atlas-consortia/ubkg-etl/tree/main/generation_framework)
+# Distribution Workflows
+The general explanation of UBKG distribution workflows can be found [here](/about/distribution)
+## [Build workflow](https://github.com/x-atlas-consortia/ubkg-neo4j/blob/main/docs/BUILD_INSTRUCTIONS.md)
+## [Deployment workflow](https://github.com/x-atlas-consortia/ubkg-neo4j/blob/main/docs/DEPLOYMENT_INSTRUCTIONS.md)
+# Client applications
+## [UBKG API](api)
+## [Guesdt](https://github.com/x-atlas-consortia/Guesdt)
+
