@@ -91,7 +91,9 @@ However, the basic build steps are similar:
 4. Build a zip archive of the distribution.
 
 ### [UBKG-CSV workflow](https://github.com/x-atlas-consortia/ubkg-neo4j/blob/main/docs/BUILD_INSTRUCTIONS.md)
+<img src="https://github.com/x-atlas-consortia/ubkg-neo4j/raw/main/docs/img.png" alt="UBKG-CSV build distribution workflow">
 ### [UBKG-JKG workflow](https://github.com/x-atlas-consortia/jkg-neo4j/blob/main/docs/BUILD_INSTRUCTIONS.md)
+<img src="https://github.com/x-atlas-consortia/jkg-neo4j/raw/main/docs/img_1.png" alt="UBKG-JKG build distribution workflow">
 
 ## Deployment workflow
 The workflow to _deploy_ a turnkey UBKG distribution is simple, and identical for both versions of the UBKG system:

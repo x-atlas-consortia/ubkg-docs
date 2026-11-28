@@ -185,6 +185,9 @@ An example of a relationship IRI is
 ## JKGEN
 A format for [source files](#source-files) in the [UBKG-JKG](/ubkg-jkg) version of the [UBKG system](#ubkg-system).
 
+## JKG JSON
+A file that conforms to the [JKG](#json-knowledge-graph-jkg) schema.
+
 ## JSON Knowledge Graph (JKG)
 The [JSON schema](https://github.com/x-atlas-consortia/json-knowledge-graph) of the [import file](#import-files) for the [UBKG-JKG](/ubkg-jkg) version of the [UBKG system](#ubkg-system).
 
@@ -284,6 +287,10 @@ The UBKG adopts the UMLS practice of identifying each [source](#source) with an 
 
 Examples of UMLS SABs include SNOMED_CT and UBERON. 
 For sources outside of UMLS (such as ontologies), UBKG uses published acronyms when possible–e.g., PATO, UBERON.
+
+## Seed source
+The [source](#source) used to build the initial [JKG JSON](#jkg-json) file of a JKG distribution.
+The [UMLS](#umls) is the seed source of a [UBKG-JKG](/ubkg-jkg) version of a UBKG instance.
 
 ## Semantic Type
 A concept category defined in the [UMLS Semantic Network](https://www.nlm.nih.gov/research/umls/knowledge_sources/semantic_network/index.html).

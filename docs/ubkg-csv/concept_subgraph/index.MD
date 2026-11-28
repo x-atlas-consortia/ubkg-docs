@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-# UBKG-CSV Concept Subgraph
+# Unified Biomedical Knowledge Graph (UBKG)
+# UBKG-CSV Concept Subgraph Model
 
 ---
 

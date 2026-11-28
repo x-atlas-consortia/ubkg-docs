@@ -41,6 +41,10 @@ from sources into [import files](#import-files) that can be imported into a UBKG
 The product of the ETL workflows is a set of one or more files that can be imported into a neo4j instance to 
 create a UBKG database. 
 
+The form of import file is based on the [version](/about/versions) of the UBKG System.
+* UBKG-CSV uses a set of 12 [ontology CSVs](/about/glossary/#ontology-csvs).
+* UBKG-JKG uses a [JKG JSON](/about/glossary/#jkg-json) file.
+
 ## Distribution workflow
 Once import files are complete, a deployment workflow is used to build a [UBKG distribution](./glossary/#ubkg-distribution)--a Zip archive 
 containing a set of files that can build a local Docker container hosting an instance of neo4j populated with a UBKG database.

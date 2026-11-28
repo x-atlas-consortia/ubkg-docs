@@ -16,13 +16,16 @@ Two models are relevant to the UBKG:
 # Operational Model
 The operational model of the UBKG is independent of the knowledge graph database platform.
 
-## Idea
+
+## Entities
+---
+### Idea
 In the UBKG system, an _idea_ is a "meaning", or a semiotic unit, that can be represented with a discrete identifier. 
 Examples of biomedical ideas found in the UBKG are "heart" and "diabetes".
 
-Two types of entities in the UBKG operational model _[encode](/about/glossary#encode)_ ideas, or represent ideas with discrete identifiers.
+Two types of entities in the UBKG operational model [encode](/about/glossary#encode) ideas, or represent ideas with discrete identifiers.
 
-## Concepts
+### Concept
 Like the UMLS Metathesaurus, the UBKG is structured around _concepts_. 
 A concept is a discrete codification of an _idea_–e.g., the idea of "T-lymphocyte". 
 Concepts are encoded with unique alphanumeric identifiers (referred to as _Concept Unique Identifiers_, or _CUIs_, in UMLS): 
@@ -30,15 +33,29 @@ e.g., the "T-lymphocyte" concept has identifier **C0039194**.
 An idea in the UBKG concept structure is considered generic–-it is not associated exclusively with any particular 
 data source imported into the UBKG.
 
-## Codes
+### Code
 Data sources such as vocabularies or ontologies can also represent discrete ideas, using _codes_. 
 For example, the idea of “Heart” is represented in SNOMEDCT_US with the code **80891009**.
 
-## Concept-code association
+### Term
+_Terms_ are string descriptions for encoded entities. An entity can
+associate with terms of different types. 
+For example, 
+* The concept **C0039194** has a _preferred term_ of "T-Lymophocuyte".
+* The code **SNOMEDCT_US:118495001** has a number of terms, including:
+  * a _preferred term_ of "Bone structure of distal humerus"
+  * _synonyms_ of "distal humerus" and "distal end of humerus""
+
+### Definition
+_Definitions_ are longer string descriptions for encoded entities. Descriptios are associated with concepts in the operational model.
+
+## Relationships
+---
+### Code relationships
 In the UBKG, every code is associated with a concept through a _code relationship_ (also known as a _coderel_). 
 For example, the SNOMEDCT_US code 57184004 ("T-lymphocyte") is associated with the concept with id C0039194.
 
-## Equivalence (synonymy)
+#### Equivalence (synonymy)
 An idea represented by a concept may be encoded in multiple data sources. 
 When codes in different sources represent the same generic idea, the two codes are _equivalent_ (or _synonyms_). 
 In the UBKG, equivalent codes link to the same concept that represents the idea. 
@@ -48,7 +65,7 @@ The concept **C0039194** ("T-lymphocyte") associates with:
 * code **57184004** in the SNOMEDCT_US vocabulary
 * code **62870** in the FMA.
 
-### Extension
+#### Extension
 The UBKG extends the UMLS Metathesaurus equivalence architecture by integrating information from sources outside the UMLS.
 
 For example:
@@ -56,40 +73,31 @@ For example:
 * The import of the UBERON source into UBKG adds another concept-code relationship between the concept **C0588211** and code **UBERON:0004404**.
 * The code **UBERON:0004404** is thus equivalent to codes **FMA:32826** and **SNOMEDCT_US:118495001**.
 
-## Assertions
-An assertion defines a _relationship_ between two _entities_.
+### Assertion relationships
+An assertion relationship exists between two _concepts_.
 
-The UBKG uses a number of different types of assertions:
+The UBKG uses a number of different types of assertion relationships:
 
-### Concept-concept assertions
-The UBKG defines two types of assertions between concepts:
 1. **Hierarchical** assertions relate concepts in terms of scope of meaning. The primary form of hierarchical assertion in the UKBG is the **_isa_** relationship.
 2. **Associative** assertions relate concepts in non-hierarchical ways. An example of an associative assertion is **_located_in_**.
 
-### Concept-code assertions
-The UBKG asserts relationships between concepts and codes.
-
-## Terms
-Terms are string descriptions for encoded entities. An entity can
-associate with terms of different types. 
-For example, 
-* The concept **C0039194** has a _preferred term_ of "T-Lymophocuyte".
-* The code **SNOMEDCT_US:118495001** has a number of terms, including:
-  * a _preferred term_ of "Bone structure of distal humerus"
-  * _synonyms_ of "distal humerus" and "distal end of humerus""
-
 ## Properties
-In the UBKG, concepts, codes, and relationships have properties.
+---
+In the UBKG operational model, concepts, codes, and relationships have properties.
+The data model represents these properties on the corresponding nodes and relationships, making 
+the data model that of a [property graph](/about/glossary/#property-graph).
+
 Examples of properties include:
-* identifiers
-* types
+* identifiers (e.g., CUI, codeid)
+* types (e.g., term type, or tty)
 * values
-* ranges
+* ranges (lowerbound and upperbound)
+* units
 * definitions
 * sources
 <br>
 <br>
-# Data Model: Dependencies
+# Data Model Dependencies
 Unlike the operational model, the data model for a UBKG database depends on:
 
 ## Knowledge graph database platform 
